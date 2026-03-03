@@ -348,10 +348,10 @@
                                             <table className="w-full text-left border-collapse min-w-[500px]">
                                                 <thead>
                                                     <tr className="bg-slate-950/50 text-xs uppercase tracking-wider text-slate-500 border-b border-slate-800">
-                                                        <th className="px-6 py-4 font-semibold w-12">Pos</th>
-                                                        <th className="px-6 py-4 font-semibold">Pilote</th>
-                                                        <th className="px-6 py-4 font-semibold text-center">Cote</th>
-                                                        <th className="px-6 py-4 font-semibold w-1/2">Probabilité de Titre</th>
+                                                        <th className="px-6 py-4 font-semibold text-center w-20">Pos</th>
+                                                        <th className="px-6 py-4 font-semibold text-left">Pilote</th>
+                                                        <th className="px-6 py-4 font-semibold text-center w-32">Cote</th>
+                                                        <th className="px-6 py-4 font-semibold text-left w-1/2">Probabilité de Titre</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody className="divide-y divide-slate-800">
@@ -365,11 +365,11 @@
                                                                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
                                                                 )}
                                                                 <td className="px-6 py-4">
-                                                                    <div className="flex items-center gap-2">
+                                                                    <div className="flex items-center justify-center gap-1">
                                                                         <span className={`font-black text-lg ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-slate-300' : index === 2 ? 'text-orange-400' : 'text-slate-500'}`}>
                                                                             {index + 1}
                                                                         </span>
-                                                                        {index === 0 && <TrophyIcon className="w-4 h-4 text-yellow-400" />}
+                                                                        {index === 0 && <TrophyIcon className="w-4 h-4 text-yellow-400 ml-1" />}
                                                                     </div>
                                                                 </td>
                                                                 <td className="px-6 py-4">
@@ -395,7 +395,7 @@
                                                                             value={joueur.probaTitre} 
                                                                             color={joueur.probaTitre > 30 ? "bg-emerald-500" : joueur.probaTitre > 10 ? "bg-yellow-500" : "bg-red-500"} 
                                                                         />
-                                                                        <span className="text-sm font-mono font-bold text-slate-300 w-12">{joueur.probaTitre}%</span>
+                                                                        <span className="text-sm font-mono font-bold text-slate-300 w-16 text-right">{joueur.probaTitre}%</span>
                                                                     </div>
                                                                 </td>
                                                             </tr>
