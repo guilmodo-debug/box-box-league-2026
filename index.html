@@ -46,6 +46,7 @@
         const ListOrderedIcon = ({ className }) => <Icon className={className}><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></Icon>;
         const WrenchIcon = ({ className }) => <Icon className={className}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></Icon>;
         const TargetIcon = ({ className }) => <Icon className={className}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></Icon>;
+        const CalendarIcon = ({ className }) => <Icon className={className}><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></Icon>;
 
         // --- LIENS & CONSTANTES ---
         const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/J7SA73SU3M49Y";
@@ -90,6 +91,33 @@
             { time: "Mot de bienvenue", type: "rookie", text: "Un grand bienvenue à nos 5 rookies cette année : Adri, Adams, Rémy, Ahmed et Johan. Faites chauffer la gomme, et attention au premier virage !" }
         ];
 
+        const calendar2026 = [
+            { round: 1, country: "Australie", name: "GRAND Prix d’Australie 2026 DE FORMULE 1 QATAR AIRWAYS", date: "06 - 08 mars", sprint: false },
+            { round: 2, country: "Chine", name: "GRAND PRIX DE CHINE DE FORMULE 1 HEINEKEN 2026", date: "13 - 15 mars", sprint: true },
+            { round: 3, country: "Japon", name: "FORMULA 1 ARAMCO GRAND PRIX DU JAPON 2026", date: "27 - 29 mars", sprint: false },
+            { round: 4, country: "Bahreïn", name: "GRAND PRIX DE BAHREÏN DE FORMULE 1 GULF AIR 2026", date: "10 - 12 avril", sprint: false },
+            { round: 5, country: "Arabie Saoudite", name: "GRAND PRIX D’ARABIE SAOUDITE DE FORMULE 1 STC 2026", date: "17 - 19 avril", sprint: false },
+            { round: 6, country: "Miami", name: "FORMULE 1 CRYPTO.COM GRAND PRIX DE MIAMI 2026", date: "01 - 03 mai", sprint: true },
+            { round: 7, country: "Canada", name: "GRAND PRIX LENOVO DU CANADA 2026 DE FORMULE 1", date: "22 - 24 mai", sprint: true },
+            { round: 8, country: "Monaco", name: "GRAND PRIX DE MONACO DE FORMULA LOUIS VUITTON 2026", date: "05 - 07 juin", sprint: false },
+            { round: 9, country: "Barcelone-Catalogne", name: "FORMULA 1 MSC CRUISES GRAN PREMIO DE BARCELONA-CATALOGNE 2026", date: "12 - 14 juin", sprint: false },
+            { round: 10, country: "Autriche", name: "GRAND PRIX D’AUTRICHE LENOVO DE FORMULE 1 2026", date: "26 - 28 juin", sprint: false },
+            { round: 11, country: "Grande-Bretagne", name: "GRAND PRIX DE GRANDE-BRETAGNE DE FORMULE PIRELLI 2026", date: "03 - 05 juil.", sprint: true },
+            { round: 12, country: "Belgique", name: "GRAND Prix de BELGIQUE 2026 FORMULE 1 MOËT & CHANDON", date: "17 - 19 juillet", sprint: false },
+            { round: 13, country: "Hongrie", name: "GRAND PRIX DE HONGRIE AWS DE FORMULE 1 2026", date: "24 - 26 juillet", sprint: false },
+            { round: 14, country: "Pays-Bas", name: "GRAND PRIX DES PAYS-BAS HEINEKEN DE FORMULE 1 2026", date: "21 - 23 août", sprint: true },
+            { round: 15, country: "Italie", name: "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2026", date: "04 - 06 sept", sprint: false },
+            { round: 16, country: "Espagne", name: "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026", date: "11 - 13 sept", sprint: false },
+            { round: 17, country: "Azerbaïdjan", name: "GRAND PRIX AZERBAIDJAN 2026 DE FORMULE 1 QATAR AIRWAYS", date: "24 - 26 sept", sprint: false },
+            { round: 18, country: "Singapour", name: "GRAND PRIX DE SINGAPOUR 2026 DE FORMULE 1 SINGAPORE AIRLINES", date: "09 - 11 oct", sprint: true },
+            { round: 19, country: "États-Unis", name: "GRAND PRIX DES ÉTATS-UNIS DE FORMULE 1 MSC 2026", date: "23 - 25 oct", sprint: false },
+            { round: 20, country: "Mexique", name: "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026", date: "30 oct. - 01 nov", sprint: false },
+            { round: 21, country: "Brésil", name: "FORMULE 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2026", date: "06 - 08 nov", sprint: false },
+            { round: 22, country: "Las Vegas", name: "GRAND PRIX DE FORMULE 1 HEINEKEN LAS VEGAS 2026", date: "19 - 21 nov", sprint: false },
+            { round: 23, country: "Qatar", name: "GRAND Prix QATAR 2026 DE FORMULE 1 QATAR AIRWAYS", date: "27 - 29 nov", sprint: false },
+            { round: 24, country: "Abu Dhabi", name: "FORMULE 1 ETIHAD AIRWAYS GRAND PRIX D’ABU DHABI 2026", date: "04 - 06 déc", sprint: false },
+        ];
+
         // --- COMPOSANTS UI MINEURS ---
         const ProgressBar = ({ value, color = "bg-blue-500" }) => (
             <div className="w-full bg-slate-700 rounded-full h-2.5 overflow-hidden border border-slate-600">
@@ -120,19 +148,15 @@
             const [data, setData] = useState([]);
 
             useEffect(() => {
-                // Tri pour Pronostics : Validés d'abord, puis par proba de titre
-                const sorted = [...rawData].sort((a, b) => {
-                    const aReady = a.paypal && a.ligue ? 1 : 0;
-                    const bReady = b.paypal && b.ligue ? 1 : 0;
-                    if (aReady !== bReady) return bReady - aReady;
-                    return b.probaTitre - a.probaTitre;
-                });
+                // Tri pour Pronostics : Strictement par proba de titre (décroissant)
+                const sorted = [...rawData].sort((a, b) => b.probaTitre - a.probaTitre);
                 setData(sorted);
             }, []);
 
             const navItems = [
                 { id: 'classement', icon: <ListOrderedIcon className="w-5 h-5" />, label: "Classement Live" },
                 { id: 'predictions', icon: <ActivityIcon className="w-5 h-5" />, label: "Pronostics" },
+                { id: 'calendrier', icon: <CalendarIcon className="w-5 h-5" />, label: "Calendrier 2026" },
                 { id: 'inscription', icon: <UserPlusIcon className="w-5 h-5" />, label: "Inscription" },
                 { id: 'finance', icon: <DollarSignIcon className="w-5 h-5" />, label: "FIA (Trésorerie)" },
                 { id: 'boosters', icon: <StarIcon className="w-5 h-5" />, label: "Stratégie Boosters" },
@@ -195,6 +219,20 @@
                                     {item.label}
                                 </button>
                             ))}
+
+                            {/* LIEN CACHÉ POUR LES PROS (EASTER EGG) */}
+                            <div className="pt-12">
+                                <a 
+                                    href="https://f1fantasytools.com/budget-builder" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-between px-4 py-2 mt-4 rounded-lg text-slate-700 hover:text-slate-300 hover:bg-slate-900/60 transition-all duration-500 text-[10px] uppercase font-black tracking-widest group border border-transparent hover:border-slate-800"
+                                    title="Outil secret : Simulateur de budget et compositions"
+                                >
+                                    <span className="opacity-40 group-hover:opacity-100 transition-opacity">Pour les Pros seulement...</span>
+                                    <ExternalLinkIcon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-fuchsia-500" />
+                                </a>
+                            </div>
                         </aside>
 
                         {/* CONTENT AREA */}
@@ -261,6 +299,40 @@
                                 </div>
                             )}
 
+                            {/* TAB: CALENDRIER */}
+                            {activeTab === 'calendrier' && (
+                                <div className="space-y-6">
+                                    <div className="flex justify-between items-end">
+                                        <div>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Calendrier Officiel 2026</h2>
+                                            <p className="text-slate-400 text-sm">Les 24 manches du championnat du monde. Surveillez les <span className="text-fuchsia-400 font-bold">6 week-ends Sprint</span> pour vos boosters !</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                                        {calendar2026.map((race) => (
+                                            <div key={race.round} className={`bg-slate-900 border ${race.sprint ? 'border-fuchsia-500/50 shadow-[0_0_15px_rgba(217,70,239,0.1)]' : 'border-slate-800'} rounded-2xl p-6 relative overflow-hidden group hover:border-slate-600 transition-colors`}>
+                                                <div className="flex justify-between items-start mb-4">
+                                                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Manche {race.round}</span>
+                                                    {race.sprint && (
+                                                        <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-fuchsia-500/20 text-fuchsia-400 px-2 py-1 rounded">
+                                                            <ZapIcon className="w-3 h-3" /> Sprint
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <h3 className="text-2xl font-black text-white mb-1">{race.country}</h3>
+                                                <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-6 h-8 line-clamp-2 leading-snug">{race.name}</p>
+                                                
+                                                <div className="flex items-center gap-2 text-slate-300 bg-slate-950/50 p-3 rounded-xl border border-slate-800/50">
+                                                    <CalendarIcon className="w-4 h-4 text-emerald-400" />
+                                                    <span className="text-sm font-bold">{race.date}</span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
                             {/* TAB 1: PREDICTIONS */}
                             {activeTab === 'predictions' && (
                                 <div className="space-y-6">
@@ -276,8 +348,9 @@
                                             <table className="w-full text-left border-collapse min-w-[500px]">
                                                 <thead>
                                                     <tr className="bg-slate-950/50 text-xs uppercase tracking-wider text-slate-500 border-b border-slate-800">
-                                                        <th className="px-6 py-4 font-semibold">Cote</th>
+                                                        <th className="px-6 py-4 font-semibold w-12">Pos</th>
                                                         <th className="px-6 py-4 font-semibold">Pilote</th>
+                                                        <th className="px-6 py-4 font-semibold text-center">Cote</th>
                                                         <th className="px-6 py-4 font-semibold w-1/2">Probabilité de Titre</th>
                                                     </tr>
                                                 </thead>
@@ -310,6 +383,11 @@
                                                                             &gt; {joueur.surnom}
                                                                         </span>
                                                                     </div>
+                                                                </td>
+                                                                <td className="px-6 py-4 text-center">
+                                                                    <span className="font-mono font-bold text-yellow-400 bg-yellow-400/10 px-3 py-1 rounded border border-yellow-400/20">
+                                                                        {(100 / joueur.probaTitre).toFixed(2)}
+                                                                    </span>
                                                                 </td>
                                                                 <td className="px-6 py-4">
                                                                     <div className="flex items-center gap-4">
@@ -445,7 +523,7 @@
                                                                 </a>
                                                             )}
                                                             {joueur.ligue ? (
-                                                                <span className="px-2 py-1 rounded text-xs font-bold bg-blue-500/20 text-blue-400 cursor-default">Ligue OK</span>
+                                                                <span className="px-2 py-1 rounded text-xs font-bold bg-emerald-500/20 text-emerald-400 cursor-default">Ligue OK</span>
                                                             ) : (
                                                                 <a href={LIGUE_LINK} target="_blank" rel="noopener noreferrer" title="Cliquez pour rejoindre la ligue officielle" className="px-2 py-1 rounded text-xs font-bold bg-slate-700/50 text-slate-400 hover:bg-slate-600 hover:text-slate-200 transition-colors flex items-center gap-1 cursor-pointer">
                                                                     Ligue en attente ↗
