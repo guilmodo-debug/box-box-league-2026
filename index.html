@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,7 +23,7 @@
     <script type="text/babel">
         const { useState, useEffect } = React;
 
-        // --- COMPOSANTS ICÔNES (Remplacement de Lucide-React pour version standalone) ---
+        // --- COMPOSANTS ICÔNES ---
         const Icon = ({ children, className = "w-5 h-5" }) => (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
                 {children}
@@ -38,10 +37,17 @@
         const AlertCircleIcon = ({ className }) => <Icon className={className}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></Icon>;
         const ShieldIcon = ({ className }) => <Icon className={className}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></Icon>;
         const ZapIcon = ({ className }) => <Icon className={className}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></Icon>;
+        const UserPlusIcon = ({ className }) => <Icon className={className}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></Icon>;
+        const BookOpenIcon = ({ className }) => <Icon className={className}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></Icon>;
+        const CheckCircleIcon = ({ className }) => <Icon className={className}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></Icon>;
+        const ExternalLinkIcon = ({ className }) => <Icon className={className}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></Icon>;
+
+        // --- LIENS & CONSTANTES ---
+        const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/J7SA73SU3M49Y";
+        const LIGUE_LINK = "https://fantasy.formula1.com/fr/leagues/join/C1RW3K6SE01";
+        const LIGUE_CODE = "C1RW3K6SE01";
 
         // --- MOTEUR DE DONNÉES ---
-        const DNF = 20;
-
         const rawData = [
             { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: false, probaTitre: 40, surnom: "L'Apex Predator" },
             { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, probaTitre: 15, surnom: "Aileron Mobile Activé" },
@@ -90,7 +96,9 @@
 
             const navItems = [
                 { id: 'predictions', icon: <ActivityIcon className="w-5 h-5" />, label: "Pronostics" },
+                { id: 'inscription', icon: <UserPlusIcon className="w-5 h-5" />, label: "Inscription" },
                 { id: 'finance', icon: <DollarSignIcon className="w-5 h-5" />, label: "FIA (Trésorerie)" },
+                { id: 'regles', icon: <BookOpenIcon className="w-5 h-5" />, label: "Règlement F1" },
                 { id: 'histoire', icon: <HistoryIcon className="w-5 h-5" />, label: "Hall of Fame" },
                 { id: 'drama', icon: <RadioIcon className="w-5 h-5" />, label: "Radio Paddock" },
             ];
@@ -143,21 +151,6 @@
                                     {item.label}
                                 </button>
                             ))}
-
-                            {/* QUICK STATS WIDGET */}
-                            <div className="mt-8 bg-slate-900 border border-slate-800 rounded-xl p-4 hidden lg:block">
-                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Alerte Météo</h3>
-                                <div className="space-y-3">
-                                    <div className="flex justify-between items-center text-sm">
-                                        <span className="text-slate-400">Pluie de pénalités</span>
-                                        <span className="text-red-400 font-bold">Élevée</span>
-                                    </div>
-                                    <div className="flex justify-between items-center text-sm">
-                                        <span className="text-slate-400">Pression Leader</span>
-                                        <span className="text-orange-400 font-bold">Critique</span>
-                                    </div>
-                                </div>
-                            </div>
                         </aside>
 
                         {/* CONTENT AREA */}
@@ -223,7 +216,60 @@
                                 </div>
                             )}
 
-                            {/* TAB 2: FINANCE */}
+                            {/* TAB 2: INSCRIPTION */}
+                            {activeTab === 'inscription' && (
+                                <div className="space-y-6">
+                                    <div>
+                                        <h2 className="text-2xl font-black text-white uppercase tracking-tight">Inscriptions Ouvertes</h2>
+                                        <p className="text-slate-400 text-sm">Box Box League – Saison 2026. Suivez les étapes pour valider votre baquet.</p>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        {/* ETAPE 1 */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/50 transition-colors">
+                                            <div className="absolute top-0 right-0 p-4 text-6xl font-black text-slate-800/30 group-hover:text-blue-500/10 transition-colors">1</div>
+                                            <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                                <DollarSignIcon className="text-blue-400 w-5 h-5" /> Frais d'inscription
+                                            </h3>
+                                            <p className="text-slate-400 text-sm mb-6">Réglez votre participation de 25 € au prizepool via PayPal pour valider votre entrée.</p>
+                                            <a href={PAYPAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl transition-colors">
+                                                Payer 25€ sur PayPal <ExternalLinkIcon className="w-4 h-4" />
+                                            </a>
+                                        </div>
+
+                                        {/* ETAPE 2 */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-emerald-500/50 transition-colors">
+                                            <div className="absolute top-0 right-0 p-4 text-6xl font-black text-slate-800/30 group-hover:text-emerald-500/10 transition-colors">2</div>
+                                            <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                                <TrophyIcon className="text-emerald-400 w-5 h-5" /> Rejoindre la Ligue
+                                            </h3>
+                                            <p className="text-slate-400 text-sm mb-4">Rejoignez notre ligue privée sur le site officiel F1 Fantasy.</p>
+                                            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800 flex justify-between items-center mb-4">
+                                                <span className="text-xs text-slate-500 font-mono">CODE LIGUE</span>
+                                                <span className="font-mono font-bold text-emerald-400 tracking-wider select-all">{LIGUE_CODE}</span>
+                                            </div>
+                                            <a href={LIGUE_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition-colors">
+                                                Accéder à F1 Fantasy <ExternalLinkIcon className="w-4 h-4" />
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    {/* RAPPELS IMPORTANTS */}
+                                    <div className="bg-red-950/30 border border-red-900/50 rounded-2xl p-6 mt-4">
+                                        <h3 className="text-red-400 font-bold mb-4 flex items-center gap-2 uppercase text-sm tracking-wider">
+                                            <AlertCircleIcon className="w-5 h-5" /> Rappels Importants (Règlementation Sportive)
+                                        </h3>
+                                        <ul className="space-y-3 text-slate-300 text-sm list-disc list-inside">
+                                            <li><strong className="text-white">1 seule équipe</strong> autorisée par joueur.</li>
+                                            <li><strong>Composer votre équipe</strong> avant la date limite.</li>
+                                            <li className="text-red-300"><strong>Clôture des enregistrements :</strong> Dès le lancement de la séance de qualification du premier Grand Prix.</li>
+                                            <li className="italic text-slate-400">Une fois la qualif lancée, il sera trop tard pour entrer dans la course.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* TAB 3: FINANCE */}
                             {activeTab === 'finance' && (
                                 <div className="space-y-6">
                                     <div className="flex justify-between items-end">
@@ -249,32 +295,162 @@
                                             Statut Inscriptions
                                         </h3>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            {data.map(joueur => (
-                                                <div key={joueur.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg bg-slate-800/50 border border-slate-800 gap-3">
-                                                    <span className="font-medium text-slate-300">{joueur.nom}</span>
-                                                    <div className="flex gap-2 flex-wrap">
-                                                        <span className={`px-2 py-1 rounded text-xs font-bold ${joueur.paypal ? 'bg-emerald-500/20 text-emerald-400' : 'bg-red-500/20 text-red-400'}`}>
-                                                            {joueur.paypal ? 'PayPal OK' : 'PayPal Manquant'}
+                                            {data.map(joueur => {
+                                                const isFullyRegistered = joueur.paypal && joueur.ligue;
+                                                return (
+                                                    <div key={joueur.id} className={`flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg border gap-3 transition-all duration-300 ${
+                                                        isFullyRegistered ? 'bg-emerald-900/10 border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.1)]' : 'bg-slate-800/50 border-slate-800'
+                                                    }`}>
+                                                        <span className="font-medium text-slate-200 flex items-center gap-2">
+                                                            {joueur.nom}
+                                                            {isFullyRegistered && <CheckCircleIcon className="w-4 h-4 text-emerald-500" title="Dossier complet !" />}
                                                         </span>
-                                                        <span className={`px-2 py-1 rounded text-xs font-bold ${joueur.ligue ? 'bg-blue-500/20 text-blue-400' : 'bg-slate-700/50 text-slate-400'}`}>
-                                                            {joueur.ligue ? 'Ligue OK' : 'Ligue en attente'}
-                                                        </span>
+                                                        <div className="flex gap-2 flex-wrap">
+                                                            {/* BADGE PAYPAL */}
+                                                            {joueur.paypal ? (
+                                                                <span className="px-2 py-1 rounded text-xs font-bold bg-emerald-500/20 text-emerald-400 cursor-default">PayPal OK</span>
+                                                            ) : (
+                                                                <a href={PAYPAL_LINK} target="_blank" rel="noopener noreferrer" title="Cliquez pour payer la cotisation via PayPal" className="px-2 py-1 rounded text-xs font-bold bg-red-500/20 text-red-400 hover:bg-red-500/40 hover:text-red-300 transition-colors flex items-center gap-1 cursor-pointer">
+                                                                    PayPal Manquant ↗
+                                                                </a>
+                                                            )}
+                                                            
+                                                            {/* BADGE LIGUE */}
+                                                            {joueur.ligue ? (
+                                                                <span className="px-2 py-1 rounded text-xs font-bold bg-blue-500/20 text-blue-400 cursor-default">Ligue OK</span>
+                                                            ) : (
+                                                                <a href={LIGUE_LINK} target="_blank" rel="noopener noreferrer" title="Cliquez pour rejoindre la ligue officielle" className="px-2 py-1 rounded text-xs font-bold bg-slate-700/50 text-slate-400 hover:bg-slate-600 hover:text-slate-200 transition-colors flex items-center gap-1 cursor-pointer">
+                                                                    Ligue en attente ↗
+                                                                </a>
+                                                            )}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            ))}
+                                                );
+                                            })}
                                         </div>
                                     </div>
                                 </div>
                             )}
 
-                            {/* TAB 3: HISTOIRE */}
+                            {/* TAB 4: RÈGLEMENT */}
+                            {activeTab === 'regles' && (
+                                <div className="space-y-6">
+                                    <div className="flex justify-between items-end">
+                                        <div>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Règles du jeu (2026)</h2>
+                                            <p className="text-slate-400 text-sm">Le règlement technique et sportif. Basé sur les décisions de la FIA.</p>
+                                        </div>
+                                    </div>
+
+                                    {/* NOUVEAUTÉS */}
+                                    <div className="bg-blue-900/20 border border-blue-800/50 rounded-2xl p-6">
+                                        <h3 className="text-blue-400 font-bold mb-4 uppercase text-sm tracking-wider flex items-center gap-2">
+                                            <ActivityIcon className="w-5 h-5" /> Quoi de neuf en 2026 ?
+                                        </h3>
+                                        <ul className="space-y-2 text-sm text-slate-300">
+                                            <li><strong className="text-white">Ligues :</strong> Nouveau look, gestion simplifiée.</li>
+                                            <li><strong className="text-white">Transferts :</strong> Calcul basé sur le nombre total de changements dans l'écurie, et non chaque transfert séparément.</li>
+                                            <li><strong className="text-white">Sprint DNF :</strong> La pénalité pour Abandon/Non classé dans le Sprint a été réduite à <span className="text-red-400 font-bold">-10 points</span>.</li>
+                                            <li><strong className="text-white">Prix Minimum :</strong> Le coût minimum des pilotes/écuries a été ramené à <span className="text-emerald-400 font-bold">3 millions $</span>.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        {/* QUALIFICATIONS */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                                            <h3 className="text-white font-bold mb-4 border-b border-slate-800 pb-2">Qualifications (Pilotes)</h3>
+                                            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-300 mb-4">
+                                                <div className="flex justify-between"><span>Pôle (1er)</span> <span className="font-bold text-emerald-400">10 pts</span></div>
+                                                <div className="flex justify-between"><span>2ème place</span> <span className="font-bold text-emerald-400">9 pts</span></div>
+                                                <div className="flex justify-between"><span>3ème place</span> <span className="font-bold text-emerald-400">8 pts</span></div>
+                                                <div className="flex justify-between"><span>4ème place</span> <span className="font-bold text-emerald-400">7 pts</span></div>
+                                                <div className="flex justify-between"><span>5ème place</span> <span className="font-bold text-emerald-400">6 pts</span></div>
+                                                <div className="flex justify-between"><span>6ème place</span> <span className="font-bold text-emerald-400">5 pts</span></div>
+                                                <div className="flex justify-between"><span>7ème place</span> <span className="font-bold text-emerald-400">4 pts</span></div>
+                                                <div className="flex justify-between"><span>8ème place</span> <span className="font-bold text-emerald-400">3 pts</span></div>
+                                                <div className="flex justify-between"><span>9ème place</span> <span className="font-bold text-emerald-400">2 pts</span></div>
+                                                <div className="flex justify-between"><span>10ème place</span> <span className="font-bold text-emerald-400">1 pt</span></div>
+                                                <div className="flex justify-between"><span>11 à 20ème</span> <span className="font-bold text-slate-500">0 pt</span></div>
+                                                <div className="flex justify-between"><span>Pas de temps*</span> <span className="font-bold text-red-400">-5 pts</span></div>
+                                            </div>
+                                            <p className="text-[10px] text-slate-500 italic">*Pénalité pour les pilotes qui ne marquent pas de temps en Q1 (inclus inactifs).</p>
+                                            
+                                            <h4 className="text-white font-bold mt-4 mb-2 text-sm">Constructeurs</h4>
+                                            <div className="space-y-1 text-sm text-slate-300">
+                                                <div className="flex justify-between"><span>Aucun pilote en Q2</span> <span className="text-red-400">-1 pt</span></div>
+                                                <div className="flex justify-between"><span>1 pilote en Q2</span> <span className="text-emerald-400">+1 pt</span></div>
+                                                <div className="flex justify-between"><span>2 pilotes en Q2</span> <span className="text-emerald-400">+3 pts</span></div>
+                                                <div className="flex justify-between"><span>1 pilote en Q3</span> <span className="text-emerald-400">+5 pts</span></div>
+                                                <div className="flex justify-between"><span>2 pilotes en Q3</span> <span className="text-emerald-400">+10 pts</span></div>
+                                                <div className="flex justify-between"><span>Pilote Disqualifié</span> <span className="text-red-400">-5 pts/pilote</span></div>
+                                            </div>
+                                        </div>
+
+                                        {/* COURSE */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                                            <h3 className="text-white font-bold mb-4 border-b border-slate-800 pb-2">Course (Pilotes)</h3>
+                                            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-300 mb-4">
+                                                <div className="flex justify-between"><span>1ère place</span> <span className="font-bold text-emerald-400">25 pts</span></div>
+                                                <div className="flex justify-between"><span>2ème place</span> <span className="font-bold text-emerald-400">18 pts</span></div>
+                                                <div className="flex justify-between"><span>3ème place</span> <span className="font-bold text-emerald-400">15 pts</span></div>
+                                                <div className="flex justify-between"><span>4ème place</span> <span className="font-bold text-emerald-400">12 pts</span></div>
+                                                <div className="flex justify-between"><span>5ème place</span> <span className="font-bold text-emerald-400">10 pts</span></div>
+                                                <div className="flex justify-between"><span>6ème place</span> <span className="font-bold text-emerald-400">8 pts</span></div>
+                                                <div className="flex justify-between"><span>7ème place</span> <span className="font-bold text-emerald-400">6 pts</span></div>
+                                                <div className="flex justify-between"><span>8ème place</span> <span className="font-bold text-emerald-400">4 pts</span></div>
+                                                <div className="flex justify-between"><span>9ème place</span> <span className="font-bold text-emerald-400">2 pts</span></div>
+                                                <div className="flex justify-between"><span>10ème place</span> <span className="font-bold text-emerald-400">1 pt</span></div>
+                                                <div className="flex justify-between col-span-2 mt-2"><span>Tour le plus rapide</span> <span className="font-bold text-purple-400">10 pts</span></div>
+                                                <div className="flex justify-between col-span-2"><span>Pilote du jour</span> <span className="font-bold text-yellow-400">10 pts</span></div>
+                                                <div className="flex justify-between col-span-2"><span>Positions gagnées</span> <span className="font-bold text-emerald-400">1 pt/pos</span></div>
+                                                <div className="flex justify-between col-span-2"><span>Dépassement réussi</span> <span className="font-bold text-emerald-400">1 pt/dép.</span></div>
+                                                <div className="flex justify-between col-span-2"><span>Positions perdues</span> <span className="font-bold text-red-400">-1 pt/pos</span></div>
+                                                <div className="flex justify-between col-span-2 border-t border-slate-800 pt-2"><span>DNF/Non classé</span> <span className="font-bold text-red-500">-20 pts</span></div>
+                                            </div>
+
+                                            <h4 className="text-white font-bold mt-4 mb-2 text-sm">Pitstops (Constructeurs)</h4>
+                                            <div className="space-y-1 text-sm text-slate-300">
+                                                <div className="flex justify-between"><span>Moins de 2s</span> <span className="text-emerald-400">20 pts</span></div>
+                                                <div className="flex justify-between"><span>2s - 2.19s</span> <span className="text-emerald-400">10 pts</span></div>
+                                                <div className="flex justify-between"><span>2.20s - 2.49s</span> <span className="text-emerald-400">5 pts</span></div>
+                                                <div className="flex justify-between"><span>Fastest Pitstop</span> <span className="text-purple-400">5 pts</span></div>
+                                                <div className="flex justify-between"><span>Nouveau Record WR</span> <span className="text-yellow-400">+15 pts</span></div>
+                                            </div>
+                                        </div>
+
+                                        {/* SPRINT */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                                            <h3 className="text-white font-bold mb-4 border-b border-slate-800 pb-2">Sprint</h3>
+                                            <div className="space-y-1 text-sm text-slate-300">
+                                                <div className="flex justify-between"><span>1er à 8ème</span> <span className="text-emerald-400">8 à 1 pts</span></div>
+                                                <div className="flex justify-between"><span>Pos. décrochées/perdues</span> <span className="text-slate-400">±1 pt/pos</span></div>
+                                                <div className="flex justify-between"><span>Dépassements réussis</span> <span className="text-emerald-400">1 pt/dép.</span></div>
+                                                <div className="flex justify-between"><span>Tour le plus rapide</span> <span className="text-purple-400">5 pts</span></div>
+                                                <div className="flex justify-between border-t border-slate-800 pt-1 mt-1"><span>DNF/Non classé</span> <span className="font-bold text-red-500">-10 pts</span></div>
+                                                <div className="flex justify-between"><span>Constructeur Disqualifié</span> <span className="font-bold text-red-500">-10 pts/pilote</span></div>
+                                            </div>
+                                        </div>
+
+                                        {/* BOOSTERS ET GESTION */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                                            <h3 className="text-white font-bold mb-4 border-b border-slate-800 pb-2">Économie & Boosters</h3>
+                                            <div className="space-y-3 text-sm text-slate-300">
+                                                <p><strong>Tarification dynamique :</strong> Profitez des changements de prix en temps réel pour augmenter votre budget initial de 100M$.</p>
+                                                <p><strong>Transferts :</strong> 2 transferts gratuits par course. <span className="text-red-400">Pénalité de -10 pts</span> par transfert supplémentaire. (Un transfert gratuit inutilisé est reporté).</p>
+                                                <p><strong>Boosters :</strong> 6 boosters disponibles (ex: Multiplicateur x3). Un seul booster utilisable par course. Chaque booster n'est utilisable qu'une seule fois dans la saison.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* TAB 5: HISTOIRE */}
                             {activeTab === 'histoire' && (
                                 <div className="space-y-6">
                                     <h2 className="text-2xl font-black text-white uppercase tracking-tight">Hall of Fame</h2>
                                     <p className="text-slate-400 text-sm">Le mur des légendes. Et des autres.</p>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                        {/* LE CERCLE DES CHAMPIONS */}
                                         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 lg:col-span-2">
                                             <h3 className="text-yellow-400 font-bold mb-4 uppercase text-sm tracking-wider flex items-center gap-2">
                                                 <TrophyIcon className="w-4 h-4" /> Le Cercle des Champions
@@ -291,7 +467,6 @@
                                             </div>
                                         </div>
 
-                                        {/* LES VÉTÉRANS (SANS TITRE) */}
                                         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
                                             <h3 className="text-slate-400 font-bold mb-4 uppercase text-sm tracking-wider flex items-center gap-2">
                                                 <ShieldIcon className="w-4 h-4" /> En quête de gloire
@@ -306,7 +481,6 @@
                                             </ul>
                                         </div>
 
-                                        {/* LES ROOKIES */}
                                         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:col-span-2 lg:col-span-3">
                                             <h3 className="text-cyan-400 font-bold mb-4 uppercase text-sm tracking-wider flex items-center gap-2">
                                                 <ZapIcon className="w-4 h-4" /> Les Rookies
@@ -324,7 +498,7 @@
                                 </div>
                             )}
 
-                            {/* TAB 4: RADIO PADDOCK */}
+                            {/* TAB 6: RADIO PADDOCK */}
                             {activeTab === 'drama' && (
                                 <div className="space-y-6">
                                     <div className="flex justify-between items-end">
