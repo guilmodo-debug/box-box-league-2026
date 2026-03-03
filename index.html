@@ -49,7 +49,7 @@
 
         // --- MOTEUR DE DONNÉES ---
         const rawData = [
-            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: false, probaTitre: 40, surnom: "L'Apex Predator" },
+            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: false, probaTitre: 39.5, surnom: "L'Apex Predator" },
             { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, probaTitre: 15, surnom: "Aileron Mobile Activé" },
             { id: 3, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: false, ligue: false, probaTitre: 10, surnom: "Le Diesel" },
             { id: 4, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: false, ligue: false, probaTitre: 8, surnom: "Pneu Dur" },
@@ -59,14 +59,16 @@
             { id: 8, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 1, surnom: "Drapeau Bleu" },
             { id: 9, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 0.5, surnom: "Rookie Error" },
             { id: 10, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 0.5, surnom: "Touriste du Paddock" },
+            { id: 11, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 0.5, surnom: "Dans le mur de la pitlane" },
         ];
 
         const prizepool = {
-            total: 250,
+            total: 275,
             repartition: [
                 { place: "1er", montant: 130, color: "text-yellow-400", bg: "bg-yellow-400/20" },
                 { place: "2ème", montant: 80, color: "text-slate-300", bg: "bg-slate-300/20" },
                 { place: "3ème", montant: 40, color: "text-orange-400", bg: "bg-orange-400/20" },
+                { place: "Bonus Gros Budget", montant: 25, color: "text-purple-400", bg: "bg-purple-400/20" },
             ]
         };
 
@@ -279,7 +281,7 @@
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                                         {prizepool.repartition.map((prize, i) => (
                                             <div key={i} className={`p-6 rounded-2xl border border-slate-800 bg-slate-900 relative overflow-hidden`}>
                                                 <div className={`absolute top-0 right-0 w-24 h-24 rounded-bl-full ${prize.bg} opacity-50`}></div>
