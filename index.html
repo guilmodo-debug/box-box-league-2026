@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Box League - Dashboard</title>
+    
+    <!-- Tailwind CSS pour le design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    
+    <!-- Babel pour lire le JSX dans le navigateur -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-slate-950 text-slate-200">
+    
+    <!-- C'est ici que l'application va s'afficher -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- COMPOSANTS ICÔNES (Remplacement de Lucide-React pour version standalone) ---
+        const Icon = ({ children, className = "w-5 h-5" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                {children}
+            </svg>
+        );
+        const TrophyIcon = ({ className }) => <Icon className={className}><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></Icon>;
+        const ActivityIcon = ({ className }) => <Icon className={className}><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></Icon>;
+        const DollarSignIcon = ({ className }) => <Icon className={className}><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></Icon>;
+        const HistoryIcon = ({ className }) => <Icon className={className}><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><polyline points="3 3 3 8 8 8"/><polyline points="12 7 12 12 15 15"/></Icon>;
+        const RadioIcon = ({ className }) => <Icon className={className}><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></Icon>;
+        const AlertCircleIcon = ({ className }) => <Icon className={className}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></Icon>;
+        const ShieldIcon = ({ className }) => <Icon className={className}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></Icon>;
+        const ZapIcon = ({ className }) => <Icon className={className}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></Icon>;
+
+        // --- MOTEUR DE DONNÉES ---
+        const DNF = 20;
+
+        const rawData = [
+            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: false, probaTitre: 40, surnom: "L'Apex Predator" },
+            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, probaTitre: 15, surnom: "Aileron Mobile Activé" },
+            { id: 3, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: false, ligue: false, probaTitre: 10, surnom: "Le Diesel" },
+            { id: 4, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: false, ligue: false, probaTitre: 8, surnom: "Pneu Dur" },
+            { id: 5, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, probaTitre: 20, surnom: "Le Prodige" },
+            { id: 6, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 3, surnom: "Chicane Mobile" },
+            { id: 7, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 2, surnom: "Dans les graviers" },
+            { id: 8, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 1, surnom: "Drapeau Bleu" },
+            { id: 9, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 0.5, surnom: "Rookie Error" },
+            { id: 10, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 0.5, surnom: "Touriste du Paddock" },
+        ];
+
+        const prizepool = {
+            total: 250,
+            repartition: [
+                { place: "1er", montant: 130, color: "text-yellow-400", bg: "bg-yellow-400/20" },
+                { place: "2ème", montant: 80, color: "text-slate-300", bg: "bg-slate-300/20" },
+                { place: "3ème", montant: 40, color: "text-orange-400", bg: "bg-orange-400/20" },
+            ]
+        };
+
+        const paddockNews = [
+            { time: "Aujourd'hui", type: "rookie", text: "Ahmed a été aperçu en train de lire 'La F1 pour les Nuls' dans les stands. Prometteur." },
+            { time: "Hier", type: "rookie", text: "La FIA confirme : le simulateur d'Adri Collet est bien une PlayStation 2 avec une manette cassée." },
+            { time: "J-2", type: "rookie", text: "Adams a demandé à ses mécaniciens s'il pouvait mettre des pneus neige pour le GP de Bahreïn." },
+            { time: "J-3", type: "drama", text: "Léo a encore oublié de valider son équipe. Suspension imminente ?" },
+            { time: "J-4", type: "rookie", text: "Rémy a confondu le bouton 'Drink' avec l'extincteur. Cockpit ruiné." }
+        ];
+
+        // --- COMPOSANTS UI MINEURS ---
+        const ProgressBar = ({ value, color = "bg-blue-500" }) => (
+            <div className="w-full bg-slate-700 rounded-full h-2.5 overflow-hidden border border-slate-600">
+                <div className={`h-2.5 rounded-full ${color}`} style={{ width: `${Math.min(100, Math.max(0, value))}%` }}></div>
+            </div>
+        );
+
+        // --- APPLICATION PRINCIPALE ---
+        function App() {
+            const [activeTab, setActiveTab] = useState('predictions');
+            const [data, setData] = useState([]);
+
+            useEffect(() => {
+                setData([...rawData].sort((a, b) => b.probaTitre - a.probaTitre));
+            }, []);
+
+            const navItems = [
+                { id: 'predictions', icon: <ActivityIcon className="w-5 h-5" />, label: "Pronostics" },
+                { id: 'finance', icon: <DollarSignIcon className="w-5 h-5" />, label: "FIA (Trésorerie)" },
+                { id: 'histoire', icon: <HistoryIcon className="w-5 h-5" />, label: "Hall of Fame" },
+                { id: 'drama', icon: <RadioIcon className="w-5 h-5" />, label: "Radio Paddock" },
+            ];
+
+            return (
+                <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-red-500 selection:text-white pb-12">
+                    {/* HEADER */}
+                    <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-lg shadow-black/50">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="bg-red-600 text-white p-2 rounded-lg font-black italic tracking-tighter leading-none transform -skew-x-12">
+                                    BOX<br/>BOX
+                                </div>
+                                <div>
+                                    <h1 className="text-xl font-bold text-white tracking-wider">LEAGUE <span className="text-red-500">2026</span></h1>
+                                    <p className="text-xs text-slate-400 uppercase tracking-widest">Dashboard Officiel</p>
+                                </div>
+                            </div>
+                            <div className="hidden md:flex gap-4">
+                                <div className="bg-slate-800 px-4 py-1 rounded-full border border-slate-700 flex items-center gap-2">
+                                    <TrophyIcon className="w-4 h-4 text-yellow-400" />
+                                    <span className="font-bold">{prizepool.total} €</span>
+                                </div>
+                                <div className="bg-emerald-900/30 px-4 py-1 rounded-full border border-emerald-800 flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    <span className="text-emerald-400 text-sm font-medium">Saison en cours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* MAIN LAYOUT */}
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        
+                        {/* SIDEBAR NAVIGATION */}
+                        <aside className="lg:col-span-3 space-y-2">
+                            {navItems.map(item => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => setActiveTab(item.id)}
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium ${
+                                        activeTab === item.id 
+                                        ? 'bg-slate-800 border border-slate-700 text-white shadow-md' 
+                                        : 'text-slate-400 hover:bg-slate-900 hover:text-slate-200'
+                                    }`}
+                                >
+                                    <div className={activeTab === item.id ? 'text-red-500' : ''}>
+                                        {item.icon}
+                                    </div>
+                                    {item.label}
+                                </button>
+                            ))}
+
+                            {/* QUICK STATS WIDGET */}
+                            <div className="mt-8 bg-slate-900 border border-slate-800 rounded-xl p-4 hidden lg:block">
+                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Alerte Météo</h3>
+                                <div className="space-y-3">
+                                    <div className="flex justify-between items-center text-sm">
+                                        <span className="text-slate-400">Pluie de pénalités</span>
+                                        <span className="text-red-400 font-bold">Élevée</span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-sm">
+                                        <span className="text-slate-400">Pression Leader</span>
+                                        <span className="text-orange-400 font-bold">Critique</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+
+                        {/* CONTENT AREA */}
+                        <main className="lg:col-span-9">
+                            
+                            {/* TAB 1: PREDICTIONS */}
+                            {activeTab === 'predictions' && (
+                                <div className="space-y-6">
+                                    <div className="flex justify-between items-end">
+                                        <div>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Pronostics de la Saison</h2>
+                                            <p className="text-slate-400 text-sm">Probabilités de remporter le titre. Les algorithmes sont formels (total 100%).</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+                                        <div className="overflow-x-auto">
+                                            <table className="w-full text-left border-collapse min-w-[500px]">
+                                                <thead>
+                                                    <tr className="bg-slate-950/50 text-xs uppercase tracking-wider text-slate-500 border-b border-slate-800">
+                                                        <th className="px-6 py-4 font-semibold">Cote</th>
+                                                        <th className="px-6 py-4 font-semibold">Pilote</th>
+                                                        <th className="px-6 py-4 font-semibold w-1/2">Probabilité de Titre</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody className="divide-y divide-slate-800">
+                                                    {data.map((joueur, index) => (
+                                                        <tr key={joueur.id} className="hover:bg-slate-800/50 transition-colors group">
+                                                            <td className="px-6 py-4">
+                                                                <div className="flex items-center gap-2">
+                                                                    <span className={`font-black text-lg ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-slate-300' : index === 2 ? 'text-orange-400' : 'text-slate-500'}`}>
+                                                                        {index + 1}
+                                                                    </span>
+                                                                    {index === 0 && <TrophyIcon className="w-4 h-4 text-yellow-400" />}
+                                                                </div>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <div className="flex flex-col">
+                                                                    <div className="flex items-center gap-2">
+                                                                        <span className="text-2xl" title="Statut actuel">{joueur.statut}</span>
+                                                                        <span className="font-bold text-white text-base">{joueur.nom}</span>
+                                                                    </div>
+                                                                    <span className="text-xs text-slate-500 font-mono mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                        &gt; {joueur.surnom}
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <div className="flex items-center gap-4">
+                                                                    <ProgressBar 
+                                                                        value={joueur.probaTitre} 
+                                                                        color={joueur.probaTitre > 30 ? "bg-emerald-500" : joueur.probaTitre > 10 ? "bg-yellow-500" : "bg-red-500"} 
+                                                                    />
+                                                                    <span className="text-sm font-mono font-bold text-slate-300 w-12">{joueur.probaTitre}%</span>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* TAB 2: FINANCE */}
+                            {activeTab === 'finance' && (
+                                <div className="space-y-6">
+                                    <div className="flex justify-between items-end">
+                                        <div>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Trésorerie & Gains</h2>
+                                            <p className="text-slate-400 text-sm">Contrôle technique des paiements et de la ligue.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                                        {prizepool.repartition.map((prize, i) => (
+                                            <div key={i} className={`p-6 rounded-2xl border border-slate-800 bg-slate-900 relative overflow-hidden`}>
+                                                <div className={`absolute top-0 right-0 w-24 h-24 rounded-bl-full ${prize.bg} opacity-50`}></div>
+                                                <p className="text-sm font-bold text-slate-500 uppercase">{prize.place}</p>
+                                                <p className={`text-4xl font-black mt-2 ${prize.color}`}>{prize.montant} €</p>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+                                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                                            <AlertCircleIcon className="text-red-500 w-5 h-5" />
+                                            Statut Inscriptions
+                                        </h3>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            {data.map(joueur => (
+                                                <div key={joueur.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg bg-slate-800/50 border border-slate-800 gap-3">
+                                                    <span className="font-medium text-slate-300">{joueur.nom}</span>
+                                                    <div className="flex gap-2 flex-wrap">
+                                                        <span className={`px-2 py-1 rounded text-xs font-bold ${joueur.paypal ? 'bg-emerald-500/20 text-emerald-400' : 'bg-red-500/20 text-red-400'}`}>
+                                                            {joueur.paypal ? 'PayPal OK' : 'PayPal Manquant'}
+                                                        </span>
+                                                        <span className={`px-2 py-1 rounded text-xs font-bold ${joueur.ligue ? 'bg-blue-500/20 text-blue-400' : 'bg-slate-700/50 text-slate-400'}`}>
+                                                            {joueur.ligue ? 'Ligue OK' : 'Ligue en attente'}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* TAB 3: HISTOIRE */}
+                            {activeTab === 'histoire' && (
+                                <div className="space-y-6">
+                                    <h2 className="text-2xl font-black text-white uppercase tracking-tight">Hall of Fame</h2>
+                                    <p className="text-slate-400 text-sm">Le mur des légendes. Et des autres.</p>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {/* LE CERCLE DES CHAMPIONS */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 lg:col-span-2">
+                                            <h3 className="text-yellow-400 font-bold mb-4 uppercase text-sm tracking-wider flex items-center gap-2">
+                                                <TrophyIcon className="w-4 h-4" /> Le Cercle des Champions
+                                            </h3>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                {data.filter(j => j.titres > 0).sort((a,b) => b.titres - a.titres).map(j => (
+                                                    <div key={j.id} className="flex items-center justify-between p-3 rounded-lg bg-slate-800/50 border border-slate-800">
+                                                        <span className="font-bold text-white text-lg">{j.nom}</span>
+                                                        <div className="flex gap-1">
+                                                            {[...Array(j.titres)].map((_, i) => <TrophyIcon key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />)}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* LES VÉTÉRANS (SANS TITRE) */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                                            <h3 className="text-slate-400 font-bold mb-4 uppercase text-sm tracking-wider flex items-center gap-2">
+                                                <ShieldIcon className="w-4 h-4" /> En quête de gloire
+                                            </h3>
+                                            <ul className="space-y-3">
+                                                {data.filter(j => j.titres === 0 && j.saisons > 0).sort((a,b) => b.saisons - a.saisons).map(j => (
+                                                    <li key={j.id} className="flex items-center justify-between pb-2 border-b border-slate-800/50 last:border-0">
+                                                        <span className="font-bold text-slate-300 text-base">{j.nom}</span>
+                                                        <span className="text-slate-500 text-xs italic">{j.saisons} saisons</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+
+                                        {/* LES ROOKIES */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:col-span-2 lg:col-span-3">
+                                            <h3 className="text-cyan-400 font-bold mb-4 uppercase text-sm tracking-wider flex items-center gap-2">
+                                                <ZapIcon className="w-4 h-4" /> Les Rookies
+                                            </h3>
+                                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                                {data.filter(j => j.saisons === 0).map(j => (
+                                                    <div key={j.id} className="flex flex-col items-center justify-center p-4 rounded-lg bg-slate-800/30 border border-slate-800/50">
+                                                        <span className="text-3xl mb-2">🐠</span>
+                                                        <span className="font-medium text-slate-300 text-sm">{j.nom}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* TAB 4: RADIO PADDOCK */}
+                            {activeTab === 'drama' && (
+                                <div className="space-y-6">
+                                    <div className="flex justify-between items-end">
+                                        <div>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Radio Paddock</h2>
+                                            <p className="text-slate-400 text-sm">Rumeurs, coups bas et télémétrie fuyante.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4 border-l-2 border-slate-800 ml-4 pl-6 relative py-2">
+                                        {paddockNews.map((news, i) => (
+                                            <div key={i} className="relative">
+                                                <div className={`absolute -left-[31px] top-1 w-3 h-3 rounded-full border-2 border-slate-950
+                                                    ${news.type === 'drama' ? 'bg-red-500' : news.type === 'exploit' ? 'bg-purple-500' : news.type === 'rookie' ? 'bg-blue-500' : 'bg-yellow-500'}
+                                                `}></div>
+                                                
+                                                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-slate-700 transition-colors">
+                                                    <div className="flex items-center gap-2 mb-2">
+                                                        <span className="text-xs font-bold text-slate-500">{news.time}</span>
+                                                        <span className={`text-[10px] uppercase font-black px-2 py-0.5 rounded
+                                                            ${news.type === 'drama' ? 'bg-red-500/10 text-red-500' : 
+                                                            news.type === 'exploit' ? 'bg-purple-500/10 text-purple-400' : 
+                                                            news.type === 'rookie' ? 'bg-blue-500/10 text-blue-400' :
+                                                            'bg-yellow-500/10 text-yellow-400'}
+                                                        `}>
+                                                            {news.type}
+                                                        </span>
+                                                    </div>
+                                                    <p className="text-slate-300 italic">"{news.text}"</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </main>
+                    </div>
+                </div>
+            );
+        }
+
+        // --- DEMARRAGE DE L'APPLICATION ---
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
