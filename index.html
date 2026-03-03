@@ -144,7 +144,7 @@
 
         // --- APPLICATION PRINCIPALE ---
         function App() {
-            const [activeTab, setActiveTab] = useState('classement');
+            const [activeTab, setActiveTab] = useState('inscription');
             const [data, setData] = useState([]);
 
             useEffect(() => {
@@ -154,11 +154,11 @@
             }, []);
 
             const navItems = [
-                { id: 'classement', icon: <ListOrderedIcon className="w-5 h-5" />, label: "Classement Live" },
-                { id: 'predictions', icon: <ActivityIcon className="w-5 h-5" />, label: "Pronostics" },
-                { id: 'calendrier', icon: <CalendarIcon className="w-5 h-5" />, label: "Calendrier 2026" },
                 { id: 'inscription', icon: <UserPlusIcon className="w-5 h-5" />, label: "Inscription" },
                 { id: 'finance', icon: <DollarSignIcon className="w-5 h-5" />, label: "FIA (Trésorerie)" },
+                { id: 'predictions', icon: <ActivityIcon className="w-5 h-5" />, label: "Pronostics" },
+                { id: 'classement', icon: <ListOrderedIcon className="w-5 h-5" />, label: "Classement Live" },
+                { id: 'calendrier', icon: <CalendarIcon className="w-5 h-5" />, label: "Calendrier 2026" },
                 { id: 'boosters', icon: <StarIcon className="w-5 h-5" />, label: "Stratégie Boosters" },
                 { id: 'regles', icon: <BookOpenIcon className="w-5 h-5" />, label: "Règlement F1" },
                 { id: 'histoire', icon: <HistoryIcon className="w-5 h-5" />, label: "Hall of Fame" },
@@ -180,10 +180,10 @@
                                 </div>
                             </div>
                             <div className="hidden md:flex gap-4">
-                                <div className="bg-slate-800 px-4 py-1 rounded-full border border-slate-700 flex items-center gap-2">
+                                <button onClick={() => setActiveTab('finance')} className="bg-slate-800 hover:bg-slate-700 transition-colors px-4 py-1 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer shadow-sm">
                                     <TrophyIcon className="w-4 h-4 text-yellow-400" />
                                     <span className="font-bold">{prizepool.total} €</span>
-                                </div>
+                                </button>
                                 <div className="bg-emerald-900/30 px-4 py-1 rounded-full border border-emerald-800 flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                                     <span className="text-emerald-400 text-sm font-medium">Saison en cours</span>
@@ -203,22 +203,27 @@
                         
                         {/* SIDEBAR NAVIGATION */}
                         <aside className="lg:col-span-3 space-y-2">
-                            {navItems.map(item => (
-                                <button
-                                    key={item.id}
-                                    onClick={() => setActiveTab(item.id)}
-                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium ${
-                                        activeTab === item.id 
-                                        ? 'bg-slate-800 border border-slate-700 text-white shadow-md' 
-                                        : 'text-slate-400 hover:bg-slate-900 hover:text-slate-200'
-                                    }`}
-                                >
-                                    <div className={activeTab === item.id ? 'text-red-500' : ''}>
-                                        {item.icon}
-                                    </div>
-                                    {item.label}
-                                </button>
-                            ))}
+                            {navItems.map(item => {
+                                const isSpecial = item.id === 'inscription';
+                                const isActive = activeTab === item.id;
+                                
+                                let btnClass = isActive 
+                                    ? (isSpecial ? 'bg-blue-600 border border-blue-500 text-white shadow-md shadow-blue-500/20' : 'bg-slate-800 border border-slate-700 text-white shadow-md')
+                                    : (isSpecial ? 'bg-blue-900/20 border border-blue-800/50 text-blue-400 hover:bg-blue-800/40 hover:text-blue-300' : 'text-slate-400 hover:bg-slate-900 hover:text-slate-200 border border-transparent');
+
+                                return (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => setActiveTab(item.id)}
+                                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium ${btnClass}`}
+                                    >
+                                        <div className={isActive && !isSpecial ? 'text-red-500' : ''}>
+                                            {item.icon}
+                                        </div>
+                                        {item.label}
+                                    </button>
+                                );
+                            })}
 
                             {/* LIEN CACHÉ POUR LES PROS (EASTER EGG) */}
                             <div className="pt-12">
@@ -339,7 +344,7 @@
                                     <div className="flex justify-between items-end">
                                         <div>
                                             <h2 className="text-2xl font-black text-white uppercase tracking-tight">Pronostics de la Saison</h2>
-                                            <p className="text-slate-400 text-sm">Probabilités de remporter le titre. Les joueurs inscrits bénéficient de l'aura verte.</p>
+                                            <p className="text-slate-400 text-sm">Probabilités de remporter le titre. Les algorithmes sont formels.</p>
                                         </div>
                                     </div>
 
@@ -355,52 +360,43 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody className="divide-y divide-slate-800">
-                                                    {data.map((joueur, index) => {
-                                                        const isFullyRegistered = joueur.paypal && joueur.ligue;
-                                                        return (
-                                                            <tr key={joueur.id} className={`hover:bg-slate-800/80 transition-colors group relative ${
-                                                                isFullyRegistered ? 'bg-emerald-900/10' : ''
-                                                            }`}>
-                                                                {isFullyRegistered && (
-                                                                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-                                                                )}
-                                                                <td className="px-6 py-4">
-                                                                    <div className="flex items-center justify-center gap-1">
-                                                                        <span className={`font-black text-lg ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-slate-300' : index === 2 ? 'text-orange-400' : 'text-slate-500'}`}>
-                                                                            {index + 1}
-                                                                        </span>
-                                                                        {index === 0 && <TrophyIcon className="w-4 h-4 text-yellow-400 ml-1" />}
-                                                                    </div>
-                                                                </td>
-                                                                <td className="px-6 py-4">
-                                                                    <div className="flex flex-col">
-                                                                        <div className="flex items-center gap-2">
-                                                                            <span className="text-2xl" title="Statut actuel">{joueur.statut}</span>
-                                                                            <span className={`font-bold text-base ${isFullyRegistered ? 'text-emerald-50' : 'text-white'}`}>{joueur.nom}</span>
-                                                                            {isFullyRegistered && <CheckCircleIcon className="w-4 h-4 text-emerald-500 ml-1" title="Inscription complète" />}
-                                                                        </div>
-                                                                        <span className="text-xs text-slate-500 font-mono mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                                            &gt; {joueur.surnom}
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td className="px-6 py-4 text-center">
-                                                                    <span className="font-mono font-bold text-yellow-400 bg-yellow-400/10 px-3 py-1 rounded border border-yellow-400/20">
-                                                                        {(100 / joueur.probaTitre).toFixed(2)}
+                                                    {data.map((joueur, index) => (
+                                                        <tr key={joueur.id} className="hover:bg-slate-800/50 transition-colors group">
+                                                            <td className="px-6 py-4">
+                                                                <div className="flex items-center justify-center gap-1">
+                                                                    <span className={`font-black text-lg ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-slate-300' : index === 2 ? 'text-orange-400' : 'text-slate-500'}`}>
+                                                                        {index + 1}
                                                                     </span>
-                                                                </td>
-                                                                <td className="px-6 py-4">
-                                                                    <div className="flex items-center gap-4">
-                                                                        <ProgressBar 
-                                                                            value={joueur.probaTitre} 
-                                                                            color={joueur.probaTitre > 30 ? "bg-emerald-500" : joueur.probaTitre > 10 ? "bg-yellow-500" : "bg-red-500"} 
-                                                                        />
-                                                                        <span className="text-sm font-mono font-bold text-slate-300 w-16 text-right">{joueur.probaTitre}%</span>
+                                                                    {index === 0 && <TrophyIcon className="w-4 h-4 text-yellow-400 ml-1" />}
+                                                                </div>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <div className="flex flex-col">
+                                                                    <div className="flex items-center gap-2">
+                                                                        <span className="text-2xl" title="Statut actuel">{joueur.statut}</span>
+                                                                        <span className="font-bold text-base text-white">{joueur.nom}</span>
                                                                     </div>
-                                                                </td>
-                                                            </tr>
-                                                        );
-                                                    })}
+                                                                    <span className="text-xs text-slate-500 font-mono mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                        &gt; {joueur.surnom}
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td className="px-6 py-4 text-center">
+                                                                <span className="font-mono font-bold text-yellow-400 bg-yellow-400/10 px-3 py-1 rounded border border-yellow-400/20">
+                                                                    {(100 / joueur.probaTitre).toFixed(2)}
+                                                                </span>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <div className="flex items-center gap-4">
+                                                                    <ProgressBar 
+                                                                        value={joueur.probaTitre} 
+                                                                        color={joueur.probaTitre > 30 ? "bg-emerald-500" : joueur.probaTitre > 10 ? "bg-yellow-500" : "bg-red-500"} 
+                                                                    />
+                                                                    <span className="text-sm font-mono font-bold text-slate-300 w-16 text-right">{joueur.probaTitre}%</span>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    ))}
                                                 </tbody>
                                             </table>
                                         </div>
