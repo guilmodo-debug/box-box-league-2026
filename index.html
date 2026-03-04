@@ -47,6 +47,11 @@
         const WrenchIcon = ({ className }) => <Icon className={className}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></Icon>;
         const TargetIcon = ({ className }) => <Icon className={className}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></Icon>;
         const CalendarIcon = ({ className }) => <Icon className={className}><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></Icon>;
+        const GamepadIcon = ({ className }) => <Icon className={className}><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></Icon>;
+        const UsersIcon = ({ className }) => <Icon className={className}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></Icon>;
+        const TrendingUpIcon = ({ className }) => <Icon className={className}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></Icon>;
+        const RefreshCwIcon = ({ className }) => <Icon className={className}><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></Icon>;
+
 
         // --- LIENS & CONSTANTES ---
         const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/J7SA73SU3M49Y";
@@ -64,7 +69,7 @@
             { id: 6, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 3, surnom: "Chicane Mobile" },
             { id: 7, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 2, surnom: "Dans les graviers" },
             { id: 8, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 1, surnom: "Drapeau Bleu" },
-            { id: 9, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 0.5, surnom: "Rookie Error" },
+            { id: 9, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Rookie Error" },
             { id: 10, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 0.5, surnom: "Touriste du Paddock" },
             { id: 11, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: false, probaTitre: 0.5, surnom: "Dans le mur de la pitlane" },
             { id: 12, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "En rodage" },
@@ -83,8 +88,8 @@
         };
 
         const paddockNews = [
-            { time: "Alerte Inscriptions", type: "exploit", text: "Félicitations aux bons élèves : Gus, Pintu, Valentin, Léo et Stéphane ont déjà validé leur baquet et réglé la FIA ! Leur monoplace est prête." },
-            { time: "Avis à la grille", type: "drama", text: "Retardataires identifiés : Simon, Ti Bordo, Adri, Adams, Rémy, Ahmed et Johan... Le bureau des pénalités vous attend. Sortez la CB ou rejoignez la ligue !" },
+            { time: "Alerte Inscriptions", type: "exploit", text: "Félicitations aux bons élèves : Gus, Pintu, Valentin, Léo, Stéphane et maintenant Rémy ont validé leur baquet et réglé la FIA ! Les monoplaces sont prêtes." },
+            { time: "Avis à la grille", type: "drama", text: "Retardataires identifiés : Simon, Ti Bordo, Adri, Adams, Ahmed et Johan... Le bureau des pénalités vous attend. Sortez la CB ou rejoignez la ligue !" },
             { time: "Focus Vétérans", type: "drama", text: "Ti Bordo (7 saisons) et Pintu (6 saisons) n'ont toujours pas la moindre couronne... 2026 : l'année de la consécration ou du désespoir ?" },
             { time: "Le Tenant du Titre", type: "exploit", text: "Le paddock a les yeux rivés sur Valentin. Le Prodige remet son titre en jeu. Résistera-t-il à la pression ?" },
             { time: "La Légende", type: "exploit", text: "Simon, l'Apex Predator, trône toujours avec ses 4 étoiles et le plus gros palmarès de la Box Box League. Inarrêtable." },
@@ -144,8 +149,12 @@
 
         // --- APPLICATION PRINCIPALE ---
         function App() {
-            const [activeTab, setActiveTab] = useState('inscription');
+            const [activeTab, setActiveTab] = useState('principe');
             const [data, setData] = useState([]);
+
+            // Calcul du taux d'avancement des inscriptions
+            const fullyRegisteredCount = rawData.filter(j => j.paypal && j.ligue).length;
+            const progressPercent = Math.round((fullyRegisteredCount / rawData.length) * 100);
 
             useEffect(() => {
                 // Tri pour Pronostics : Strictement par proba de titre (décroissant)
@@ -154,6 +163,7 @@
             }, []);
 
             const navItems = [
+                { id: 'principe', icon: <GamepadIcon className="w-5 h-5" />, label: "Principe du jeu" },
                 { id: 'inscription', icon: <UserPlusIcon className="w-5 h-5" />, label: "Inscription" },
                 { id: 'finance', icon: <DollarSignIcon className="w-5 h-5" />, label: "FIA (Trésorerie)" },
                 { id: 'predictions', icon: <ActivityIcon className="w-5 h-5" />, label: "Pronostics" },
@@ -180,9 +190,9 @@
                                 </div>
                             </div>
                             <div className="hidden md:flex gap-4">
-                                <button onClick={() => setActiveTab('finance')} className="bg-slate-800 hover:bg-slate-700 transition-colors px-4 py-1 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer shadow-sm">
-                                    <TrophyIcon className="w-4 h-4 text-yellow-400" />
-                                    <span className="font-bold">{prizepool.total} €</span>
+                                <button onClick={() => setActiveTab('finance')} className="bg-slate-800 hover:bg-slate-700 transition-colors px-4 py-1 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer shadow-sm group">
+                                    <TrophyIcon className="w-4 h-4 text-yellow-400 group-hover:scale-110 transition-transform" />
+                                    <span className="font-bold group-hover:text-white transition-colors">{prizepool.total} €</span>
                                 </button>
                                 <div className="bg-emerald-900/30 px-4 py-1 rounded-full border border-emerald-800 flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -242,7 +252,71 @@
 
                         {/* CONTENT AREA */}
                         <main className="lg:col-span-9">
-                            
+
+                            {/* TAB: PRINCIPE DU JEU (NOUVEAU) */}
+                            {activeTab === 'principe' && (
+                                <div className="space-y-6">
+                                    <div className="flex justify-between items-end mb-8">
+                                        <div>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Le Principe du Jeu</h2>
+                                            <p className="text-slate-400 text-sm">Nouveau dans le paddock ? Voici tout ce qu'il faut savoir pour gérer votre écurie F1 Fantasy.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        {/* BLOC 1 */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-blue-500/50 transition-colors">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/50"><UsersIcon className="w-5 h-5"/></div>
+                                                <h3 className="text-lg font-bold text-white">1. Votre Écurie & Budget</h3>
+                                            </div>
+                                            <p className="text-slate-300 text-sm leading-relaxed">
+                                                Vous prenez les rênes avec un budget initial de <strong className="text-emerald-400">100 millions de dollars</strong>. Votre mission : sélectionner <strong>5 Pilotes</strong> et <strong>2 Constructeurs</strong> (écuries) sans dépasser ce plafond. Tout au long de la saison, la valeur de vos pilotes et écuries montera ou descendra en fonction de leurs performances !
+                                            </p>
+                                        </div>
+
+                                        {/* BLOC 2 */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/50 transition-colors">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/50"><TrendingUpIcon className="w-5 h-5"/></div>
+                                                <h3 className="text-lg font-bold text-white">2. Le Scoring (Les Points)</h3>
+                                            </div>
+                                            <p className="text-slate-300 text-sm leading-relaxed">
+                                                Votre équipe marque des points basés sur les <strong>résultats réels</strong> des Grands Prix (Qualifications, Course, Sprints). Vous gagnez des points pour les dépassements, la pôle position, ou le tour le plus rapide... Mais attention : <span className="text-red-400 font-bold">les abandons (DNF) et disqualifications coûtent de lourdes pénalités</span> !
+                                            </p>
+                                        </div>
+
+                                        {/* BLOC 3 */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-yellow-500/50 transition-colors">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center border border-yellow-500/50"><RefreshCwIcon className="w-5 h-5"/></div>
+                                                <h3 className="text-lg font-bold text-white">3. Gestion & Transferts</h3>
+                                            </div>
+                                            <p className="text-slate-300 text-sm leading-relaxed">
+                                                Entre chaque course, vous pouvez ajuster votre équipe grâce à <strong>2 transferts gratuits</strong>. Un transfert gratuit non utilisé est reporté à la course suivante (max 3 cumulés). Si vous dépassez cette limite, chaque changement supplémentaire vous infligera <strong className="text-red-400">-10 points</strong> au championnat.
+                                            </p>
+                                        </div>
+
+                                        {/* BLOC 4 */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-fuchsia-500/50 transition-colors">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-10 h-10 rounded-full bg-fuchsia-500/20 text-fuchsia-400 flex items-center justify-center border border-fuchsia-500/50"><ZapIcon className="w-5 h-5"/></div>
+                                                <h3 className="text-lg font-bold text-white">4. Boosters & Jetons</h3>
+                                            </div>
+                                            <p className="text-slate-300 text-sm leading-relaxed">
+                                                Désignez un pilote "DRS Boost" à chaque course pour <strong>doubler ses points</strong>. De plus, vous disposez de <strong>6 "Chips" tactiques</strong> utilisables une seule fois dans l'année (Boost 3X, Pilote Auto, Sans Limites...). Visitez l'onglet <em className="text-slate-400">Stratégie Boosters</em> pour devenir un fin tacticien.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex justify-center mt-8">
+                                        <button onClick={() => setActiveTab('inscription')} className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-1">
+                                            Je suis prêt, je m'inscris !
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                             {/* TAB 0: CLASSEMENT */}
                             {activeTab === 'classement' && (
                                 <div className="space-y-6">
@@ -457,10 +531,22 @@
                             {/* TAB 3: FINANCE */}
                             {activeTab === 'finance' && (
                                 <div className="space-y-8">
-                                    <div className="flex justify-between items-end">
+                                    <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4">
                                         <div>
                                             <h2 className="text-2xl font-black text-white uppercase tracking-tight">Trésorerie & Gains</h2>
                                             <p className="text-slate-400 text-sm">Contrôle technique des paiements. Grille complète : <span className="text-white font-bold">{rawData.length} joueurs inscrits</span>.</p>
+                                        </div>
+                                        
+                                        {/* JAUGE DE PROGRESSION INSCRIPTIONS */}
+                                        <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 w-full md:w-72 shadow-lg">
+                                            <div className="flex justify-between text-xs font-bold text-slate-400 mb-2 uppercase tracking-wider">
+                                                <span>Avancement Ligue</span>
+                                                <span className="text-emerald-400">{fullyRegisteredCount} / {rawData.length} Validés</span>
+                                            </div>
+                                            <div className="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden">
+                                                <div className="bg-emerald-500 h-2.5 rounded-full transition-all duration-1000 ease-out" style={{width: `${progressPercent}%`}}></div>
+                                            </div>
+                                            <p className="text-[10px] text-right text-slate-500 mt-1">{progressPercent}% Complété</p>
                                         </div>
                                     </div>
 
