@@ -61,21 +61,21 @@
 
         // --- MOTEUR DE DONNÉES ---
         const rawData = [
-            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: false, probaTitre: 33.0, surnom: "L'Apex Predator" },
+            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, probaTitre: 33.0, surnom: "L'Apex Predator" },
             { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, probaTitre: 15, surnom: "Aileron Mobile Activé" },
             { id: 3, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, probaTitre: 10, surnom: "Le Diesel" },
             { id: 4, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, probaTitre: 8, surnom: "Pneu Dur" },
             { id: 5, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, probaTitre: 20, surnom: "Le Prodige" },
             { id: 6, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 3, surnom: "Chicane Mobile" },
-            { id: 7, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 2, surnom: "Dans les graviers" },
+            { id: 7, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 2, surnom: "Dans les graviers" },
             { id: 8, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 1, surnom: "Drapeau Bleu" },
             { id: 9, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Rookie Error" },
-            { id: 10, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: false, probaTitre: 0.5, surnom: "Touriste du Paddock" },
+            { id: 10, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Touriste du Paddock" },
             { id: 11, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Dans le mur de la pitlane" },
             { id: 12, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "En rodage" },
             { id: 13, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Le petit nouveau" },
             { id: 14, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, probaTitre: 5.0, surnom: "Vieux loup de mer" },
-            { id: 15, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: false, ligue: false, probaTitre: 0.5, surnom: "Rookie Tardif" },
+            { id: 15, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Rookie Tardif" },
         ];
 
         const prizepool = {
@@ -92,8 +92,7 @@
         };
 
         const paddockNews = [
-            { time: "Alerte Inscriptions", type: "exploit", text: "Félicitations aux bons élèves : Gus, Pintu, Valentin, Léo, Ti Bordo, Rémy, Stéphane, Lucas, Flo, Johan et Adri ont validé leur baquet et réglé la FIA ! Les monoplaces sont prêtes." },
-            { time: "Avis à la grille", type: "drama", text: "Retardataires identifiés : Simon, Adams, Ahmed et Marc... Le bureau des pénalités vous attend. Sortez la CB ou rejoignez la ligue !" },
+            { time: "Feu Vert", type: "exploit", text: "INCROYABLE ! La grille est complétée à 100% avant le début des qualifications. La FIA salue la ponctualité de tous les pilotes. Que la saison commence !" },
             { time: "Focus Vétérans", type: "drama", text: "Ti Bordo (7 saisons) et Pintu (6 saisons) n'ont toujours pas la moindre couronne... 2026 : l'année de la consécration ou du désespoir ?" },
             { time: "Le Tenant du Titre", type: "exploit", text: "Le paddock a les yeux rivés sur Valentin. Le Prodige remet son titre en jeu. Résistera-t-il à la pression ?" },
             { time: "La Légende", type: "exploit", text: "Simon, l'Apex Predator, trône toujours avec ses 4 étoiles et le plus gros palmarès de la Box Box League. Inarrêtable." },
