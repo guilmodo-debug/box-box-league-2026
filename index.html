@@ -61,21 +61,21 @@
 
         // --- MOTEUR DE DONNÉES ---
         const rawData = [
-            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, probaTitre: 33.0, surnom: "L'Apex Predator" },
-            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, probaTitre: 15, surnom: "Aileron Mobile Activé" },
-            { id: 3, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, probaTitre: 10, surnom: "Le Diesel" },
-            { id: 4, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, probaTitre: 8, surnom: "Pneu Dur" },
-            { id: 5, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, probaTitre: 20, surnom: "Le Prodige" },
-            { id: 6, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 3, surnom: "Chicane Mobile" },
-            { id: 7, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 2, surnom: "Dans les graviers" },
-            { id: 8, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 1, surnom: "Drapeau Bleu" },
-            { id: 9, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Rookie Error" },
-            { id: 10, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Touriste du Paddock" },
-            { id: 11, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Dans le mur de la pitlane" },
-            { id: 12, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "En rodage" },
-            { id: 13, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Le petit nouveau" },
-            { id: 14, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, probaTitre: 5.0, surnom: "Vieux loup de mer" },
-            { id: 15, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Rookie Tardif" },
+            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, probaTitre: 33.0, surnom: "L'Apex Predator", points: 65, budget: 100.0, usedBoosters: [] },
+            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, probaTitre: 15, surnom: "Aileron Mobile Activé", points: 69, budget: 100.0, usedBoosters: [] },
+            { id: 3, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, probaTitre: 10, surnom: "Le Diesel", points: 56, budget: 100.0, usedBoosters: [] },
+            { id: 4, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, probaTitre: 8, surnom: "Pneu Dur", points: 49, budget: 100.0, usedBoosters: [] },
+            { id: 5, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, probaTitre: 20, surnom: "Le Prodige", points: 41, budget: 100.0, usedBoosters: [] },
+            { id: 6, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 3, surnom: "Chicane Mobile", points: 40, budget: 100.0, usedBoosters: [] },
+            { id: 7, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 2, surnom: "Dans les graviers", points: 40, budget: 100.0, usedBoosters: [] },
+            { id: 8, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 1, surnom: "Drapeau Bleu", points: 49, budget: 100.0, usedBoosters: [] },
+            { id: 9, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Rookie Error", points: 48, budget: 100.0, usedBoosters: [] },
+            { id: 10, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Touriste du Paddock", points: 41, budget: 100.0, usedBoosters: [] },
+            { id: 11, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Dans le mur de la pitlane", points: 35, budget: 100.0, usedBoosters: [] },
+            { id: 12, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "En rodage", points: 38, budget: 100.0, usedBoosters: [] },
+            { id: 13, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Le petit nouveau", points: 42, budget: 100.0, usedBoosters: [] },
+            { id: 14, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, probaTitre: 5.0, surnom: "Vieux loup de mer", points: 60, budget: 100.0, usedBoosters: [] },
+            { id: 15, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, probaTitre: 0.5, surnom: "Rookie Tardif", points: 52, budget: 100.0, usedBoosters: ['Limitless'] },
         ];
 
         const prizepool = {
@@ -92,11 +92,11 @@
         };
 
         const paddockNews = [
-            { time: "Feu Vert", type: "exploit", text: "INCROYABLE ! La grille est complétée à 100% avant le début des qualifications. La FIA salue la ponctualité de tous les pilotes. Que la saison commence !" },
-            { time: "Focus Vétérans", type: "drama", text: "Ti Bordo (7 saisons) et Pintu (6 saisons) n'ont toujours pas la moindre couronne... 2026 : l'année de la consécration ou du désespoir ?" },
-            { time: "Le Tenant du Titre", type: "exploit", text: "Le paddock a les yeux rivés sur Valentin. Le Prodige remet son titre en jeu. Résistera-t-il à la pression ?" },
-            { time: "La Légende", type: "exploit", text: "Simon, l'Apex Predator, trône toujours avec ses 4 étoiles et le plus gros palmarès de la Box Box League. Inarrêtable." },
-            { time: "Mot de bienvenue", type: "rookie", text: "Un grand bienvenue à nos 8 rookies cette année : Adri, Adams, Rémy, Ahmed, Johan, Stéphane, Lucas et Marc. Faites chauffer la gomme !" }
+            { time: "Flash Qualifs", type: "exploit", text: "Les premiers points sont tombés ! Gus (69 pts) et Simon (65 pts) prennent directement les rênes du championnat. La bataille s'annonce épique." },
+            { time: "Alerte Booster", type: "drama", text: "La pression est déjà trop forte ! Un pilote a paniqué et claqué son jeton 'Limitless' dès le début de la saison... Coup de génie ou erreur de débutant ?" },
+            { time: "Feu Vert", type: "exploit", text: "INCROYABLE ! La grille est complétée à 100% avant le début des qualifications. La FIA salue la ponctualité de tous les pilotes." },
+            { time: "Le Tenant du Titre", type: "drama", text: "Début de championnat timide pour Valentin (41 pts) le tenant du titre... L'Autopilot va-t-il le sauver pour la course ?" },
+            { time: "Focus Vétérans", type: "drama", text: "Ti Bordo (7 saisons) et Pintu (6 saisons) n'ont toujours pas la moindre couronne... 2026 : l'année de la consécration ou du désespoir ?" }
         ];
 
         const calendar2026 = [
@@ -133,7 +133,7 @@
             </div>
         );
 
-        const ChipBadge = ({ type, onClick }) => {
+        const ChipBadge = ({ type, used, onClick }) => {
             const config = {
                 '3X': { icon: <ZapIcon className="w-3 h-3"/>, bg: 'bg-fuchsia-500/20', text: 'text-fuchsia-400', border: 'border-fuchsia-500/50', label: '3X' },
                 'Limitless': { icon: <ActivityIcon className="w-3 h-3"/>, bg: 'bg-emerald-500/20', text: 'text-emerald-400', border: 'border-emerald-500/50', label: 'LIM' },
@@ -143,6 +143,15 @@
                 'FinalFix': { icon: <WrenchIcon className="w-3 h-3"/>, bg: 'bg-rose-500/20', text: 'text-rose-400', border: 'border-rose-500/50', label: 'FIX' }
             };
             const c = config[type];
+            
+            if (used) {
+                return (
+                    <div onClick={onClick} className="flex items-center justify-center w-8 h-8 rounded-full border bg-slate-800/50 border-slate-700/50 text-slate-600 cursor-not-allowed shadow-inner" title={`${type} (Déjà utilisé)`}>
+                        <CheckCircleIcon className="w-4 h-4 opacity-50" />
+                    </div>
+                );
+            }
+
             return (
                 <div onClick={onClick} className={`flex items-center justify-center w-8 h-8 rounded-full border ${c.bg} ${c.text} ${c.border} cursor-pointer hover:scale-110 transition-transform shadow-sm`} title={type}>
                     {c.icon}
@@ -152,8 +161,11 @@
 
         // --- APPLICATION PRINCIPALE ---
         function App() {
-            const [activeTab, setActiveTab] = useState('principe');
+            const [activeTab, setActiveTab] = useState('classement');
             const [data, setData] = useState([]);
+
+            // Classement Live trié par points
+            const classementData = [...rawData].sort((a, b) => b.points - a.points);
 
             // Calcul du taux d'avancement des inscriptions
             const fullyRegisteredCount = rawData.filter(j => j.paypal && j.ligue).length;
@@ -335,7 +347,7 @@
                                             <table className="w-full text-left border-collapse min-w-[700px]">
                                                 <thead>
                                                     <tr className="bg-slate-950/50 text-xs uppercase tracking-wider text-slate-500 border-b border-slate-800">
-                                                        <th className="px-6 py-4 font-semibold w-12">Pos</th>
+                                                        <th className="px-6 py-4 font-semibold w-12 text-center">Pos</th>
                                                         <th className="px-6 py-4 font-semibold">Écurie / Pilote</th>
                                                         <th className="px-6 py-4 font-semibold text-center">Points</th>
                                                         <th className="px-6 py-4 font-semibold text-center">Budget</th>
@@ -343,33 +355,37 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody className="divide-y divide-slate-800">
-                                                    {data.map((joueur, index) => (
+                                                    {classementData.map((joueur, index) => (
                                                         <tr key={joueur.id} className="hover:bg-slate-800/50 transition-colors">
                                                             <td className="px-6 py-4 text-center">
-                                                                <span className="font-bold text-slate-500">-</span>
+                                                                <span className={`font-black text-lg ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-slate-300' : index === 2 ? 'text-orange-400' : 'text-slate-500'}`}>
+                                                                    {index + 1}
+                                                                </span>
                                                             </td>
                                                             <td className="px-6 py-4">
                                                                 <div className="flex items-center gap-2">
-                                                                    <span className="text-2xl">{joueur.statut}</span>
-                                                                    <span className="font-bold text-white text-base">{joueur.nom}</span>
+                                                                    <span className="text-2xl" title={joueur.statut}>{joueur.statut}</span>
+                                                                    <div className="flex flex-col">
+                                                                        <span className="font-bold text-white text-base">{joueur.nom}</span>
+                                                                    </div>
                                                                 </div>
                                                             </td>
                                                             <td className="px-6 py-4 text-center">
-                                                                <span className="font-mono text-xl font-bold text-white">0</span>
+                                                                <span className="font-mono text-xl font-black text-white">{joueur.points}</span>
                                                             </td>
                                                             <td className="px-6 py-4 text-center">
                                                                 <span className="font-mono font-medium text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded border border-emerald-400/20">
-                                                                    $100.0M
+                                                                    ${joueur.budget.toFixed(1)}M
                                                                 </span>
                                                             </td>
                                                             <td className="px-6 py-4">
                                                                 <div className="flex items-center justify-center gap-2">
-                                                                    <ChipBadge type="3X" onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="Limitless" onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="NoNegative" onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="Wildcard" onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="Autopilot" onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="FinalFix" onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="3X" used={joueur.usedBoosters.includes('3X')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="Limitless" used={joueur.usedBoosters.includes('Limitless')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="NoNegative" used={joueur.usedBoosters.includes('NoNegative')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="Wildcard" used={joueur.usedBoosters.includes('Wildcard')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="Autopilot" used={joueur.usedBoosters.includes('Autopilot')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="FinalFix" used={joueur.usedBoosters.includes('FinalFix')} onClick={() => setActiveTab('boosters')} />
                                                                 </div>
                                                             </td>
                                                         </tr>
