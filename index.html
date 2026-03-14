@@ -42,7 +42,6 @@
         const CheckCircleIcon = ({ className }) => <Icon className={className}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></Icon>;
         const ExternalLinkIcon = ({ className }) => <Icon className={className}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></Icon>;
         const StarIcon = ({ className }) => <Icon className={className}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></Icon>;
-        const InfinityIcon = ({ className }) => <Icon className={className}><path d="M8 8v8M16 8v8M12 8v8M4 8v8M20 8v8"/></Icon>;
         const ListOrderedIcon = ({ className }) => <Icon className={className}><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></Icon>;
         const WrenchIcon = ({ className }) => <Icon className={className}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></Icon>;
         const TargetIcon = ({ className }) => <Icon className={className}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></Icon>;
@@ -101,30 +100,30 @@
         ];
 
         const calendar2026 = [
-            { round: 1, country: "Australie", name: "GRAND Prix d’Australie 2026 DE FORMULE 1 QATAR AIRWAYS", date: "06 - 08 mars", sprint: false },
-            { round: 2, country: "Chine", name: "GRAND PRIX DE CHINE DE FORMULE 1 HEINEKEN 2026", date: "13 - 15 mars", sprint: true },
-            { round: 3, country: "Japon", name: "FORMULA 1 ARAMCO GRAND PRIX DU JAPON 2026", date: "27 - 29 mars", sprint: false },
-            { round: 4, country: "Bahreïn", name: "GRAND PRIX DE BAHREÏN DE FORMULE 1 GULF AIR 2026", date: "10 - 12 avril", sprint: false },
-            { round: 5, country: "Arabie Saoudite", name: "GRAND PRIX D’ARABIE SAOUDITE DE FORMULE 1 STC 2026", date: "17 - 19 avril", sprint: false },
-            { round: 6, country: "Miami", name: "FORMULE 1 CRYPTO.COM GRAND PRIX DE MIAMI 2026", date: "01 - 03 mai", sprint: true },
-            { round: 7, country: "Canada", name: "GRAND PRIX LENOVO DU CANADA 2026 DE FORMULE 1", date: "22 - 24 mai", sprint: true },
-            { round: 8, country: "Monaco", name: "GRAND PRIX DE MONACO DE FORMULA LOUIS VUITTON 2026", date: "05 - 07 juin", sprint: false },
-            { round: 9, country: "Barcelone-Catalogne", name: "FORMULA 1 MSC CRUISES GRAN PREMIO DE BARCELONA-CATALOGNE 2026", date: "12 - 14 juin", sprint: false },
-            { round: 10, country: "Autriche", name: "GRAND PRIX D’AUTRICHE LENOVO DE FORMULE 1 2026", date: "26 - 28 juin", sprint: false },
-            { round: 11, country: "Grande-Bretagne", name: "GRAND PRIX DE GRANDE-BRETAGNE DE FORMULE PIRELLI 2026", date: "03 - 05 juil.", sprint: true },
-            { round: 12, country: "Belgique", name: "GRAND Prix de BELGIQUE 2026 FORMULE 1 MOËT & CHANDON", date: "17 - 19 juillet", sprint: false },
-            { round: 13, country: "Hongrie", name: "GRAND PRIX DE HONGRIE AWS DE FORMULE 1 2026", date: "24 - 26 juillet", sprint: false },
-            { round: 14, country: "Pays-Bas", name: "GRAND PRIX DES PAYS-BAS HEINEKEN DE FORMULE 1 2026", date: "21 - 23 août", sprint: true },
-            { round: 15, country: "Italie", name: "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2026", date: "04 - 06 sept", sprint: false },
-            { round: 16, country: "Espagne", name: "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026", date: "11 - 13 sept", sprint: false },
-            { round: 17, country: "Azerbaïdjan", name: "GRAND PRIX AZERBAIDJAN 2026 DE FORMULE 1 QATAR AIRWAYS", date: "24 - 26 sept", sprint: false },
-            { round: 18, country: "Singapour", name: "GRAND PRIX DE SINGAPOUR 2026 DE FORMULE 1 SINGAPORE AIRLINES", date: "09 - 11 oct", sprint: true },
-            { round: 19, country: "États-Unis", name: "GRAND PRIX DES ÉTATS-UNIS DE FORMULE 1 MSC 2026", date: "23 - 25 oct", sprint: false },
-            { round: 20, country: "Mexique", name: "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026", date: "30 oct. - 01 nov", sprint: false },
-            { round: 21, country: "Brésil", name: "FORMULE 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2026", date: "06 - 08 nov", sprint: false },
-            { round: 22, country: "Las Vegas", name: "GRAND PRIX DE FORMULE 1 HEINEKEN LAS VEGAS 2026", date: "19 - 21 nov", sprint: false },
-            { round: 23, country: "Qatar", name: "GRAND Prix QATAR 2026 DE FORMULE 1 QATAR AIRWAYS", date: "27 - 29 nov", sprint: false },
-            { round: 24, country: "Abu Dhabi", name: "FORMULE 1 ETIHAD AIRWAYS GRAND PRIX D’ABU DHABI 2026", date: "04 - 06 déc", sprint: false },
+            { round: 1, country: "Australie", name: "GRAND Prix d’Australie 2026 DE FORMULE 1 QATAR AIRWAYS", date: "06 - 08 mars", sprint: false, status: 'past' },
+            { round: 2, country: "Chine", name: "GRAND PRIX DE CHINE DE FORMULE 1 HEINEKEN 2026", date: "13 - 15 mars", sprint: true, status: 'past' },
+            { round: 3, country: "Japon", name: "FORMULA 1 ARAMCO GRAND PRIX DU JAPON 2026", date: "27 - 29 mars", sprint: false, status: 'upcoming' },
+            { round: 4, country: "Bahreïn", name: "GRAND PRIX DE BAHREÏN DE FORMULE 1 GULF AIR 2026", date: "10 - 12 avril", sprint: false, status: 'canceled' },
+            { round: 5, country: "Arabie Saoudite", name: "GRAND PRIX D’ARABIE SAOUDITE DE FORMULE 1 STC 2026", date: "17 - 19 avril", sprint: false, status: 'canceled' },
+            { round: 6, country: "Miami", name: "FORMULE 1 CRYPTO.COM GRAND PRIX DE MIAMI 2026", date: "01 - 03 mai", sprint: true, status: 'upcoming' },
+            { round: 7, country: "Canada", name: "GRAND PRIX LENOVO DU CANADA 2026 DE FORMULE 1", date: "22 - 24 mai", sprint: true, status: 'upcoming' },
+            { round: 8, country: "Monaco", name: "GRAND PRIX DE MONACO DE FORMULA LOUIS VUITTON 2026", date: "05 - 07 juin", sprint: false, status: 'upcoming' },
+            { round: 9, country: "Barcelone-Catalogne", name: "FORMULA 1 MSC CRUISES GRAN PREMIO DE BARCELONA-CATALOGNE 2026", date: "12 - 14 juin", sprint: false, status: 'upcoming' },
+            { round: 10, country: "Autriche", name: "GRAND PRIX D’AUTRICHE LENOVO DE FORMULE 1 2026", date: "26 - 28 juin", sprint: false, status: 'upcoming' },
+            { round: 11, country: "Grande-Bretagne", name: "GRAND PRIX DE GRANDE-BRETAGNE DE FORMULE PIRELLI 2026", date: "03 - 05 juil.", sprint: true, status: 'upcoming' },
+            { round: 12, country: "Belgique", name: "GRAND Prix de BELGIQUE 2026 FORMULE 1 MOËT & CHANDON", date: "17 - 19 juillet", sprint: false, status: 'upcoming' },
+            { round: 13, country: "Hongrie", name: "GRAND PRIX DE HONGRIE AWS DE FORMULE 1 2026", date: "24 - 26 juillet", sprint: false, status: 'upcoming' },
+            { round: 14, country: "Pays-Bas", name: "GRAND PRIX DES PAYS-BAS HEINEKEN DE FORMULE 1 2026", date: "21 - 23 août", sprint: true, status: 'upcoming' },
+            { round: 15, country: "Italie", name: "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2026", date: "04 - 06 sept", sprint: false, status: 'upcoming' },
+            { round: 16, country: "Espagne", name: "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026", date: "11 - 13 sept", sprint: false, status: 'upcoming' },
+            { round: 17, country: "Azerbaïdjan", name: "GRAND PRIX AZERBAIDJAN 2026 DE FORMULE 1 QATAR AIRWAYS", date: "24 - 26 sept", sprint: false, status: 'upcoming' },
+            { round: 18, country: "Singapour", name: "GRAND PRIX DE SINGAPOUR 2026 DE FORMULE 1 SINGAPORE AIRLINES", date: "09 - 11 oct", sprint: true, status: 'upcoming' },
+            { round: 19, country: "États-Unis", name: "GRAND PRIX DES ÉTATS-UNIS DE FORMULE 1 MSC 2026", date: "23 - 25 oct", sprint: false, status: 'upcoming' },
+            { round: 20, country: "Mexique", name: "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026", date: "30 oct. - 01 nov", sprint: false, status: 'upcoming' },
+            { round: 21, country: "Brésil", name: "FORMULE 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2026", date: "06 - 08 nov", sprint: false, status: 'upcoming' },
+            { round: 22, country: "Las Vegas", name: "GRAND PRIX DE FORMULE 1 HEINEKEN LAS VEGAS 2026", date: "19 - 21 nov", sprint: false, status: 'upcoming' },
+            { round: 23, country: "Qatar", name: "GRAND Prix QATAR 2026 DE FORMULE 1 QATAR AIRWAYS", date: "27 - 29 nov", sprint: false, status: 'upcoming' },
+            { round: 24, country: "Abu Dhabi", name: "FORMULE 1 ETIHAD AIRWAYS GRAND PRIX D’ABU DHABI 2026", date: "04 - 06 déc", sprint: false, status: 'upcoming' },
         ];
 
         // --- COMPOSANTS UI MINEURS ---
@@ -164,6 +163,7 @@
         function App() {
             const [activeTab, setActiveTab] = useState('classement');
             const [data, setData] = useState([]);
+            const [hasUnreadNews, setHasUnreadNews] = useState(true); // État pour la notif Radio Paddock
 
             // Classement Live trié par points décroissants
             const classementData = [...rawData].sort((a, b) => b.points - a.points);
@@ -174,16 +174,31 @@
 
             useEffect(() => {
                 // Algorithme dynamique de probabilité : Combine la "baseProba" historique avec les performances actuelles (Points)
+                // ET pénalise ceux qui ont déjà utilisé des boosters (car ils ont cramé un avantage futur)
                 const totalPoints = rawData.reduce((sum, j) => sum + j.points, 0);
                 
-                const dataWithDynamic = rawData.map(j => {
-                    // Si on est au tout début (0 point), on garde la probabilité de base
-                    let currentPerfShare = totalPoints > 0 ? (j.points / totalPoints) * 100 : j.baseProba;
-                    // Poids de l'algo : 40% Historique, 60% Points de la saison en cours
-                    let rawDynamic = (j.baseProba * 0.4) + (currentPerfShare * 0.6);
+                let totalEffectivePoints = 0;
+                const dataWithEffective = rawData.map(j => {
+                    // Pénalité de -15% sur les points actuels pour chaque booster utilisé (on dégonfle le score artificiel)
+                    const penaltyMultiplier = 1 - (j.usedBoosters.length * 0.15); 
+                    const effectivePoints = j.points * penaltyMultiplier;
+                    totalEffectivePoints += effectivePoints;
+                    return { ...j, effectivePoints };
+                });
+
+                const dataWithDynamic = dataWithEffective.map(j => {
+                    // Part des points effectifs dans le total
+                    let currentPerfShare = totalEffectivePoints > 0 ? (j.effectivePoints / totalEffectivePoints) * 100 : j.baseProba;
+                    
+                    // Bonus d'expérience (0.8 par saison, 2.5 par titre)
+                    let expBonus = (j.saisons * 0.8) + (j.titres * 2.5);
+                    
+                    // Poids de l'algo : 25% Historique Base, 60% Forme actuelle ajustée, 15% Bonus Expérience Pure
+                    let rawDynamic = (j.baseProba * 0.25) + (currentPerfShare * 0.60) + expBonus;
                     return { ...j, rawDynamic };
                 });
 
+                // Normalisation à 100%
                 const sumDyn = dataWithDynamic.reduce((sum, j) => sum + j.rawDynamic, 0);
 
                 const finalData = dataWithDynamic.map(j => {
@@ -194,7 +209,7 @@
                 setData(finalData);
             }, []);
 
-            // Ordre exact du menu selon votre demande
+            // Ordre exact du menu latéral (Radio Paddock retiré car passé dans le Header)
             const navItems = [
                 { id: 'principe', icon: <GamepadIcon className="w-5 h-5" />, label: "Principe du jeu" },
                 { id: 'calendrier', icon: <CalendarIcon className="w-5 h-5" />, label: "Calendrier 2026" },
@@ -204,7 +219,6 @@
                 { id: 'boosters', icon: <StarIcon className="w-5 h-5" />, label: "Stratégie Boosters" },
                 { id: 'regles', icon: <BookOpenIcon className="w-5 h-5" />, label: "Règlement F1" },
                 { id: 'histoire', icon: <HistoryIcon className="w-5 h-5" />, label: "Hall of Fame" },
-                { id: 'drama', icon: <RadioIcon className="w-5 h-5" />, label: "Radio Paddock" },
                 { id: 'finance', icon: <DollarSignIcon className="w-5 h-5" />, label: "FIA (Trésorerie)" },
                 { id: 'inscription', icon: <UserPlusIcon className="w-5 h-5" />, label: "Inscription" },
             ];
@@ -213,22 +227,45 @@
                 <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-red-500 selection:text-white pb-12">
                     {/* HEADER */}
                     <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-lg shadow-black/50">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between relative">
+                            {/* Logo Left */}
                             <div className="flex items-center gap-3">
                                 <div className="bg-red-600 text-white p-2 rounded-lg font-black italic tracking-tighter leading-none transform -skew-x-12">
                                     BOX<br/>BOX
                                 </div>
                                 <div>
-                                    <h1 className="text-xl font-bold text-white tracking-wider">LEAGUE <span className="text-red-500">2026</span></h1>
-                                    <p className="text-xs text-slate-400 uppercase tracking-widest">Dashboard Officiel</p>
+                                    <h1 className="text-xl font-bold text-white tracking-wider hidden sm:block">LEAGUE <span className="text-red-500">2026</span></h1>
                                 </div>
                             </div>
-                            <div className="hidden md:flex gap-4">
-                                <button onClick={() => setActiveTab('finance')} className="bg-slate-800 hover:bg-slate-700 transition-colors px-4 py-1 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer shadow-sm group">
+
+                            {/* BOUTON RADIO PADDOCK AU CENTRE */}
+                            <div className="absolute left-1/2 transform -translate-x-1/2">
+                                <button 
+                                    onClick={() => { setActiveTab('drama'); setHasUnreadNews(false); }}
+                                    className={`relative flex items-center gap-2 px-4 py-2 rounded-xl border transition-colors shadow-sm group
+                                        ${activeTab === 'drama' ? 'bg-slate-800 border-slate-600' : 'bg-slate-900 border-slate-700 hover:bg-slate-800'}
+                                    `}
+                                >
+                                    <RadioIcon className={`w-5 h-5 ${hasUnreadNews ? 'text-red-500 animate-pulse' : (activeTab === 'drama' ? 'text-red-500' : 'text-slate-400 group-hover:text-slate-300')}`} />
+                                    <span className={`font-bold text-sm hidden md:inline ${hasUnreadNews ? 'text-white' : 'text-slate-300'}`}>Radio Paddock</span>
+                                    
+                                    {/* NOTIFICATION DOT */}
+                                    {hasUnreadNews && (
+                                        <span className="absolute -top-1.5 -right-1.5 flex h-3 w-3">
+                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                                        </span>
+                                    )}
+                                </button>
+                            </div>
+
+                            {/* Status Right */}
+                            <div className="flex gap-4">
+                                <button onClick={() => setActiveTab('finance')} className="bg-slate-800 hover:bg-slate-700 transition-colors px-3 sm:px-4 py-1 rounded-full border border-slate-700 flex items-center gap-2 cursor-pointer shadow-sm group">
                                     <TrophyIcon className="w-4 h-4 text-yellow-400 group-hover:scale-110 transition-transform" />
                                     <span className="font-bold group-hover:text-white transition-colors">{prizepool.total} €</span>
                                 </button>
-                                <div className="bg-emerald-900/30 px-4 py-1 rounded-full border border-emerald-800 flex items-center gap-2">
+                                <div className="bg-emerald-900/30 px-3 sm:px-4 py-1 rounded-full border border-emerald-800 hidden lg:flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                                     <span className="text-emerald-400 text-sm font-medium">Saison en cours</span>
                                 </div>
@@ -239,7 +276,7 @@
                     {/* BANDEAU CANAL+ */}
                     <a href={CANAL_LINK} target="_blank" rel="noopener noreferrer" className="block bg-black border-b border-slate-800 text-white flex justify-center items-center py-2 px-4 hover:bg-slate-900 transition-colors group">
                         <span className="font-black italic tracking-tighter mr-3 text-lg">CANAL+</span>
-                        <span className="text-sm text-slate-400 group-hover:text-white transition-colors">Diffuseur Officiel de la F1® - Suivez toute la saison en direct ! 📺</span>
+                        <span className="text-sm text-slate-400 group-hover:text-white transition-colors text-center">Diffuseur Officiel de la F1® - Suivez toute la saison en direct ! 📺</span>
                     </a>
 
                     {/* MAIN LAYOUT */}
@@ -270,7 +307,7 @@
                             })}
 
                             {/* LIEN CACHÉ POUR LES PROS (EASTER EGG) */}
-                            <div className="pt-12">
+                            <div className="pt-12 hidden lg:block">
                                 <a 
                                     href="https://f1fantasytools.com/budget-builder" 
                                     target="_blank" 
@@ -353,30 +390,65 @@
                                     <div className="flex justify-between items-end">
                                         <div>
                                             <h2 className="text-2xl font-black text-white uppercase tracking-tight">Calendrier Officiel 2026</h2>
-                                            <p className="text-slate-400 text-sm">Les 24 manches du championnat du monde. Surveillez les <span className="text-fuchsia-400 font-bold">6 week-ends Sprint</span> pour vos boosters !</p>
+                                            <p className="text-slate-400 text-sm">Les 24 manches du championnat. Suivi des manches terminées et des annulations de la FIA.</p>
                                         </div>
                                     </div>
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                                        {calendar2026.map((race) => (
-                                            <div key={race.round} className={`bg-slate-900 border ${race.sprint ? 'border-fuchsia-500/50 shadow-[0_0_15px_rgba(217,70,239,0.1)]' : 'border-slate-800'} rounded-2xl p-6 relative overflow-hidden group hover:border-slate-600 transition-colors`}>
-                                                <div className="flex justify-between items-start mb-4">
-                                                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Manche {race.round}</span>
-                                                    {race.sprint && (
-                                                        <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-fuchsia-500/20 text-fuchsia-400 px-2 py-1 rounded">
-                                                            <ZapIcon className="w-3 h-3" /> Sprint
-                                                        </span>
+                                        {calendar2026.map((race) => {
+                                            const isPast = race.status === 'past';
+                                            const isCanceled = race.status === 'canceled';
+                                            
+                                            // Styles dynamiques selon le statut
+                                            let bgClass = 'bg-slate-900 border-slate-800 hover:border-slate-600';
+                                            if (isPast) {
+                                                bgClass = 'bg-slate-900/50 border-slate-800/50 opacity-60 grayscale';
+                                            } else if (isCanceled) {
+                                                bgClass = 'bg-red-950/20 border-red-900/50 opacity-80';
+                                            } else if (race.sprint) {
+                                                bgClass = 'bg-slate-900 border-fuchsia-500/50 shadow-[0_0_15px_rgba(217,70,239,0.1)] hover:border-fuchsia-500';
+                                            }
+
+                                            return (
+                                                <div key={race.round} className={`rounded-2xl p-6 relative overflow-hidden transition-all duration-300 border ${bgClass}`}>
+                                                    
+                                                    <div className="flex justify-between items-start mb-4 relative z-10">
+                                                        <span className={`text-xs font-bold uppercase tracking-widest ${isCanceled ? 'text-red-500/70' : 'text-slate-500'}`}>Manche {race.round}</span>
+                                                        
+                                                        {isPast && (
+                                                            <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-slate-800 text-slate-400 px-2 py-1 rounded">
+                                                                <CheckCircleIcon className="w-3 h-3" /> Terminé
+                                                            </span>
+                                                        )}
+                                                        {isCanceled && (
+                                                            <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-red-500/20 text-red-500 px-2 py-1 rounded border border-red-500/50">
+                                                                <AlertCircleIcon className="w-3 h-3" /> Annulé
+                                                            </span>
+                                                        )}
+                                                        {!isPast && !isCanceled && race.sprint && (
+                                                            <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-fuchsia-500/20 text-fuchsia-400 px-2 py-1 rounded">
+                                                                <ZapIcon className="w-3 h-3" /> Sprint
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    
+                                                    <h3 className={`text-2xl font-black mb-1 relative z-10 ${isCanceled ? 'text-red-400 line-through decoration-red-500/50' : 'text-white'}`}>{race.country}</h3>
+                                                    <p className={`text-[10px] uppercase tracking-wider mb-6 h-8 line-clamp-2 leading-snug relative z-10 ${isCanceled ? 'text-red-400/50' : 'text-slate-400'}`}>{race.name}</p>
+                                                    
+                                                    <div className={`flex items-center gap-2 p-3 rounded-xl border relative z-10 ${isCanceled ? 'bg-red-950/40 border-red-900/30 text-red-400/70' : 'bg-slate-950/50 border-slate-800/50 text-slate-300'}`}>
+                                                        <CalendarIcon className={`w-4 h-4 ${isCanceled ? 'text-red-500/50' : isPast ? 'text-slate-500' : 'text-emerald-400'}`} />
+                                                        <span className="text-sm font-bold">{race.date}</span>
+                                                    </div>
+
+                                                    {/* Canceled Watermark Background */}
+                                                    {isCanceled && (
+                                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10 rotate-[-20deg]">
+                                                            <span className="text-6xl font-black text-red-500 whitespace-nowrap">CANCELED</span>
+                                                        </div>
                                                     )}
                                                 </div>
-                                                <h3 className="text-2xl font-black text-white mb-1">{race.country}</h3>
-                                                <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-6 h-8 line-clamp-2 leading-snug">{race.name}</p>
-                                                
-                                                <div className="flex items-center gap-2 text-slate-300 bg-slate-950/50 p-3 rounded-xl border border-slate-800/50">
-                                                    <CalendarIcon className="w-4 h-4 text-emerald-400" />
-                                                    <span className="text-sm font-bold">{race.date}</span>
-                                                </div>
-                                            </div>
-                                        ))}
+                                            )
+                                        })}
                                     </div>
                                 </div>
                             )}
@@ -424,7 +496,7 @@
                                                                 <span className="font-mono text-xl font-black text-white">{joueur.points}</span>
                                                             </td>
                                                             <td className="px-6 py-4 text-center">
-                                                                <span className="font-mono font-medium text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded border border-emerald-400/20">
+                                                                <span className={`font-mono font-medium px-3 py-1 rounded border ${joueur.budget > 100.0 ? 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' : 'text-red-400 bg-red-400/10 border-red-400/20'}`}>
                                                                     ${joueur.budget.toFixed(1)}M
                                                                 </span>
                                                             </td>
@@ -452,8 +524,8 @@
                                 <div className="space-y-6 animate-in fade-in duration-500">
                                     <div className="flex justify-between items-end">
                                         <div>
-                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Pronostics Live de la Saison</h2>
-                                            <p className="text-slate-400 text-sm">Probabilités de remporter le titre. <span className="text-emerald-400">Algorithme actualisé en temps réel</span> selon les points marqués.</p>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Pronostics Vainqueur (Live)</h2>
+                                            <p className="text-slate-400 text-sm">Algorithme actualisé calculant : <span className="text-white font-medium">Points actuels (malussés si booster utilisé) + Expérience (Saisons/Titres) + Historique</span>.</p>
                                         </div>
                                     </div>
 
@@ -801,7 +873,7 @@
                                 </div>
                             )}
 
-                            {/* TAB: RADIO PADDOCK */}
+                            {/* TAB: RADIO PADDOCK (DRAMA) */}
                             {activeTab === 'drama' && (
                                 <div className="space-y-6 animate-in fade-in duration-500">
                                     <div className="flex justify-between items-end">
