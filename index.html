@@ -62,21 +62,21 @@
 
         // --- MOTEUR DE DONNÉES ---
         const rawData = [
-            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator", points: 240, budget: 101.6, usedBoosters: [], whines: 0 },
-            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15, surnom: "Aileron Mobile Activé", points: 231, budget: 100.5, usedBoosters: [], whines: 0 },
-            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 230, budget: 102.4, usedBoosters: [], whines: 0 },
-            { id: 4, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Touriste du Paddock", points: 226, budget: 103.1, usedBoosters: [], whines: 0 },
-            { id: 5, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Error", points: 214, budget: 101.1, usedBoosters: [], whines: 0 },
-            { id: 6, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8, surnom: "Pneu Dur", points: 212, budget: 102.1, usedBoosters: [], whines: 0 },
-            { id: 7, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10, surnom: "Le Diesel", points: 197, budget: 101.9, usedBoosters: [], whines: 0 },
-            { id: 8, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Tardif", points: 197, budget: 102.0, usedBoosters: ['NoNegative'], whines: 0 },
-            { id: 9, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2, surnom: "Dans les graviers", points: 185, budget: 101.8, usedBoosters: [], whines: 0 },
-            { id: 10, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Le petit nouveau", points: 180, budget: 102.7, usedBoosters: [], whines: 1 },
-            { id: 11, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20, surnom: "Le Prodige", points: 171, budget: 101.7, usedBoosters: [], whines: 0 },
-            { id: 12, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "En rodage", points: 152, budget: 101.2, usedBoosters: [], whines: 0 },
-            { id: 13, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Dans le mur de la pitlane", points: 95, budget: 99.6, usedBoosters: [], whines: 0 },
-            { id: 14, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1, surnom: "Drapeau Bleu", points: 92, budget: 101.2, usedBoosters: [], whines: 0 },
-            { id: 15, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3, surnom: "Chicane Mobile", points: 85, budget: 98.8, usedBoosters: [], whines: 0 },
+            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator", points: 375, budget: 101.6, usedBoosters: [], whines: 0 },
+            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15, surnom: "Aileron Mobile Activé", points: 357, budget: 100.5, usedBoosters: ['Wildcard'], whines: 0 },
+            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 356, budget: 102.4, usedBoosters: [], whines: 0 },
+            { id: 4, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Touriste du Paddock", points: 388, budget: 103.1, usedBoosters: [], whines: 0 },
+            { id: 5, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Error", points: 411, budget: 101.1, usedBoosters: ['3X'], whines: 0 },
+            { id: 6, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8, surnom: "Pneu Dur", points: 457, budget: 102.1, usedBoosters: ['Limitless'], whines: 0 },
+            { id: 7, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10, surnom: "Le Diesel", points: 307, budget: 101.9, usedBoosters: [], whines: 0 },
+            { id: 8, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Tardif", points: 313, budget: 102.0, usedBoosters: ['NoNegative'], whines: 0 },
+            { id: 9, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2, surnom: "Dans les graviers", points: 308, budget: 101.8, usedBoosters: [], whines: 0 },
+            { id: 10, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Le petit nouveau", points: 315, budget: 102.7, usedBoosters: [], whines: 1 },
+            { id: 11, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "En rodage", points: 289, budget: 101.2, usedBoosters: [], whines: 0 },
+            { id: 12, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20, surnom: "Le Prodige", points: 268, budget: 101.7, usedBoosters: [], whines: 0 },
+            { id: 13, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Dans le mur de la pitlane", points: 232, budget: 99.6, usedBoosters: [], whines: 0 },
+            { id: 14, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1, surnom: "Drapeau Bleu", points: 203, budget: 101.2, usedBoosters: [], whines: 0 },
+            { id: 15, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3, surnom: "Chicane Mobile", points: 188, budget: 98.8, usedBoosters: [], whines: 0 },
         ];
 
         const prizepool = {
@@ -93,11 +93,11 @@
         };
 
         const paddockNews = [
-            { time: "Fin de course", type: "exploit", text: "Le premier Grand Prix a rendu son verdict ! Simon frappe fort et prend la tête avec 240 pts, suivi de près par Gus et Flo." },
-            { time: "Bureau des pleurs", type: "drama", text: "Lucas ouvre officiellement le compteur des Whines ! La direction de course a bien noté la plainte et l'ajoute au Mur des Pleureuses." },
-            { time: "Alerte Booster", type: "exploit", text: "Marc a activé son jeton 'Pas de Négatif' (No Negative) pour se protéger. Tacticien ou frileux ?" },
-            { time: "Le Tenant du Titre", type: "drama", text: "Début de championnat timide pour Valentin le tenant du titre... Réveil attendu la semaine prochaine." },
-            { time: "Les Rookies", type: "exploit", text: "Grosse performance d'Ahmed (226 pts) et Rémy (214 pts) qui viennent directement jouer les trouble-fêtes dans le haut du tableau !" }
+            { time: "Coup de génie !", type: "exploit", text: "Pintu (457 pts) s'empare de la tête du championnat grâce à un jeton Limitless rentabilisé à la perfection !" },
+            { time: "Surprise", type: "drama", text: "L'Apex Predator Simon est éjecté du podium provisoire ! La concurrence n'a jamais été aussi rude." },
+            { time: "Les Rookies font la loi", type: "exploit", text: "Rémy (411 pts avec son 3X Boost) et Ahmed (388 pts) complètent un podium 100% inattendu. La nouvelle génération a les crocs." },
+            { time: "Bureau des pleurs", type: "drama", text: "Lucas est toujours seul en tête du classement de la mauvaise foi au Mur des Pleureuses avec 1 Whine." },
+            { time: "Alerte Stratégie", type: "drama", text: "Déjà 4 pilotes (Pintu, Rémy, Gus, Marc) ont craqué et utilisé un jeton Booster cette saison..." }
         ];
 
         const calendar2026 = [
