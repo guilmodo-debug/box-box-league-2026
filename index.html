@@ -531,6 +531,72 @@
 
                                     <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
                                         <div className="overflow-x-auto">
+                                            <table className="w-full text-left border-collapse min-w-[700px]">
+                                                <thead>
+                                                    <tr className="bg-slate-950/50 text-xs uppercase tracking-wider text-slate-500 border-b border-slate-800">
+                                                        <th className="px-6 py-4 font-semibold w-12 text-center">Pos</th>
+                                                        <th className="px-6 py-4 font-semibold">Écurie / Pilote</th>
+                                                        <th className="px-6 py-4 font-semibold text-center">Points</th>
+                                                        <th className="px-6 py-4 font-semibold text-center">Budget</th>
+                                                        <th className="px-6 py-4 font-semibold text-center">Boosters Disponibles</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody className="divide-y divide-slate-800">
+                                                    {classementData.map((joueur, index) => (
+                                                        <tr key={joueur.id} className="hover:bg-slate-800/50 transition-colors">
+                                                            <td className="px-6 py-4 text-center">
+                                                                <span className={`font-black text-lg ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-slate-300' : index === 2 ? 'text-orange-400' : 'text-slate-500'}`}>
+                                                                    {index + 1}
+                                                                </span>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <div className="flex items-center gap-2">
+                                                                    <span className="text-2xl" title={joueur.statut}>{joueur.statut}</span>
+                                                                    <div className="flex flex-col">
+                                                                        <span className="font-bold text-white text-base">{joueur.nom}</span>
+                                                                        <span className="text-xs text-slate-500 font-mono mt-1">&gt; {joueur.surnom}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className="px-6 py-4 text-center">
+                                                                <span className="font-mono text-xl font-black text-white">{joueur.points}</span>
+                                                            </td>
+                                                            <td className="px-6 py-4 text-center">
+                                                                <span className={`font-mono font-bold px-3 py-1.5 rounded-lg border ${getBudgetColor(joueur.budget)} transition-colors`}>
+                                                                    ${joueur.budget.toFixed(1)}M
+                                                                </span>
+                                                            </td>
+                                                            <td className="px-6 py-4">
+                                                                <div className="flex items-center justify-center gap-2">
+                                                                    <ChipBadge type="3X" used={joueur.usedBoosters.includes('3X')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="Limitless" used={joueur.usedBoosters.includes('Limitless')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="NoNegative" used={joueur.usedBoosters.includes('NoNegative')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="Wildcard" used={joueur.usedBoosters.includes('Wildcard')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="Autopilot" used={joueur.usedBoosters.includes('Autopilot')} onClick={() => setActiveTab('boosters')} />
+                                                                    <ChipBadge type="FinalFix" used={joueur.usedBoosters.includes('FinalFix')} onClick={() => setActiveTab('boosters')} />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* TAB: CHAMPIONNAT F1 RÉEL */}
+                            {activeTab === 'f1standings' && (
+                                <div className="space-y-6 animate-in fade-in duration-500">
+                                    <div className="flex justify-between items-end">
+                                        <div>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Championnat du Monde F1 (Réel)</h2>
+                                            <p className="text-slate-400 text-sm">Classement officiel des pilotes F1 pour la saison 2026.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+                                        <div className="overflow-x-auto">
                                             <table className="w-full text-left border-collapse min-w-[600px]">
                                                 <thead>
                                                     <tr className="bg-slate-950/50 text-xs uppercase tracking-wider text-slate-500 border-b border-slate-800">
@@ -546,16 +612,16 @@
                                                     {f1Standings.map((driver) => (
                                                         <tr key={driver.pos} className="hover:bg-slate-800/50 transition-colors">
                                                             <td className="px-6 py-4 text-center">
-                                                                <span className="font-mono text-xl font-black text-white">{joueur.points}</span>
-                                                            </td>
-                                                            <td className="px-6 py-4 text-center">
-                                                                <span className={`font-mono font-bold px-3 py-1.5 rounded-lg border ${getBudgetColor(joueur.budget)} transition-colors`}>
-                                                                    ${joueur.budget.toFixed(1)}M
+                                                                <span className={`font-black text-lg ${driver.pos === 1 ? 'text-yellow-400' : driver.pos === 2 ? 'text-slate-300' : driver.pos === 3 ? 'text-orange-400' : 'text-slate-500'}`}>
+                                                                    {driver.pos}
                                                                 </span>
                                                             </td>
-                                                            <td className="px-6 py-4">
-                                                                <div className="flex items-center justify-center gap-2">
-                                                                    <ChipBadge type="3X" used={joueur.usedBoosters.includes('3X')} onClick={() => setActiveTab('boosters')} />
+                                                            <td className="px-6 py-4 font-bold text-white whitespace-nowrap">
+                                                                {driver.driver}
+                                                            </td>
+                                                            <td className="px-6 py-4 text-center">
+                                                                <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded border ${getTeamColor(driver.team)}`}>
+                                                                    {driver.team}
                                                                 </span>
                                                             </td>
                                                             <td className="px-6 py-4 text-center text-slate-300 font-mono">
