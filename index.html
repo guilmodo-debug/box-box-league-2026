@@ -63,7 +63,7 @@
         const rawData = [
             { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator", points: 605, budget: 104.0, usedBoosters: [], whines: 0 },
             { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15, surnom: "Aileron Mobile Activé", points: 548, budget: 102.9, usedBoosters: ['Wildcard'], whines: 0 },
-            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 583, budget: 102.1, usedBoosters: [], whines: 0 },
+            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 583, budget: 102.1, usedBoosters: [], whines: 1 },
             { id: 4, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Touriste du Paddock", points: 662, budget: 106.4, usedBoosters: [], whines: 0 },
             { id: 5, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Error", points: 686, budget: 103.2, usedBoosters: ['3X'], whines: 0 },
             { id: 6, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8, surnom: "Pneu Dur", points: 717, budget: 104.2, usedBoosters: ['Limitless'], whines: 0 },
@@ -226,7 +226,6 @@
             useEffect(() => {
                 // Algorithme dynamique de probabilité : Combine la "baseProba" historique avec les performances actuelles (Points)
                 // ET pénalise ceux qui ont déjà utilisé des boosters (car ils ont cramé un avantage futur)
-                // NOUVEAU : Intègre la notion de Budget !
                 const totalPoints = rawData.reduce((sum, j) => sum + j.points, 0);
                 
                 let totalEffectivePoints = 0;
@@ -245,11 +244,11 @@
                     // Bonus d'expérience (0.8 par saison, 2.5 par titre)
                     let expBonus = (j.saisons * 0.8) + (j.titres * 2.5);
                     
-                    // NOUVEAU : Bonus Budgétaire (1.5 point d'indice par million d'euros de bénéfice généré)
+                    // Bonus Budgétaire (1.5 point d'indice par million d'euros de bénéfice généré)
                     let budgetBonus = Math.max(0, (j.budget - 100) * 1.5);
                     
-                    // Poids de l'algo : 20% Historique, 50% Forme actuelle ajustée, 15% Bonus Expérience, 15% Puissance Financière
-                    let rawDynamic = (j.baseProba * 0.20) + (currentPerfShare * 0.50) + expBonus + budgetBonus;
+                    // NOUVEAUX POIDS : 5% Historique Base, 80% Forme actuelle, 5% Expérience, 10% Finance
+                    let rawDynamic = (j.baseProba * 0.05) + (currentPerfShare * 2.5) + (expBonus * 0.2) + (budgetBonus * 0.8);
                     return { ...j, rawDynamic };
                 });
 
@@ -542,42 +541,82 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody className="divide-y divide-slate-800">
-                                                    {classementData.map((joueur, index) => (
-                                                        <tr key={joueur.id} className="hover:bg-slate-800/50 transition-colors">
-                                                            <td className="px-6 py-4 text-center">
-                                                                <span className={`font-black text-lg ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-slate-300' : index === 2 ? 'text-orange-400' : 'text-slate-500'}`}>
-                                                                    {index + 1}
-                                                                </span>
-                                                            </td>
-                                                            <td className="px-6 py-4">
-                                                                <div className="flex items-center gap-2">
-                                                                    <span className="text-2xl" title={joueur.statut}>{joueur.statut}</span>
-                                                                    <div className="flex flex-col">
-                                                                        <span className="font-bold text-white text-base">{joueur.nom}</span>
-                                                                        <span className="text-xs text-slate-500 font-mono mt-1">&gt; {joueur.surnom}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td className="px-6 py-4 text-center">
-                                                                <span className="font-mono text-xl font-black text-white">{joueur.points}</span>
-                                                            </td>
-                                                            <td className="px-6 py-4 text-center">
-                                                                <span className={`font-mono font-bold px-3 py-1.5 rounded-lg border ${getBudgetColor(joueur.budget)} transition-colors`}>
-                                                                    ${joueur.budget.toFixed(1)}M
-                                                                </span>
-                                                            </td>
-                                                            <td className="px-6 py-4">
-                                                                <div className="flex items-center justify-center gap-2">
-                                                                    <ChipBadge type="3X" used={joueur.usedBoosters.includes('3X')} onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="Limitless" used={joueur.usedBoosters.includes('Limitless')} onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="NoNegative" used={joueur.usedBoosters.includes('NoNegative')} onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="Wildcard" used={joueur.usedBoosters.includes('Wildcard')} onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="Autopilot" used={joueur.usedBoosters.includes('Autopilot')} onClick={() => setActiveTab('boosters')} />
-                                                                    <ChipBadge type="FinalFix" used={joueur.usedBoosters.includes('FinalFix')} onClick={() => setActiveTab('boosters')} />
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
+                                                    {classementData.map((joueur, index) => {
+                                                        // Détermination du budget le plus élevé
+                                                        const maxBudget = Math.max(...classementData.map(j => j.budget));
+                                                        
+                                                        // Détermination des gains prévisionnels
+                                                        let projectedPrize = null;
+                                                        let prizeColor = "";
+                                                        if (index === 0) { projectedPrize = "+165€ (1er)"; prizeColor = "bg-yellow-400/20 text-yellow-400 border-yellow-400/30"; }
+                                                        else if (index === 1) { projectedPrize = "+90€ (2ème)"; prizeColor = "bg-slate-300/20 text-slate-300 border-slate-300/30"; }
+                                                        else if (index === 2) { projectedPrize = "+60€ (3ème)"; prizeColor = "bg-orange-400/20 text-orange-400 border-orange-400/30"; }
+
+                                                        let budgetPrize = null;
+                                                        if (joueur.budget === maxBudget) {
+                                                            budgetPrize = "+30€ (Gros Budget)";
+                                                        }
+
+                                                        // En-têtes de rubriques
+                                                        let sectionHeader = null;
+                                                        if (index === 0) {
+                                                            sectionHeader = <tr key="sec-podium" className="bg-slate-800/80"><td colSpan="5" className="px-6 py-2 text-xs font-black uppercase tracking-widest text-yellow-400 shadow-inner">🏆 Les Leaders (Zone de Gains)</td></tr>;
+                                                        } else if (index === 3) {
+                                                            sectionHeader = <tr key="sec-chasseurs" className="bg-slate-900/80 border-t-2 border-emerald-500/30"><td colSpan="5" className="px-6 py-2 text-xs font-black uppercase tracking-widest text-emerald-400 shadow-inner">🎯 Les Poursuivants</td></tr>;
+                                                        } else if (index === 7) {
+                                                            sectionHeader = <tr key="sec-mid" className="bg-slate-900/80 border-t-2 border-slate-600"><td colSpan="5" className="px-6 py-2 text-xs font-black uppercase tracking-widest text-slate-400 shadow-inner">⚖️ Le Ventre Mou</td></tr>;
+                                                        } else if (index === 11) {
+                                                            sectionHeader = <tr key="sec-bot" className="bg-slate-900/80 border-t-2 border-red-500/30"><td colSpan="5" className="px-6 py-2 text-xs font-black uppercase tracking-widest text-red-400 shadow-inner">🐢 Les Retardataires</td></tr>;
+                                                        }
+
+                                                        return (
+                                                            <React.Fragment key={joueur.id}>
+                                                                {sectionHeader}
+                                                                <tr className="hover:bg-slate-800/50 transition-colors">
+                                                                    <td className="px-6 py-4 text-center">
+                                                                        <span className={`font-black text-lg ${index === 0 ? 'text-yellow-400' : index === 1 ? 'text-slate-300' : index === 2 ? 'text-orange-400' : 'text-slate-500'}`}>
+                                                                            {index + 1}
+                                                                        </span>
+                                                                    </td>
+                                                                    <td className="px-6 py-4">
+                                                                        <div className="flex items-center gap-2">
+                                                                            <span className="text-2xl" title={joueur.statut}>{joueur.statut}</span>
+                                                                            <div className="flex flex-col">
+                                                                                <span className="font-bold text-white text-base">{joueur.nom}</span>
+                                                                                <span className="text-xs text-slate-500 font-mono mt-1">&gt; {joueur.surnom}</span>
+                                                                                
+                                                                                {/* Gains Prévisionnels */}
+                                                                                {(projectedPrize || budgetPrize) && (
+                                                                                    <div className="flex flex-wrap gap-2 mt-2">
+                                                                                        {projectedPrize && <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded border ${prizeColor} shadow-sm`}>{projectedPrize}</span>}
+                                                                                        {budgetPrize && <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded border bg-purple-500/20 text-purple-400 border-purple-500/30 shadow-sm">{budgetPrize}</span>}
+                                                                                    </div>
+                                                                                )}
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="px-6 py-4 text-center">
+                                                                        <span className="font-mono text-xl font-black text-white">{joueur.points}</span>
+                                                                    </td>
+                                                                    <td className="px-6 py-4 text-center">
+                                                                        <span className={`font-mono font-bold px-3 py-1.5 rounded-lg border ${getBudgetColor(joueur.budget)} transition-colors`}>
+                                                                            ${joueur.budget.toFixed(1)}M
+                                                                        </span>
+                                                                    </td>
+                                                                    <td className="px-6 py-4">
+                                                                        <div className="flex items-center justify-center gap-2">
+                                                                            <ChipBadge type="3X" used={joueur.usedBoosters.includes('3X')} onClick={() => setActiveTab('boosters')} />
+                                                                            <ChipBadge type="Limitless" used={joueur.usedBoosters.includes('Limitless')} onClick={() => setActiveTab('boosters')} />
+                                                                            <ChipBadge type="NoNegative" used={joueur.usedBoosters.includes('NoNegative')} onClick={() => setActiveTab('boosters')} />
+                                                                            <ChipBadge type="Wildcard" used={joueur.usedBoosters.includes('Wildcard')} onClick={() => setActiveTab('boosters')} />
+                                                                            <ChipBadge type="Autopilot" used={joueur.usedBoosters.includes('Autopilot')} onClick={() => setActiveTab('boosters')} />
+                                                                            <ChipBadge type="FinalFix" used={joueur.usedBoosters.includes('FinalFix')} onClick={() => setActiveTab('boosters')} />
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </React.Fragment>
+                                                        );
+                                                    })}
                                                 </tbody>
                                             </table>
                                         </div>
