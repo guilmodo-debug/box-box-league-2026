@@ -61,21 +61,21 @@
 
         // --- MOTEUR DE DONNÉES ---
         const rawData = [
-            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator", points: 514, budget: 101.6, usedBoosters: [], whines: 0 },
-            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15, surnom: "Aileron Mobile Activé", points: 467, budget: 100.5, usedBoosters: ['Wildcard'], whines: 0 },
-            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 515, budget: 102.4, usedBoosters: [], whines: 0 },
-            { id: 4, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Touriste du Paddock", points: 548, budget: 103.1, usedBoosters: [], whines: 0 },
-            { id: 5, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Error", points: 563, budget: 101.1, usedBoosters: ['3X'], whines: 0 },
-            { id: 6, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8, surnom: "Pneu Dur", points: 625, budget: 102.1, usedBoosters: ['Limitless'], whines: 0 },
-            { id: 7, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10, surnom: "Le Diesel", points: 433, budget: 101.9, usedBoosters: [], whines: 0 },
-            { id: 8, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Tardif", points: 406, budget: 102.0, usedBoosters: ['NoNegative'], whines: 0 },
-            { id: 9, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2, surnom: "Dans les graviers", points: 384, budget: 101.8, usedBoosters: [], whines: 0 },
-            { id: 10, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Le petit nouveau", points: 447, budget: 102.7, usedBoosters: [], whines: 1 },
-            { id: 11, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "En rodage", points: 391, budget: 101.2, usedBoosters: [], whines: 0 },
-            { id: 12, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20, surnom: "Le Prodige", points: 449, budget: 101.7, usedBoosters: [], whines: 0 },
-            { id: 13, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Dans le mur de la pitlane", points: 326, budget: 99.6, usedBoosters: [], whines: 0 },
-            { id: 14, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1, surnom: "Drapeau Bleu", points: 165, budget: 101.2, usedBoosters: [], whines: 0 },
-            { id: 15, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3, surnom: "Chicane Mobile", points: 369, budget: 98.8, usedBoosters: [], whines: 0 },
+            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator", points: 605, budget: 104.0, usedBoosters: [], whines: 0 },
+            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15, surnom: "Aileron Mobile Activé", points: 548, budget: 102.9, usedBoosters: ['Wildcard'], whines: 0 },
+            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 583, budget: 102.1, usedBoosters: [], whines: 0 },
+            { id: 4, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Touriste du Paddock", points: 662, budget: 106.4, usedBoosters: [], whines: 0 },
+            { id: 5, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Error", points: 686, budget: 103.2, usedBoosters: ['3X'], whines: 0 },
+            { id: 6, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8, surnom: "Pneu Dur", points: 717, budget: 104.2, usedBoosters: ['Limitless'], whines: 0 },
+            { id: 7, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10, surnom: "Le Diesel", points: 532, budget: 104.3, usedBoosters: [], whines: 0 },
+            { id: 8, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Tardif", points: 470, budget: 103.2, usedBoosters: ['NoNegative'], whines: 0 },
+            { id: 9, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2, surnom: "Dans les graviers", points: 486, budget: 103.0, usedBoosters: [], whines: 0 },
+            { id: 10, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Le petit nouveau", points: 554, budget: 106.0, usedBoosters: [], whines: 1 },
+            { id: 11, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "En rodage", points: 494, budget: 104.8, usedBoosters: [], whines: 0 },
+            { id: 12, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20, surnom: "Le Prodige", points: 522, budget: 105.3, usedBoosters: [], whines: 0 },
+            { id: 13, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Dans le mur de la pitlane", points: 430, budget: 102.0, usedBoosters: [], whines: 0 },
+            { id: 14, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1, surnom: "Drapeau Bleu", points: 247, budget: 101.8, usedBoosters: [], whines: 0 },
+            { id: 15, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3, surnom: "Chicane Mobile", points: 450, budget: 101.2, usedBoosters: [], whines: 0 },
         ];
 
         const f1Standings = [
@@ -134,9 +134,9 @@
         };
 
         const paddockNews = [
-            { time: "GP Japon", type: "exploit", text: "Pintu pulvérise tous les compteurs et s'envole avec 625 points ! Ses adversaires sont sous le choc." },
+            { time: "Mise à jour F1", type: "exploit", text: "Pintu mène la danse avec 717 pts, mais attention : Rémy et Ahmed (qui possède un budget colossal de 106,4 M€ !) reviennent fort." },
+            { time: "Finance & Stratégie", type: "drama", text: "L'algorithme prend désormais en compte le BUDGET ! Lucas (106M€) et Valentin (105,3M€) grimpent dans les pronostics." },
             { time: "Championnat F1", type: "drama", text: "Mercedes domine le championnat du monde réel avec Russell et Antonelli. Ferrari est en embuscade." },
-            { time: "Les Rookies font la loi", type: "exploit", text: "Rémy (563 pts) et Ahmed (548 pts) sont intraitables. L'ancienne garde (Simon, Gus, Flo) doit réagir !" },
             { time: "Bureau des pleurs", type: "drama", text: "Lucas est toujours seul en tête du classement de la mauvaise foi au Mur des Pleureuses avec 1 Whine." },
             { time: "Alerte Stratégie", type: "drama", text: "Déjà 4 pilotes (Pintu, Rémy, Gus, Marc) ont craqué et utilisé un jeton Booster cette saison..." }
         ];
@@ -217,6 +217,7 @@
             useEffect(() => {
                 // Algorithme dynamique de probabilité : Combine la "baseProba" historique avec les performances actuelles (Points)
                 // ET pénalise ceux qui ont déjà utilisé des boosters (car ils ont cramé un avantage futur)
+                // NOUVEAU : Intègre la notion de Budget !
                 const totalPoints = rawData.reduce((sum, j) => sum + j.points, 0);
                 
                 let totalEffectivePoints = 0;
@@ -235,8 +236,11 @@
                     // Bonus d'expérience (0.8 par saison, 2.5 par titre)
                     let expBonus = (j.saisons * 0.8) + (j.titres * 2.5);
                     
-                    // Poids de l'algo : 25% Historique Base, 60% Forme actuelle ajustée, 15% Bonus Expérience Pure
-                    let rawDynamic = (j.baseProba * 0.25) + (currentPerfShare * 0.60) + expBonus;
+                    // NOUVEAU : Bonus Budgétaire (1.5 point d'indice par million d'euros de bénéfice généré)
+                    let budgetBonus = Math.max(0, (j.budget - 100) * 1.5);
+                    
+                    // Poids de l'algo : 20% Historique, 50% Forme actuelle ajustée, 15% Bonus Expérience, 15% Puissance Financière
+                    let rawDynamic = (j.baseProba * 0.20) + (currentPerfShare * 0.50) + expBonus + budgetBonus;
                     return { ...j, rawDynamic };
                 });
 
@@ -625,7 +629,7 @@
                                     <div className="flex justify-between items-end">
                                         <div>
                                             <h2 className="text-2xl font-black text-white uppercase tracking-tight">Pronostics Vainqueur (Live)</h2>
-                                            <p className="text-slate-400 text-sm">Algorithme actualisé calculant : <span className="text-white font-medium">Points actuels (malussés si booster utilisé) + Expérience (Saisons/Titres) + Historique</span>.</p>
+                                            <p className="text-slate-400 text-sm">Algorithme actualisé calculant : <span className="text-white font-medium">Points actuels (malus si booster) + Puissance Financière (Budget) + Expérience</span>.</p>
                                         </div>
                                     </div>
 
