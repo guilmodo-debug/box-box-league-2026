@@ -61,41 +61,41 @@
 
         // --- MOTEUR DE DONNÉES ---
         const rawData = [
-            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator", points: 605, budget: 104.0, usedBoosters: [], whines: 0 },
-            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15, surnom: "Aileron Mobile Activé", points: 548, budget: 102.9, usedBoosters: ['Wildcard'], whines: 0 },
-            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 583, budget: 102.1, usedBoosters: [], whines: 1 },
-            { id: 4, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Touriste du Paddock", points: 662, budget: 106.4, usedBoosters: [], whines: 0 },
-            { id: 5, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Error", points: 686, budget: 103.2, usedBoosters: ['3X'], whines: 0 },
-            { id: 6, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8, surnom: "Pneu Dur", points: 717, budget: 104.2, usedBoosters: ['Limitless'], whines: 0 },
-            { id: 7, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10, surnom: "Le Diesel", points: 532, budget: 104.3, usedBoosters: [], whines: 0 },
-            { id: 8, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Tardif", points: 470, budget: 103.2, usedBoosters: ['NoNegative'], whines: 0 },
-            { id: 9, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2, surnom: "Dans les graviers", points: 486, budget: 103.0, usedBoosters: [], whines: 0 },
-            { id: 10, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Le petit nouveau", points: 554, budget: 106.0, usedBoosters: [], whines: 1 },
-            { id: 11, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "En rodage", points: 494, budget: 104.8, usedBoosters: [], whines: 0 },
-            { id: 12, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20, surnom: "Le Prodige", points: 522, budget: 105.3, usedBoosters: [], whines: 0 },
-            { id: 13, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Dans le mur de la pitlane", points: 430, budget: 102.0, usedBoosters: [], whines: 0 },
-            { id: 14, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1, surnom: "Drapeau Bleu", points: 247, budget: 101.8, usedBoosters: [], whines: 0 },
-            { id: 15, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3, surnom: "Chicane Mobile", points: 450, budget: 101.2, usedBoosters: [], whines: 0 },
+            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator", points: 756, budget: 107.6, usedBoosters: [], whines: 0 },
+            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15, surnom: "Aileron Mobile Activé", points: 701, budget: 105.7, usedBoosters: ['Wildcard'], whines: 1 },
+            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 866, budget: 101.8, usedBoosters: [], whines: 1 },
+            { id: 4, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Touriste du Paddock", points: 913, budget: 108.1, usedBoosters: [], whines: 0 },
+            { id: 5, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Error", points: 822, budget: 105.7, usedBoosters: ['3X'], whines: 0 },
+            { id: 6, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8, surnom: "Pneu Dur", points: 916, budget: 107.1, usedBoosters: ['Limitless'], whines: 0 },
+            { id: 7, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10, surnom: "Le Diesel", points: 677, budget: 105.5, usedBoosters: [], whines: 0 },
+            { id: 8, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Tardif", points: 815, budget: 104.4, usedBoosters: ['NoNegative', 'Limitless'], whines: 0 },
+            { id: 9, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2, surnom: "Dans les graviers", points: 629, budget: 104.8, usedBoosters: [], whines: 0 },
+            { id: 10, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Le petit nouveau", points: 746, budget: 107.5, usedBoosters: [], whines: 1 },
+            { id: 11, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "En rodage", points: 654, budget: 108.0, usedBoosters: [], whines: 0 },
+            { id: 12, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20, surnom: "Le Prodige", points: 749, budget: 108.1, usedBoosters: [], whines: 0 },
+            { id: 13, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Dans le mur de la pitlane", points: 609, budget: 103.2, usedBoosters: [], whines: 0 },
+            { id: 14, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1, surnom: "Drapeau Bleu", points: 433, budget: 103.4, usedBoosters: [], whines: 0 },
+            { id: 15, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3, surnom: "Chicane Mobile", points: 679, budget: 104.4, usedBoosters: [], whines: 0 },
         ];
 
         const f1Standings = [
-            { pos: 1, driver: "G. Russell", team: "Mercedes", points: 51, wins: 1, podiums: 2 },
-            { pos: 2, driver: "A. Antonelli", team: "Mercedes", points: 47, wins: 1, podiums: 2 },
-            { pos: 3, driver: "C. Leclerc", team: "Ferrari", points: 34, wins: 0, podiums: 1 },
-            { pos: 4, driver: "L. Hamilton", team: "Ferrari", points: 33, wins: 0, podiums: 1 },
-            { pos: 5, driver: "O. Bearman", team: "Haas", points: 17, wins: 0, podiums: 0 },
-            { pos: 6, driver: "L. Norris", team: "McLaren", points: 15, wins: 0, podiums: 0 },
-            { pos: 7, driver: "P. Gasly", team: "Alpine", points: 9, wins: 0, podiums: 0 },
-            { pos: 8, driver: "M. Verstappen", team: "Red Bull", points: 8, wins: 0, podiums: 0 },
-            { pos: 9, driver: "L. Lawson", team: "Racing Bulls", points: 8, wins: 0, podiums: 0 },
-            { pos: 10, driver: "A. Lindblad", team: "Racing Bulls", points: 4, wins: 0, podiums: 0 },
-            { pos: 11, driver: "I. Hadjar", team: "Red Bull", points: 4, wins: 0, podiums: 0 },
-            { pos: 12, driver: "O. Piastri", team: "McLaren", points: 3, wins: 0, podiums: 0 },
-            { pos: 13, driver: "C. Sainz Jr.", team: "Williams", points: 2, wins: 0, podiums: 0 },
-            { pos: 14, driver: "G. Bortoleto", team: "Audi F1 Team", points: 2, wins: 0, podiums: 0 },
-            { pos: 15, driver: "F. Colapinto", team: "Alpine", points: 1, wins: 0, podiums: 0 },
-            { pos: 16, driver: "E. Ocon", team: "Haas", points: 0, wins: 0, podiums: 0 },
-            { pos: 17, driver: "N. Hulkenberg", team: "Audi F1 Team", points: 0, wins: 0, podiums: 0 },
+            { pos: 1, driver: "K. Antonelli", team: "Mercedes", points: 72, wins: 2, podiums: 3 },
+            { pos: 2, driver: "G. Russell", team: "Mercedes", points: 63, wins: 1, podiums: 2 },
+            { pos: 3, driver: "C. Leclerc", team: "Ferrari", points: 49, wins: 0, podiums: 2 },
+            { pos: 4, driver: "L. Hamilton", team: "Ferrari", points: 41, wins: 0, podiums: 1 },
+            { pos: 5, driver: "L. Norris", team: "McLaren", points: 25, wins: 0, podiums: 0 },
+            { pos: 6, driver: "O. Piastri", team: "McLaren", points: 21, wins: 0, podiums: 1 },
+            { pos: 7, driver: "O. Bearman", team: "Haas F1 Team", points: 17, wins: 0, podiums: 0 },
+            { pos: 8, driver: "P. Gasly", team: "Alpine", points: 15, wins: 0, podiums: 0 },
+            { pos: 9, driver: "M. Verstappen", team: "Red Bull Racing", points: 12, wins: 0, podiums: 0 },
+            { pos: 10, driver: "L. Lawson", team: "Racing Bulls", points: 10, wins: 0, podiums: 0 },
+            { pos: 11, driver: "A. Lindblad", team: "Racing Bulls", points: 4, wins: 0, podiums: 0 },
+            { pos: 12, driver: "I. Hadjar", team: "Red Bull Racing", points: 4, wins: 0, podiums: 0 },
+            { pos: 13, driver: "G. Bortoleto", team: "Audi", points: 2, wins: 0, podiums: 0 },
+            { pos: 14, driver: "C. Sainz", team: "Williams", points: 2, wins: 0, podiums: 0 },
+            { pos: 15, driver: "E. Ocon", team: "Haas F1 Team", points: 1, wins: 0, podiums: 0 },
+            { pos: 16, driver: "F. Colapinto", team: "Alpine", points: 1, wins: 0, podiums: 0 },
+            { pos: 17, driver: "N. Hulkenberg", team: "Audi", points: 0, wins: 0, podiums: 0 },
             { pos: 18, driver: "A. Albon", team: "Williams", points: 0, wins: 0, podiums: 0 },
             { pos: 19, driver: "V. Bottas", team: "Cadillac", points: 0, wins: 0, podiums: 0 },
             { pos: 20, driver: "S. Perez", team: "Cadillac", points: 0, wins: 0, podiums: 0 },
@@ -108,12 +108,12 @@
                 'Mercedes': 'border-teal-400 bg-teal-400/10 text-teal-400',
                 'Ferrari': 'border-red-500 bg-red-500/10 text-red-500',
                 'McLaren': 'border-orange-500 bg-orange-500/10 text-orange-500',
-                'Red Bull': 'border-blue-600 bg-blue-600/10 text-blue-400',
+                'Red Bull Racing': 'border-blue-600 bg-blue-600/10 text-blue-400',
                 'Alpine': 'border-pink-500 bg-pink-500/10 text-pink-400',
                 'Racing Bulls': 'border-blue-400 bg-blue-400/10 text-blue-400',
-                'Haas': 'border-gray-100 bg-gray-100/10 text-gray-100',
+                'Haas F1 Team': 'border-gray-100 bg-gray-100/10 text-gray-100',
                 'Williams': 'border-cyan-500 bg-cyan-500/10 text-cyan-400',
-                'Audi F1 Team': 'border-green-500 bg-green-500/10 text-green-400',
+                'Audi': 'border-green-500 bg-green-500/10 text-green-400',
                 'Aston Martin': 'border-emerald-600 bg-emerald-600/10 text-emerald-500',
                 'Cadillac': 'border-yellow-600 bg-yellow-600/10 text-yellow-500'
             };
@@ -134,17 +134,17 @@
         };
 
         const paddockNews = [
-            { time: "Mise à jour F1", type: "exploit", text: "Pintu mène la danse avec 717 pts, mais attention : Rémy et Ahmed (qui possède un budget colossal de 106,4 M€ !) reviennent fort." },
-            { time: "Finance & Stratégie", type: "drama", text: "L'algorithme prend désormais en compte le BUDGET ! Lucas (106M€) et Valentin (105,3M€) grimpent dans les pronostics." },
-            { time: "Championnat F1", type: "drama", text: "Mercedes domine le championnat du monde réel avec Russell et Antonelli. Ferrari est en embuscade." },
-            { time: "Bureau des pleurs", type: "drama", text: "Lucas est toujours seul en tête du classement de la mauvaise foi au Mur des Pleureuses avec 1 Whine." },
-            { time: "Alerte Stratégie", type: "drama", text: "Déjà 4 pilotes (Pintu, Rémy, Gus, Marc) ont craqué et utilisé un jeton Booster cette saison..." }
+            { time: "GP Japon", type: "exploit", text: "Ahmed (913 pts) et son budget colossal de 108,1M€ talonnent Pintu (916 pts) au championnat. La lutte s'annonce féroce !" },
+            { time: "Finance & Stratégie", type: "drama", text: "Coup de chaud pour Marc : déjà deux boosters brûlés (Limitless + No Negative). Stratège visionnaire ou panique générale ?" },
+            { time: "Championnat F1", type: "drama", text: "Nouvelle victoire pour Mercedes avec Antonelli, accompagné sur le podium par Russell. Piastri et Leclerc marquent des points précieux." },
+            { time: "Bureau des pleurs", type: "drama", text: "L'inflation touche le Mur des Pleureuses ! Gus et Flo ont rejoint Lucas, tous à égalité avec 1 Whine." },
+            { time: "Coup dur", type: "drama", text: "Fin de week-end difficile pour Léo qui ferme la marche au classement avec 433 points..." }
         ];
 
         const calendar2026 = [
             { round: 1, country: "Australie", name: "GRAND Prix d’Australie 2026 DE FORMULE 1 QATAR AIRWAYS", date: "06 - 08 mars", sprint: false, status: 'past' },
             { round: 2, country: "Chine", name: "GRAND PRIX DE CHINE DE FORMULE 1 HEINEKEN 2026", date: "13 - 15 mars", sprint: true, status: 'past' },
-            { round: 3, country: "Japon", name: "FORMULA 1 ARAMCO GRAND PRIX DU JAPON 2026", date: "27 - 29 mars", sprint: false, status: 'upcoming' },
+            { round: 3, country: "Japon", name: "FORMULA 1 ARAMCO GRAND PRIX DU JAPON 2026", date: "27 - 29 mars", sprint: false, status: 'past' },
             { round: 4, country: "Bahreïn", name: "GRAND PRIX DE BAHREÏN DE FORMULE 1 GULF AIR 2026", date: "10 - 12 avril", sprint: false, status: 'canceled' },
             { round: 5, country: "Arabie Saoudite", name: "GRAND PRIX D’ARABIE SAOUDITE DE FORMULE 1 STC 2026", date: "17 - 19 avril", sprint: false, status: 'canceled' },
             { round: 6, country: "Miami", name: "FORMULE 1 CRYPTO.COM GRAND PRIX DE MIAMI 2026", date: "01 - 03 mai", sprint: true, status: 'upcoming' },
@@ -203,9 +203,9 @@
 
         // Helper pour les couleurs du budget
         const getBudgetColor = (budget) => {
-            if (budget >= 105.0) return 'text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40 shadow-[0_0_10px_rgba(232,121,249,0.15)]';
-            if (budget >= 103.0) return 'text-emerald-400 bg-emerald-400/10 border-emerald-400/30';
-            if (budget >= 101.0) return 'text-blue-400 bg-blue-400/10 border-blue-400/30';
+            if (budget >= 107.0) return 'text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40 shadow-[0_0_10px_rgba(232,121,249,0.15)]';
+            if (budget >= 105.0) return 'text-emerald-400 bg-emerald-400/10 border-emerald-400/30';
+            if (budget >= 103.0) return 'text-blue-400 bg-blue-400/10 border-blue-400/30';
             if (budget >= 100.0) return 'text-slate-300 bg-slate-700/50 border-slate-600';
             return 'text-red-400 bg-red-500/10 border-red-500/30';
         };
@@ -244,10 +244,10 @@
                     // Bonus d'expérience (0.8 par saison, 2.5 par titre)
                     let expBonus = (j.saisons * 0.8) + (j.titres * 2.5);
                     
-                    // Bonus Budgétaire (1.5 point d'indice par million d'euros de bénéfice généré)
-                    let budgetBonus = Math.max(0, (j.budget - 100) * 1.5);
+                    // Bonus Budgétaire (1.0 point d'indice par million d'euros de bénéfice généré)
+                    let budgetBonus = Math.max(0, (j.budget - 100) * 1.0);
                     
-                    // NOUVEAUX POIDS : 5% Historique Base, 80% Forme actuelle, 5% Expérience, 10% Finance
+                    // POIDS ALGO : 5% Historique, 80% Forme actuelle (ajustée boosters), 5% Expérience, 10% Finance
                     let rawDynamic = (j.baseProba * 0.05) + (currentPerfShare * 2.5) + (expBonus * 0.2) + (budgetBonus * 0.8);
                     return { ...j, rawDynamic };
                 });
@@ -265,13 +265,13 @@
 
             // Ordre exact du menu latéral (Radio Paddock retiré car passé dans le Header)
             const navItems = [
-                { id: 'principe', icon: <GamepadIcon className="w-5 h-5" />, label: "Principe du jeu" },
-                { id: 'calendrier', icon: <CalendarIcon className="w-5 h-5" />, label: "Calendrier 2026" },
                 { id: 'classement', icon: <ListOrderedIcon className="w-5 h-5" />, label: "Classement Live" },
                 { id: 'f1standings', icon: <FlagIcon className="w-5 h-5" />, label: "Championnat F1" },
                 { id: 'predictions', icon: <ActivityIcon className="w-5 h-5" />, label: "Pronostics Live" },
                 { id: 'whines', icon: <FrownIcon className="w-5 h-5" />, label: "Compteur de Whines" },
+                { id: 'calendrier', icon: <CalendarIcon className="w-5 h-5" />, label: "Calendrier 2026" },
                 { id: 'boosters', icon: <StarIcon className="w-5 h-5" />, label: "Stratégie Boosters" },
+                { id: 'principe', icon: <GamepadIcon className="w-5 h-5" />, label: "Principe du jeu" },
                 { id: 'regles', icon: <BookOpenIcon className="w-5 h-5" />, label: "Règlement F1" },
                 { id: 'histoire', icon: <HistoryIcon className="w-5 h-5" />, label: "Hall of Fame" },
                 { id: 'finance', icon: <DollarSignIcon className="w-5 h-5" />, label: "FIA (Trésorerie)" },
@@ -346,6 +346,13 @@
                                 let btnClass = isActive 
                                     ? (isSpecial ? 'bg-blue-600 border border-blue-500 text-white shadow-md shadow-blue-500/20' : 'bg-slate-800 border border-slate-700 text-white shadow-md')
                                     : (isSpecial ? 'bg-blue-900/20 border border-blue-800/50 text-blue-400 hover:bg-blue-800/40 hover:text-blue-300' : 'text-slate-400 hover:bg-slate-900 hover:text-slate-200 border border-transparent');
+                                    
+                                // MISE EN VALEUR DE L'ONGLET CLASSEMENT
+                                if (item.id === 'classement') {
+                                    btnClass = isActive
+                                        ? 'bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border-yellow-500/50 text-yellow-400 shadow-lg shadow-yellow-500/10'
+                                        : 'bg-slate-900 border-slate-800 text-yellow-500/80 hover:bg-slate-800 hover:text-yellow-400 hover:border-yellow-500/30';
+                                }
 
                                 return (
                                     <button
@@ -353,7 +360,7 @@
                                         onClick={() => setActiveTab(item.id)}
                                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium ${btnClass}`}
                                     >
-                                        <div className={isActive && !isSpecial ? 'text-red-500' : ''}>
+                                        <div className={isActive && !isSpecial && item.id !== 'classement' ? 'text-red-500' : ''}>
                                             {item.icon}
                                         </div>
                                         {item.label}
@@ -379,135 +386,6 @@
                         {/* CONTENT AREA */}
                         <main className="lg:col-span-9">
 
-                            {/* TAB: PRINCIPE DU JEU */}
-                            {activeTab === 'principe' && (
-                                <div className="space-y-6 animate-in fade-in duration-500">
-                                    <div className="flex justify-between items-end mb-8">
-                                        <div>
-                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Le Principe du Jeu</h2>
-                                            <p className="text-slate-400 text-sm">Nouveau dans le paddock ? Voici tout ce qu'il faut savoir pour gérer votre écurie F1 Fantasy.</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-blue-500/50 transition-colors">
-                                            <div className="flex items-center gap-3 mb-4">
-                                                <div className="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/50"><UsersIcon className="w-5 h-5"/></div>
-                                                <h3 className="text-lg font-bold text-white">1. Votre Écurie & Budget</h3>
-                                            </div>
-                                            <p className="text-slate-300 text-sm leading-relaxed">
-                                                Vous prenez les rênes avec un budget initial de <strong className="text-emerald-400">100 millions de dollars</strong>. Votre mission : sélectionner <strong>5 Pilotes</strong> et <strong>2 Constructeurs</strong> (écuries) sans dépasser ce plafond. Tout au long de la saison, la valeur de vos pilotes et écuries montera ou descendra en fonction de leurs performances !
-                                            </p>
-                                        </div>
-
-                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/50 transition-colors">
-                                            <div className="flex items-center gap-3 mb-4">
-                                                <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/50"><TrendingUpIcon className="w-5 h-5"/></div>
-                                                <h3 className="text-lg font-bold text-white">2. Le Scoring (Les Points)</h3>
-                                            </div>
-                                            <p className="text-slate-300 text-sm leading-relaxed">
-                                                Votre équipe marque des points basés sur les <strong>résultats réels</strong> des Grands Prix (Qualifications, Course, Sprints). Vous gagnez des points pour les dépassements, la pôle position, ou le tour le plus rapide... Mais attention : <span className="text-red-400 font-bold">les abandons (DNF) et disqualifications coûtent de lourdes pénalités</span> !
-                                            </p>
-                                        </div>
-
-                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-yellow-500/50 transition-colors">
-                                            <div className="flex items-center gap-3 mb-4">
-                                                <div className="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center border border-yellow-500/50"><RefreshCwIcon className="w-5 h-5"/></div>
-                                                <h3 className="text-lg font-bold text-white">3. Gestion & Transferts</h3>
-                                            </div>
-                                            <p className="text-slate-300 text-sm leading-relaxed">
-                                                Entre chaque course, vous pouvez ajuster votre équipe grâce à <strong>2 transferts gratuits</strong>. Un transfert gratuit non utilisé est reporté à la course suivante (max 3 cumulés). Si vous dépassez cette limite, chaque changement supplémentaire vous infligera <strong className="text-red-400">-10 points</strong> au championnat.
-                                            </p>
-                                        </div>
-
-                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-fuchsia-500/50 transition-colors">
-                                            <div className="flex items-center gap-3 mb-4">
-                                                <div className="w-10 h-10 rounded-full bg-fuchsia-500/20 text-fuchsia-400 flex items-center justify-center border border-fuchsia-500/50"><ZapIcon className="w-5 h-5"/></div>
-                                                <h3 className="text-lg font-bold text-white">4. Boosters & Jetons</h3>
-                                            </div>
-                                            <p className="text-slate-300 text-sm leading-relaxed">
-                                                Désignez un pilote "DRS Boost" à chaque course pour <strong>doubler ses points</strong>. De plus, vous disposez de <strong>6 "Chips" tactiques</strong> utilisables une seule fois dans l'année (Boost 3X, Pilote Auto, Sans Limites...). Visitez l'onglet <em className="text-slate-400">Stratégie Boosters</em> pour devenir un fin tacticien.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="flex justify-center mt-8">
-                                        <button onClick={() => setActiveTab('classement')} className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-1">
-                                            J'ai compris, voir le Classement Live
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* TAB: CALENDRIER */}
-                            {activeTab === 'calendrier' && (
-                                <div className="space-y-6 animate-in fade-in duration-500">
-                                    <div className="flex justify-between items-end">
-                                        <div>
-                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Calendrier Officiel 2026</h2>
-                                            <p className="text-slate-400 text-sm">Les 24 manches du championnat. Suivi des manches terminées et des annulations de la FIA.</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                                        {calendar2026.map((race) => {
-                                            const isPast = race.status === 'past';
-                                            const isCanceled = race.status === 'canceled';
-                                            
-                                            // Styles dynamiques selon le statut
-                                            let bgClass = 'bg-slate-900 border-slate-800 hover:border-slate-600';
-                                            if (isPast) {
-                                                bgClass = 'bg-slate-900/50 border-slate-800/50 opacity-60 grayscale';
-                                            } else if (isCanceled) {
-                                                bgClass = 'bg-red-950/20 border-red-900/50 opacity-80';
-                                            } else if (race.sprint) {
-                                                bgClass = 'bg-slate-900 border-fuchsia-500/50 shadow-[0_0_15px_rgba(217,70,239,0.1)] hover:border-fuchsia-500';
-                                            }
-
-                                            return (
-                                                <div key={race.round} className={`rounded-2xl p-6 relative overflow-hidden transition-all duration-300 border ${bgClass}`}>
-                                                    
-                                                    <div className="flex justify-between items-start mb-4 relative z-10">
-                                                        <span className={`text-xs font-bold uppercase tracking-widest ${isCanceled ? 'text-red-500/70' : 'text-slate-500'}`}>Manche {race.round}</span>
-                                                        
-                                                        {isPast && (
-                                                            <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-slate-800 text-slate-400 px-2 py-1 rounded">
-                                                                <CheckCircleIcon className="w-3 h-3" /> Terminé
-                                                            </span>
-                                                        )}
-                                                        {isCanceled && (
-                                                            <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-red-500/20 text-red-500 px-2 py-1 rounded border border-red-500/50">
-                                                                <AlertCircleIcon className="w-3 h-3" /> Annulé
-                                                            </span>
-                                                        )}
-                                                        {!isPast && !isCanceled && race.sprint && (
-                                                            <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-fuchsia-500/20 text-fuchsia-400 px-2 py-1 rounded">
-                                                                <ZapIcon className="w-3 h-3" /> Sprint
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                    
-                                                    <h3 className={`text-2xl font-black mb-1 relative z-10 ${isCanceled ? 'text-red-400 line-through decoration-red-500/50' : 'text-white'}`}>{race.country}</h3>
-                                                    <p className={`text-[10px] uppercase tracking-wider mb-6 h-8 line-clamp-2 leading-snug relative z-10 ${isCanceled ? 'text-red-400/50' : 'text-slate-400'}`}>{race.name}</p>
-                                                    
-                                                    <div className={`flex items-center gap-2 p-3 rounded-xl border relative z-10 ${isCanceled ? 'bg-red-950/40 border-red-900/30 text-red-400/70' : 'bg-slate-950/50 border-slate-800/50 text-slate-300'}`}>
-                                                        <CalendarIcon className={`w-4 h-4 ${isCanceled ? 'text-red-500/50' : isPast ? 'text-slate-500' : 'text-emerald-400'}`} />
-                                                        <span className="text-sm font-bold">{race.date}</span>
-                                                    </div>
-
-                                                    {/* Canceled Watermark Background */}
-                                                    {isCanceled && (
-                                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10 rotate-[-20deg]">
-                                                            <span className="text-6xl font-black text-red-500 whitespace-nowrap">CANCELED</span>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                </div>
-                            )}
-
                             {/* TAB: CLASSEMENT */}
                             {activeTab === 'classement' && (
                                 <div className="space-y-6 animate-in fade-in duration-500">
@@ -521,9 +399,9 @@
                                     {/* LÉGENDE DES BUDGETS */}
                                     <div className="flex flex-wrap items-center gap-3 text-xs font-mono bg-slate-900 p-3 rounded-xl border border-slate-800 w-fit shadow-md">
                                         <span className="text-slate-400 font-bold uppercase tracking-wider mr-2"><DollarSignIcon className="inline w-4 h-4 mr-1"/>Budgets :</span>
-                                        <span className="px-2 py-0.5 rounded border text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40">≥ 105M$ (Elite)</span>
-                                        <span className="px-2 py-0.5 rounded border text-emerald-400 bg-emerald-400/10 border-emerald-400/30">≥ 103M$ (Riche)</span>
-                                        <span className="px-2 py-0.5 rounded border text-blue-400 bg-blue-400/10 border-blue-400/30">≥ 101M$ (Aisé)</span>
+                                        <span className="px-2 py-0.5 rounded border text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40">≥ 107M$ (Elite)</span>
+                                        <span className="px-2 py-0.5 rounded border text-emerald-400 bg-emerald-400/10 border-emerald-400/30">≥ 105M$ (Riche)</span>
+                                        <span className="px-2 py-0.5 rounded border text-blue-400 bg-blue-400/10 border-blue-400/30">≥ 103M$ (Aisé)</span>
                                         <span className="px-2 py-0.5 rounded border text-slate-300 bg-slate-700/50 border-slate-600">Base</span>
                                         <span className="px-2 py-0.5 rounded border text-red-400 bg-red-500/10 border-red-500/30">Déficit</span>
                                     </div>
@@ -773,6 +651,75 @@
                                 </div>
                             )}
 
+                            {/* TAB: CALENDRIER */}
+                            {activeTab === 'calendrier' && (
+                                <div className="space-y-6 animate-in fade-in duration-500">
+                                    <div className="flex justify-between items-end">
+                                        <div>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Calendrier Officiel 2026</h2>
+                                            <p className="text-slate-400 text-sm">Les 24 manches du championnat. Suivi des manches terminées et des annulations de la FIA.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                                        {calendar2026.map((race) => {
+                                            const isPast = race.status === 'past';
+                                            const isCanceled = race.status === 'canceled';
+                                            
+                                            // Styles dynamiques selon le statut
+                                            let bgClass = 'bg-slate-900 border-slate-800 hover:border-slate-600';
+                                            if (isPast) {
+                                                bgClass = 'bg-slate-900/50 border-slate-800/50 opacity-60 grayscale';
+                                            } else if (isCanceled) {
+                                                bgClass = 'bg-red-950/20 border-red-900/50 opacity-80';
+                                            } else if (race.sprint) {
+                                                bgClass = 'bg-slate-900 border-fuchsia-500/50 shadow-[0_0_15px_rgba(217,70,239,0.1)] hover:border-fuchsia-500';
+                                            }
+
+                                            return (
+                                                <div key={race.round} className={`rounded-2xl p-6 relative overflow-hidden transition-all duration-300 border ${bgClass}`}>
+                                                    
+                                                    <div className="flex justify-between items-start mb-4 relative z-10">
+                                                        <span className={`text-xs font-bold uppercase tracking-widest ${isCanceled ? 'text-red-500/70' : 'text-slate-500'}`}>Manche {race.round}</span>
+                                                        
+                                                        {isPast && (
+                                                            <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-slate-800 text-slate-400 px-2 py-1 rounded">
+                                                                <CheckCircleIcon className="w-3 h-3" /> Terminé
+                                                            </span>
+                                                        )}
+                                                        {isCanceled && (
+                                                            <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-red-500/20 text-red-500 px-2 py-1 rounded border border-red-500/50">
+                                                                <AlertCircleIcon className="w-3 h-3" /> Annulé
+                                                            </span>
+                                                        )}
+                                                        {!isPast && !isCanceled && race.sprint && (
+                                                            <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider bg-fuchsia-500/20 text-fuchsia-400 px-2 py-1 rounded">
+                                                                <ZapIcon className="w-3 h-3" /> Sprint
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    
+                                                    <h3 className={`text-2xl font-black mb-1 relative z-10 ${isCanceled ? 'text-red-400 line-through decoration-red-500/50' : 'text-white'}`}>{race.country}</h3>
+                                                    <p className={`text-[10px] uppercase tracking-wider mb-6 h-8 line-clamp-2 leading-snug relative z-10 ${isCanceled ? 'text-red-400/50' : 'text-slate-400'}`}>{race.name}</p>
+                                                    
+                                                    <div className={`flex items-center gap-2 p-3 rounded-xl border relative z-10 ${isCanceled ? 'bg-red-950/40 border-red-900/30 text-red-400/70' : 'bg-slate-950/50 border-slate-800/50 text-slate-300'}`}>
+                                                        <CalendarIcon className={`w-4 h-4 ${isCanceled ? 'text-red-500/50' : isPast ? 'text-slate-500' : 'text-emerald-400'}`} />
+                                                        <span className="text-sm font-bold">{race.date}</span>
+                                                    </div>
+
+                                                    {/* Canceled Watermark Background */}
+                                                    {isCanceled && (
+                                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10 rotate-[-20deg]">
+                                                            <span className="text-6xl font-black text-red-500 whitespace-nowrap">CANCELED</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            )}
+
                             {/* TAB: BOOSTERS */}
                             {activeTab === 'boosters' && (
                                 <div className="space-y-6 animate-in fade-in duration-500">
@@ -866,6 +813,66 @@
                                                 <li><strong className="text-slate-200">Panne mécanique de dernière minute :</strong> Évitez les -20 points d'un pilote dont la voiture est détruite le dimanche matin.</li>
                                             </ul>
                                         </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* TAB: PRINCIPE DU JEU */}
+                            {activeTab === 'principe' && (
+                                <div className="space-y-6 animate-in fade-in duration-500">
+                                    <div className="flex justify-between items-end mb-8">
+                                        <div>
+                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Le Principe du Jeu</h2>
+                                            <p className="text-slate-400 text-sm">Nouveau dans le paddock ? Voici tout ce qu'il faut savoir pour gérer votre écurie F1 Fantasy.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-blue-500/50 transition-colors">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/50"><UsersIcon className="w-5 h-5"/></div>
+                                                <h3 className="text-lg font-bold text-white">1. Votre Écurie & Budget</h3>
+                                            </div>
+                                            <p className="text-slate-300 text-sm leading-relaxed">
+                                                Vous prenez les rênes avec un budget initial de <strong className="text-emerald-400">100 millions de dollars</strong>. Votre mission : sélectionner <strong>5 Pilotes</strong> et <strong>2 Constructeurs</strong> (écuries) sans dépasser ce plafond. Tout au long de la saison, la valeur de vos pilotes et écuries montera ou descendra en fonction de leurs performances !
+                                            </p>
+                                        </div>
+
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/50 transition-colors">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/50"><TrendingUpIcon className="w-5 h-5"/></div>
+                                                <h3 className="text-lg font-bold text-white">2. Le Scoring (Les Points)</h3>
+                                            </div>
+                                            <p className="text-slate-300 text-sm leading-relaxed">
+                                                Votre équipe marque des points basés sur les <strong>résultats réels</strong> des Grands Prix (Qualifications, Course, Sprints). Vous gagnez des points pour les dépassements, la pôle position, ou le tour le plus rapide... Mais attention : <span className="text-red-400 font-bold">les abandons (DNF) et disqualifications coûtent de lourdes pénalités</span> !
+                                            </p>
+                                        </div>
+
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-yellow-500/50 transition-colors">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center border border-yellow-500/50"><RefreshCwIcon className="w-5 h-5"/></div>
+                                                <h3 className="text-lg font-bold text-white">3. Gestion & Transferts</h3>
+                                            </div>
+                                            <p className="text-slate-300 text-sm leading-relaxed">
+                                                Entre chaque course, vous pouvez ajuster votre équipe grâce à <strong>2 transferts gratuits</strong>. Un transfert gratuit non utilisé est reporté à la course suivante (max 3 cumulés). Si vous dépassez cette limite, chaque changement supplémentaire vous infligera <strong className="text-red-400">-10 points</strong> au championnat.
+                                            </p>
+                                        </div>
+
+                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-fuchsia-500/50 transition-colors">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-10 h-10 rounded-full bg-fuchsia-500/20 text-fuchsia-400 flex items-center justify-center border border-fuchsia-500/50"><ZapIcon className="w-5 h-5"/></div>
+                                                <h3 className="text-lg font-bold text-white">4. Boosters & Jetons</h3>
+                                            </div>
+                                            <p className="text-slate-300 text-sm leading-relaxed">
+                                                Désignez un pilote "DRS Boost" à chaque course pour <strong>doubler ses points</strong>. De plus, vous disposez de <strong>6 "Chips" tactiques</strong> utilisables une seule fois dans l'année (Boost 3X, Pilote Auto, Sans Limites...). Visitez l'onglet <em className="text-slate-400">Stratégie Boosters</em> pour devenir un fin tacticien.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex justify-center mt-8">
+                                        <button onClick={() => setActiveTab('classement')} className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-1">
+                                            J'ai compris, voir le Classement Live
+                                        </button>
                                     </div>
                                 </div>
                             )}
@@ -1031,211 +1038,6 @@
                                                 ))}
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* TAB: RADIO PADDOCK (DRAMA) */}
-                            {activeTab === 'drama' && (
-                                <div className="space-y-6 animate-in fade-in duration-500">
-                                    <div className="flex justify-between items-end">
-                                        <div>
-                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Radio Paddock</h2>
-                                            <p className="text-slate-400 text-sm">Messages de la direction de course et coups bas en direct.</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-4 border-l-2 border-slate-800 ml-4 pl-6 relative py-2">
-                                        {paddockNews.map((news, i) => (
-                                            <div key={i} className="relative group">
-                                                <div className={`absolute -left-[31px] top-1 w-3 h-3 rounded-full border-2 border-slate-950 transition-transform group-hover:scale-125
-                                                    ${news.type === 'drama' ? 'bg-red-500' : news.type === 'exploit' ? 'bg-emerald-500' : news.type === 'rookie' ? 'bg-blue-500' : 'bg-yellow-500'}
-                                                `}></div>
-                                                
-                                                <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-slate-700 transition-colors">
-                                                    <div className="flex items-center gap-2 mb-2">
-                                                        <span className="text-xs font-bold text-slate-500">{news.time}</span>
-                                                        <span className={`text-[10px] uppercase font-black px-2 py-0.5 rounded
-                                                            ${news.type === 'drama' ? 'bg-red-500/10 text-red-500' : 
-                                                            news.type === 'exploit' ? 'bg-emerald-500/10 text-emerald-400' : 
-                                                            news.type === 'rookie' ? 'bg-blue-500/10 text-blue-400' :
-                                                            'bg-yellow-500/10 text-yellow-400'}
-                                                        `}>
-                                                            {news.type}
-                                                        </span>
-                                                    </div>
-                                                    <p className="text-slate-300 italic">"{news.text}"</p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* TAB: FINANCE */}
-                            {activeTab === 'finance' && (
-                                <div className="space-y-8 animate-in fade-in duration-500">
-                                    <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4">
-                                        <div>
-                                            <h2 className="text-2xl font-black text-white uppercase tracking-tight">Trésorerie & Gains</h2>
-                                            <p className="text-slate-400 text-sm">Contrôle technique des paiements. Grille complète : <span className="text-white font-bold">{rawData.length} joueurs inscrits</span>.</p>
-                                        </div>
-                                        
-                                        {/* JAUGE DE PROGRESSION INSCRIPTIONS */}
-                                        <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 w-full md:w-72 shadow-lg">
-                                            <div className="flex justify-between text-xs font-bold text-slate-400 mb-2 uppercase tracking-wider">
-                                                <span>Avancement Ligue</span>
-                                                <span className="text-emerald-400">{fullyRegisteredCount} / {rawData.length} Validés</span>
-                                            </div>
-                                            <div className="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden">
-                                                <div className="bg-emerald-500 h-2.5 rounded-full transition-all duration-1000 ease-out" style={{width: `${progressPercent}%`}}></div>
-                                            </div>
-                                            <p className="text-[10px] text-right text-slate-500 mt-1">{progressPercent}% Complété</p>
-                                        </div>
-                                    </div>
-
-                                    {/* LIGNE 1 : TOP 3 */}
-                                    <div>
-                                        <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Podium (Prizepool Principal)</h3>
-                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                            {prizepool.top3.map((prize, i) => (
-                                                <div key={i} className={`p-6 rounded-2xl border border-slate-800 bg-slate-900 relative overflow-hidden`}>
-                                                    <div className={`absolute top-0 right-0 w-24 h-24 rounded-bl-full ${prize.bg} opacity-50`}></div>
-                                                    <p className="text-sm font-bold text-slate-500 uppercase">{prize.place}</p>
-                                                    <p className={`text-4xl font-black mt-2 ${prize.color}`}>{prize.montant} €</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* LIGNE 2 : BONUS */}
-                                    <div>
-                                        <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Bonus Spéciaux</h3>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            {prizepool.bonus.map((prize, i) => (
-                                                <div key={i} className={`p-6 rounded-2xl border ${prize.isSurprise ? 'border-emerald-500/30 border-dashed' : 'border-slate-800'} bg-slate-900 relative overflow-hidden`}>
-                                                    <div className={`absolute top-0 right-0 w-24 h-24 rounded-bl-full ${prize.bg} opacity-50`}></div>
-                                                    <p className="text-sm font-bold text-slate-400 uppercase">{prize.place}</p>
-                                                    <p className={`text-3xl font-black mt-1 ${prize.color}`}>{prize.montant}{prize.montant !== '?' ? ' €' : ''}</p>
-                                                    <p className="text-xs text-slate-500 mt-2">{prize.desc}</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* STATUT INSCRIPTIONS */}
-                                    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-8">
-                                        <div className="flex items-center justify-between">
-                                            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                                                <AlertCircleIcon className="text-blue-500 w-5 h-5" />
-                                                Statut Inscriptions
-                                            </h3>
-                                        </div>
-
-                                        {/* JOUEURS À JOUR */}
-                                        <div>
-                                            <h4 className="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                                                <CheckCircleIcon className="w-4 h-4" /> Dossiers Validés ({data.filter(j => j.paypal && j.ligue).length})
-                                            </h4>
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                {data.filter(j => j.paypal && j.ligue).map(joueur => (
-                                                    <div key={joueur.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg border gap-3 transition-all duration-300 bg-emerald-900/10 border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-                                                        <span className="font-medium text-slate-200 flex items-center gap-2">
-                                                            {joueur.nom}
-                                                            <CheckCircleIcon className="w-4 h-4 text-emerald-500" title="Dossier complet !" />
-                                                        </span>
-                                                        <div className="flex gap-2 flex-wrap">
-                                                            <span className="px-2 py-1 rounded text-xs font-bold bg-emerald-500/20 text-emerald-400 cursor-default">PayPal OK</span>
-                                                            <span className="px-2 py-1 rounded text-xs font-bold bg-emerald-500/20 text-emerald-400 cursor-default">Ligue OK</span>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                        
-                                        {/* JOUEURS EN ATTENTE (Si existant) */}
-                                        {data.filter(j => !j.paypal || !j.ligue).length > 0 && (
-                                            <div>
-                                                <h4 className="text-sm font-bold text-orange-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                                                    <AlertCircleIcon className="w-4 h-4" /> En Attente de Validation ({data.filter(j => !j.paypal || !j.ligue).length})
-                                                </h4>
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                    {data.filter(j => !j.paypal || !j.ligue).map(joueur => (
-                                                        <div key={joueur.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg border gap-3 transition-all duration-300 bg-slate-800/50 border-slate-800">
-                                                            <span className="font-medium text-slate-200 flex items-center gap-2">
-                                                                {joueur.nom}
-                                                            </span>
-                                                            <div className="flex gap-2 flex-wrap">
-                                                                {joueur.paypal ? (
-                                                                    <span className="px-2 py-1 rounded text-xs font-bold bg-emerald-500/20 text-emerald-400 cursor-default">PayPal OK</span>
-                                                                ) : (
-                                                                    <a href={PAYPAL_LINK} target="_blank" rel="noopener noreferrer" title="Cliquez pour payer la cotisation via PayPal" className="px-2 py-1 rounded text-xs font-bold bg-red-500/20 text-red-400 hover:bg-red-500/40 hover:text-red-300 transition-colors flex items-center gap-1 cursor-pointer">
-                                                                        PayPal Manquant ↗
-                                                                    </a>
-                                                                )}
-                                                                {joueur.ligue ? (
-                                                                    <span className="px-2 py-1 rounded text-xs font-bold bg-emerald-500/20 text-emerald-400 cursor-default">Ligue OK</span>
-                                                                ) : (
-                                                                    <a href={LIGUE_LINK} target="_blank" rel="noopener noreferrer" title="Cliquez pour rejoindre la ligue officielle" className="px-2 py-1 rounded text-xs font-bold bg-slate-700/50 text-slate-400 hover:bg-slate-600 hover:text-slate-200 transition-colors flex items-center gap-1 cursor-pointer">
-                                                                        Ligue en attente ↗
-                                                                    </a>
-                                                                )}
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* TAB: INSCRIPTION */}
-                            {activeTab === 'inscription' && (
-                                <div className="space-y-6 animate-in fade-in duration-500">
-                                    <div>
-                                        <h2 className="text-2xl font-black text-white uppercase tracking-tight">Inscriptions Ouvertes</h2>
-                                        <p className="text-slate-400 text-sm">Box Box League – Saison 2026. Suivez les étapes pour valider votre baquet.</p>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/50 transition-colors">
-                                            <div className="absolute top-0 right-0 p-4 text-6xl font-black text-slate-800/30 group-hover:text-blue-500/10 transition-colors">1</div>
-                                            <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                                                <DollarSignIcon className="text-blue-400 w-5 h-5" /> Frais d'inscription
-                                            </h3>
-                                            <p className="text-slate-400 text-sm mb-6">Réglez votre participation de 25 € au prizepool via PayPal pour valider votre entrée.</p>
-                                            <a href={PAYPAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl transition-colors">
-                                                Payer 25€ sur PayPal <ExternalLinkIcon className="w-4 h-4" />
-                                            </a>
-                                        </div>
-
-                                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-emerald-500/50 transition-colors">
-                                            <div className="absolute top-0 right-0 p-4 text-6xl font-black text-slate-800/30 group-hover:text-emerald-500/10 transition-colors">2</div>
-                                            <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                                                <TrophyIcon className="text-emerald-400 w-5 h-5" /> Rejoindre la Ligue
-                                            </h3>
-                                            <p className="text-slate-400 text-sm mb-4">Rejoignez notre ligue privée sur le site officiel F1 Fantasy.</p>
-                                            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800 flex justify-between items-center mb-4">
-                                                <span className="text-xs text-slate-500 font-mono">CODE LIGUE</span>
-                                                <span className="font-mono font-bold text-emerald-400 tracking-wider select-all">{LIGUE_CODE}</span>
-                                            </div>
-                                            <a href={LIGUE_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition-colors">
-                                                Accéder à F1 Fantasy <ExternalLinkIcon className="w-4 h-4" />
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div className="bg-red-950/30 border border-red-900/50 rounded-2xl p-6 mt-4">
-                                        <h3 className="text-red-400 font-bold mb-4 flex items-center gap-2 uppercase text-sm tracking-wider">
-                                            <AlertCircleIcon className="w-5 h-5" /> Rappels Importants (Règlementation Sportive)
-                                        </h3>
-                                        <ul className="space-y-3 text-slate-300 text-sm list-disc list-inside">
-                                            <li><strong className="text-white">1 seule équipe</strong> autorisée par joueur.</li>
-                                            <li><strong>Composer votre équipe</strong> avant la date limite.</li>
-                                            <li className="text-red-300"><strong>Clôture des enregistrements :</strong> Samedi 7 mars 2026, au lancement de la Q1 du GP d'Australie.</li>
-                                            <li className="italic text-slate-400">Une fois la qualif lancée, il sera trop tard pour entrer dans la course.</li>
-                                        </ul>
                                     </div>
                                 </div>
                             )}
