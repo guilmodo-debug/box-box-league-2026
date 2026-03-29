@@ -134,11 +134,11 @@
         };
 
         const paddockNews = [
-            { time: "GP Japon", type: "exploit", text: "Ahmed (913 pts) et son budget colossal de 108,1M€ talonnent Pintu (916 pts) au championnat. La lutte s'annonce féroce !" },
-            { time: "Finance & Stratégie", type: "drama", text: "Coup de chaud pour Marc : déjà deux boosters brûlés (Limitless + No Negative). Stratège visionnaire ou panique générale ?" },
-            { time: "Championnat F1", type: "drama", text: "Nouvelle victoire pour Mercedes avec Antonelli, accompagné sur le podium par Russell. Piastri et Leclerc marquent des points précieux." },
-            { time: "Bureau des pleurs", type: "drama", text: "L'inflation touche le Mur des Pleureuses ! Gus et Flo ont rejoint Lucas, tous à égalité avec 1 Whine." },
-            { time: "Coup dur", type: "drama", text: "Fin de week-end difficile pour Léo qui ferme la marche au classement avec 433 points..." }
+            { time: "GP Japon", type: "exploit", text: "Pintu (916 pts) conserve la tête après Suzuka, mais Ahmed le talonne à 3 petits points avec un budget de guerre (108,1 M€) !" },
+            { time: "Championnat F1", type: "drama", text: "Kimi Antonelli s'impose au Japon et prend la tête du championnat. Mercedes s'envole, Leclerc arrache le podium." },
+            { time: "Bureau des pleurs", type: "drama", text: "Le club s'agrandit ! Gus et Flo rejoignent Lucas au Mur des Pleureuses avec 1 Whine chacun." },
+            { time: "Alerte Stratégie", type: "drama", text: "Marc a sorti le grand jeu (ou la grande panique) en utilisant déjà son 2ème booster (Limitless + No Negative) en seulement 3 courses !" },
+            { time: "Bataille du milieu", type: "exploit", text: "Léo peine à décoller (433 pts), tandis qu'Adri Collet (679) et Ti Bordo (677) se livrent une bataille féroce au milieu du tableau." }
         ];
 
         const calendar2026 = [
@@ -1025,8 +1025,8 @@
                                 </div>
                             )}
 
-                        </main>
-                    </div>
+                            {/* TAB: FINANCE */}
+                            {activeTab === 'finance' && (
                 </div>
             );
         }
