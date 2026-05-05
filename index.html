@@ -59,44 +59,44 @@
         const LIGUE_CODE = "C1RW3K6SE01";
         const CANAL_LINK = "https://www.bing.com/ck/a?!&&p=acd1920acd80419b1eabcca53c05903a7815741e76b47f83e0b02b1d5ab8de2aJmltdHM9MTc3MjQ5NjAwMA&ptn=3&ver=2&hsh=4&fclid=028750fc-e5e4-67d5-3249-46b1e43c66c0&psq=regarder+f1+canal%2b&u=a1aHR0cHM6Ly9ib3V0aXF1ZS5jYW5hbHBsdXMuY29tL3Nwb3J0L2YxP21zb2NraWQ9MDI4NzUwZmNlNWU0NjdkNTMyNDk0NmIxZTQzYzY2YzA";
 
-        // --- MOTEUR DE DONNÉES ---
+        // --- MOTEUR DE DONNÉES (MàJ GP Miami) ---
         const rawData = [
-            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator", points: 756, budget: 107.6, usedBoosters: [], whines: 0 },
-            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15, surnom: "Aileron Mobile Activé", points: 701, budget: 105.7, usedBoosters: ['Wildcard'], whines: 1 },
-            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 866, budget: 101.8, usedBoosters: [], whines: 1 },
-            { id: 4, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Touriste du Paddock", points: 913, budget: 108.1, usedBoosters: [], whines: 0 },
-            { id: 5, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Error", points: 822, budget: 105.7, usedBoosters: ['3X'], whines: 0 },
-            { id: 6, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8, surnom: "Pneu Dur", points: 916, budget: 107.1, usedBoosters: ['Limitless'], whines: 0 },
-            { id: 7, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10, surnom: "Le Diesel", points: 677, budget: 105.5, usedBoosters: [], whines: 0 },
-            { id: 8, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Tardif", points: 815, budget: 104.4, usedBoosters: ['NoNegative', 'Limitless'], whines: 0 },
-            { id: 9, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2, surnom: "Dans les graviers", points: 629, budget: 104.8, usedBoosters: [], whines: 0 },
-            { id: 10, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Le petit nouveau", points: 746, budget: 107.5, usedBoosters: [], whines: 1 },
-            { id: 11, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "En rodage", points: 654, budget: 108.0, usedBoosters: [], whines: 0 },
-            { id: 12, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20, surnom: "Le Prodige", points: 749, budget: 108.1, usedBoosters: [], whines: 0 },
-            { id: 13, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Dans le mur de la pitlane", points: 609, budget: 103.2, usedBoosters: [], whines: 0 },
-            { id: 14, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1, surnom: "Drapeau Bleu", points: 433, budget: 103.4, usedBoosters: [], whines: 0 },
-            { id: 15, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3, surnom: "Chicane Mobile", points: 679, budget: 104.4, usedBoosters: [], whines: 0 },
+            { id: 1, nom: "Simon", statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator", points: 1020, budget: 110.1, usedBoosters: [], whines: 0 },
+            { id: 2, nom: "Gus", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15, surnom: "Aileron Mobile Activé", points: 933, budget: 105.0, usedBoosters: ['Wildcard'], whines: 2 },
+            { id: 3, nom: "Flo", statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0, surnom: "Vieux loup de mer", points: 1163, budget: 102.1, usedBoosters: ['NoNegative'], whines: 1 },
+            { id: 4, nom: "Ahmed", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Touriste du Paddock", points: 1344, budget: 108.6, usedBoosters: ['Limitless'], whines: 0 },
+            { id: 5, nom: "Rémy", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Error", points: 1035, budget: 107.8, usedBoosters: ['3X'], whines: 0 },
+            { id: 6, nom: "Pintu", statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8, surnom: "Pneu Dur", points: 1094, budget: 110.0, usedBoosters: ['Limitless'], whines: 1 },
+            { id: 7, nom: "Ti bordo", statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10, surnom: "Le Diesel", points: 900, budget: 106.3, usedBoosters: [], whines: 0 },
+            { id: 8, nom: "Marc", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Rookie Tardif", points: 1022, budget: 105.2, usedBoosters: ['NoNegative', 'Limitless'], whines: 1 },
+            { id: 9, nom: "Adams", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2, surnom: "Dans les graviers", points: 700, budget: 104.8, usedBoosters: ['3X'], whines: 0 },
+            { id: 10, nom: "Lucas", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Le petit nouveau", points: 1030, budget: 108.0, usedBoosters: ['NoNegative'], whines: 1 },
+            { id: 11, nom: "Stéphane", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "En rodage", points: 868, budget: 110.4, usedBoosters: ['3X'], whines: 0 },
+            { id: 12, nom: "Valentin", statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20, surnom: "Le Prodige", points: 1039, budget: 109.3, usedBoosters: ['NoNegative'], whines: 0 },
+            { id: 13, nom: "Johan", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5, surnom: "Dans le mur de la pitlane", points: 774, budget: 104.0, usedBoosters: [], whines: 0 },
+            { id: 14, nom: "Léo", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1, surnom: "Drapeau Bleu", points: 644, budget: 104.7, usedBoosters: [], whines: 0 },
+            { id: 15, nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3, surnom: "Chicane Mobile", points: 892, budget: 105.6, usedBoosters: [], whines: 1 },
         ];
 
         const f1Standings = [
-            { pos: 1, driver: "K. Antonelli", team: "Mercedes", points: 72, wins: 2, podiums: 3 },
-            { pos: 2, driver: "G. Russell", team: "Mercedes", points: 63, wins: 1, podiums: 2 },
-            { pos: 3, driver: "C. Leclerc", team: "Ferrari", points: 49, wins: 0, podiums: 2 },
-            { pos: 4, driver: "L. Hamilton", team: "Ferrari", points: 41, wins: 0, podiums: 1 },
-            { pos: 5, driver: "L. Norris", team: "McLaren", points: 25, wins: 0, podiums: 0 },
-            { pos: 6, driver: "O. Piastri", team: "McLaren", points: 21, wins: 0, podiums: 1 },
-            { pos: 7, driver: "O. Bearman", team: "Haas F1 Team", points: 17, wins: 0, podiums: 0 },
-            { pos: 8, driver: "P. Gasly", team: "Alpine", points: 15, wins: 0, podiums: 0 },
-            { pos: 9, driver: "M. Verstappen", team: "Red Bull Racing", points: 12, wins: 0, podiums: 0 },
+            { pos: 1, driver: "K. Antonelli", team: "Mercedes", points: 100, wins: 3, podiums: 4 },
+            { pos: 2, driver: "G. Russell", team: "Mercedes", points: 80, wins: 1, podiums: 2 },
+            { pos: 3, driver: "C. Leclerc", team: "Ferrari", points: 59, wins: 0, podiums: 2 },
+            { pos: 4, driver: "L. Norris", team: "McLaren", points: 51, wins: 0, podiums: 1 },
+            { pos: 5, driver: "L. Hamilton", team: "Ferrari", points: 51, wins: 0, podiums: 1 },
+            { pos: 6, driver: "O. Piastri", team: "McLaren", points: 43, wins: 0, podiums: 2 },
+            { pos: 7, driver: "M. Verstappen", team: "Red Bull Racing", points: 26, wins: 0, podiums: 0 },
+            { pos: 8, driver: "O. Bearman", team: "Haas F1 Team", points: 17, wins: 0, podiums: 0 },
+            { pos: 9, driver: "P. Gasly", team: "Alpine", points: 16, wins: 0, podiums: 0 },
             { pos: 10, driver: "L. Lawson", team: "Racing Bulls", points: 10, wins: 0, podiums: 0 },
-            { pos: 11, driver: "A. Lindblad", team: "Racing Bulls", points: 4, wins: 0, podiums: 0 },
-            { pos: 12, driver: "I. Hadjar", team: "Red Bull Racing", points: 4, wins: 0, podiums: 0 },
-            { pos: 13, driver: "G. Bortoleto", team: "Audi", points: 2, wins: 0, podiums: 0 },
-            { pos: 14, driver: "C. Sainz", team: "Williams", points: 2, wins: 0, podiums: 0 },
-            { pos: 15, driver: "E. Ocon", team: "Haas F1 Team", points: 1, wins: 0, podiums: 0 },
-            { pos: 16, driver: "F. Colapinto", team: "Alpine", points: 1, wins: 0, podiums: 0 },
-            { pos: 17, driver: "N. Hulkenberg", team: "Audi", points: 0, wins: 0, podiums: 0 },
-            { pos: 18, driver: "A. Albon", team: "Williams", points: 0, wins: 0, podiums: 0 },
+            { pos: 11, driver: "F. Colapinto", team: "Alpine", points: 7, wins: 0, podiums: 0 },
+            { pos: 12, driver: "A. Lindblad", team: "Racing Bulls", points: 4, wins: 0, podiums: 0 },
+            { pos: 13, driver: "I. Hadjar", team: "Red Bull Racing", points: 4, wins: 0, podiums: 0 },
+            { pos: 14, driver: "C. Sainz", team: "Williams", points: 4, wins: 0, podiums: 0 },
+            { pos: 15, driver: "G. Bortoleto", team: "Audi", points: 2, wins: 0, podiums: 0 },
+            { pos: 16, driver: "E. Ocon", team: "Haas F1 Team", points: 1, wins: 0, podiums: 0 },
+            { pos: 17, driver: "A. Albon", team: "Williams", points: 1, wins: 0, podiums: 0 },
+            { pos: 18, driver: "N. Hulkenberg", team: "Audi", points: 0, wins: 0, podiums: 0 },
             { pos: 19, driver: "V. Bottas", team: "Cadillac", points: 0, wins: 0, podiums: 0 },
             { pos: 20, driver: "S. Perez", team: "Cadillac", points: 0, wins: 0, podiums: 0 },
             { pos: 21, driver: "F. Alonso", team: "Aston Martin", points: 0, wins: 0, podiums: 0 },
@@ -134,11 +134,11 @@
         };
 
         const paddockNews = [
-            { time: "GP Japon", type: "exploit", text: "Pintu (916 pts) conserve la tête après Suzuka, mais Ahmed le talonne à 3 petits points avec un budget de guerre (108,1 M€) !" },
-            { time: "Championnat F1", type: "drama", text: "Kimi Antonelli s'impose au Japon et prend la tête du championnat. Mercedes s'envole, Leclerc arrache le podium." },
-            { time: "Bureau des pleurs", type: "drama", text: "Le club s'agrandit ! Gus et Flo rejoignent Lucas au Mur des Pleureuses avec 1 Whine chacun." },
-            { time: "Alerte Stratégie", type: "drama", text: "Marc a sorti le grand jeu (ou la grande panique) en utilisant déjà son 2ème booster (Limitless + No Negative) en seulement 3 courses !" },
-            { time: "Bataille du milieu", type: "exploit", text: "Léo peine à décoller (433 pts), tandis qu'Adri Collet (679) et Ti Bordo (677) se livrent une bataille féroce au milieu du tableau." }
+            { time: "GP Miami", type: "exploit", text: "Quel hold-up ! Ahmed s'envole en tête du championnat avec 1344 points. La domination des Rookies se confirme." },
+            { time: "Championnat F1", type: "drama", text: "Kimi Antonelli impérial à Miami devant les McLaren de Norris et Piastri ! Mercedes creuse l'écart." },
+            { time: "Bureau des pleurs", type: "drama", text: "Gus prend la tête du Mur des Pleureuses avec 2 whines. La pression monte, Pintu, Marc et Adri ont également râlé !" },
+            { time: "Alerte Stratégie", type: "drama", text: "Festival de jetons à Miami : Flo, Valentin, Lucas et Marc ont tous craqué leur 'No Negative'. Pintu et Ahmed ont posé le 'Limitless' !" },
+            { time: "Finance & Gros Sous", type: "exploit", text: "Simon a discrètement bâti un empire financier (110,1 M€) juste devant Stéphane et Pintu." }
         ];
 
         const calendar2026 = [
@@ -147,7 +147,7 @@
             { round: 3, country: "Japon", name: "FORMULA 1 ARAMCO GRAND PRIX DU JAPON 2026", date: "27 - 29 mars", sprint: false, status: 'past' },
             { round: 4, country: "Bahreïn", name: "GRAND PRIX DE BAHREÏN DE FORMULE 1 GULF AIR 2026", date: "10 - 12 avril", sprint: false, status: 'canceled' },
             { round: 5, country: "Arabie Saoudite", name: "GRAND PRIX D’ARABIE SAOUDITE DE FORMULE 1 STC 2026", date: "17 - 19 avril", sprint: false, status: 'canceled' },
-            { round: 6, country: "Miami", name: "FORMULE 1 CRYPTO.COM GRAND PRIX DE MIAMI 2026", date: "01 - 03 mai", sprint: true, status: 'upcoming' },
+            { round: 6, country: "Miami", name: "FORMULE 1 CRYPTO.COM GRAND PRIX DE MIAMI 2026", date: "01 - 03 mai", sprint: true, status: 'past' },
             { round: 7, country: "Canada", name: "GRAND PRIX LENOVO DU CANADA 2026 DE FORMULE 1", date: "22 - 24 mai", sprint: true, status: 'upcoming' },
             { round: 8, country: "Monaco", name: "GRAND PRIX DE MONACO DE FORMULA LOUIS VUITTON 2026", date: "05 - 07 juin", sprint: false, status: 'upcoming' },
             { round: 9, country: "Barcelone-Catalogne", name: "FORMULA 1 MSC CRUISES GRAN PREMIO DE BARCELONA-CATALOGNE 2026", date: "12 - 14 juin", sprint: false, status: 'upcoming' },
@@ -203,9 +203,9 @@
 
         // Helper pour les couleurs du budget
         const getBudgetColor = (budget) => {
-            if (budget >= 107.0) return 'text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40 shadow-[0_0_10px_rgba(232,121,249,0.15)]';
-            if (budget >= 105.0) return 'text-emerald-400 bg-emerald-400/10 border-emerald-400/30';
-            if (budget >= 103.0) return 'text-blue-400 bg-blue-400/10 border-blue-400/30';
+            if (budget >= 109.0) return 'text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40 shadow-[0_0_10px_rgba(232,121,249,0.15)]';
+            if (budget >= 107.0) return 'text-emerald-400 bg-emerald-400/10 border-emerald-400/30';
+            if (budget >= 104.0) return 'text-blue-400 bg-blue-400/10 border-blue-400/30';
             if (budget >= 100.0) return 'text-slate-300 bg-slate-700/50 border-slate-600';
             return 'text-red-400 bg-red-500/10 border-red-500/30';
         };
@@ -263,7 +263,7 @@
                 setData(finalData);
             }, []);
 
-            // Ordre exact du menu latéral (Radio Paddock retiré car passé dans le Header)
+            // Ordre exact du menu latéral
             const navItems = [
                 { id: 'classement', icon: <ListOrderedIcon className="w-5 h-5" />, label: "Classement Live" },
                 { id: 'f1standings', icon: <FlagIcon className="w-5 h-5" />, label: "Championnat F1" },
@@ -399,9 +399,9 @@
                                     {/* LÉGENDE DES BUDGETS */}
                                     <div className="flex flex-wrap items-center gap-3 text-xs font-mono bg-slate-900 p-3 rounded-xl border border-slate-800 w-fit shadow-md">
                                         <span className="text-slate-400 font-bold uppercase tracking-wider mr-2"><DollarSignIcon className="inline w-4 h-4 mr-1"/>Budgets :</span>
-                                        <span className="px-2 py-0.5 rounded border text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40">≥ 107M$ (Elite)</span>
-                                        <span className="px-2 py-0.5 rounded border text-emerald-400 bg-emerald-400/10 border-emerald-400/30">≥ 105M$ (Riche)</span>
-                                        <span className="px-2 py-0.5 rounded border text-blue-400 bg-blue-400/10 border-blue-400/30">≥ 103M$ (Aisé)</span>
+                                        <span className="px-2 py-0.5 rounded border text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40">≥ 109M$ (Elite)</span>
+                                        <span className="px-2 py-0.5 rounded border text-emerald-400 bg-emerald-400/10 border-emerald-400/30">≥ 107M$ (Riche)</span>
+                                        <span className="px-2 py-0.5 rounded border text-blue-400 bg-blue-400/10 border-blue-400/30">≥ 104M$ (Aisé)</span>
                                         <span className="px-2 py-0.5 rounded border text-slate-300 bg-slate-700/50 border-slate-600">Base</span>
                                         <span className="px-2 py-0.5 rounded border text-red-400 bg-red-500/10 border-red-500/30">Déficit</span>
                                     </div>
