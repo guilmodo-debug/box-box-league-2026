@@ -57,42 +57,45 @@
         const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/J7SA73SU3M49Y";
         const LIGUE_LINK = "https://fantasy.formula1.com/fr/leagues/join/C1RW3K6SE01";
         const LIGUE_CODE = "C1RW3K6SE01";
+        // Prime "Vainqueur Mi-Saison" (30€) verrouillée à l'issue de la Manche 12/24 (trêve estivale).
+        // Ce nom ne doit plus bouger même si le classement Live change ensuite.
+        const MI_SAISON_CHAMPION = "Ahmed";
         const CANAL_LINK = "https://www.bing.com/ck/a?!&&p=acd1920acd80419b1eabcca53c05903a7815741e76b47f83e0b02b1d5ab8de2aJmltdHM9MTc3MjQ5NjAwMA&ptn=3&ver=2&hsh=4&fclid=028750fc-e5e4-67d5-3249-46b1e43c66c0&psq=regarder+f1+canal%2b&u=a1aHR0cHM6Ly9ib3V0aXF1ZS5jYW5hbHBsdXMuY29tL3Nwb3J0L2YxP21zb2NraWQ9MDI4NzUwZmNlNWU0NjdkNTMyNDk0NmIxZTQzYzY2YzA";
 
         // --- MOTEUR DE DONNÉES (MàJ GP Barcelone-Catalogne / Manche 9) ---
         const rawData = [
-            { id: 1,  nom: "Ahmed",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Touriste du Paddock",       points: 2456, budget: 114.3, usedBoosters: ['Limitless', 'NoNegative'],               whines: 0 },
-            { id: 2,  nom: "Flo",         statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0,  surnom: "Vieux loup de mer",         points: 2200, budget: 107.3, usedBoosters: ['NoNegative', 'Limitless', '3X'],  whines: 2 },
-            { id: 3,  nom: "Simon",       statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator",           points: 2223, budget: 118.4, usedBoosters: ['NoNegative', 'Limitless'],              whines: 2 },
-            { id: 4,  nom: "Valentin",    statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20.0, surnom: "Le Prodige",                points: 2088, budget: 115.8, usedBoosters: ['NoNegative', 'Limitless'],  whines: 0 },
-            { id: 5,  nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3.0,  surnom: "Chicane Mobile",            points: 2060, budget: 110.4, usedBoosters: ['NoNegative', 'Autopilot', 'Wildcard'],              whines: 1 },
-            { id: 6,  nom: "Lucas",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Le petit nouveau",          points: 2059, budget: 109.1, usedBoosters: ['NoNegative', 'FinalFix', 'Limitless'],  whines: 1 },
-            { id: 7,  nom: "Rémy",        statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Rookie Error",              points: 1994, budget: 111.7, usedBoosters: ['3X'],                     whines: 0 },
-            { id: 8,  nom: "Pintu",       statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8.0,  surnom: "Pneu Dur",                  points: 1976, budget: 116.5, usedBoosters: ['Limitless', 'Wildcard'],   whines: 2 },
-            { id: 9,  nom: "Marc",        statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Rookie Tardif",             points: 1796, budget: 105.7, usedBoosters: ['NoNegative', 'Limitless'], whines: 2 },
-            { id: 10, nom: "Ti bordo",    statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10.0, surnom: "Le Diesel",                 points: 1836, budget: 110.6, usedBoosters: ['Wildcard'],                whines: 1 },
-            { id: 11, nom: "Stéphane",    statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "En rodage",                 points: 1815, budget: 114.4, usedBoosters: ['3X'],                     whines: 0 },
-            { id: 12, nom: "Adams",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2.0,  surnom: "Dans les graviers",         points: 1721, budget: 108.0, usedBoosters: ['3X', 'Limitless'],         whines: 0 },
-            { id: 13, nom: "Gus",         statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15.0, surnom: "Aileron Mobile Activé",     points: 1705, budget: 113.7, usedBoosters: ['Wildcard', 'Limitless'],                whines: 4 },
-            { id: 14, nom: "Léo",         statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1.0,  surnom: "Drapeau Bleu",              points: 1656, budget: 109.9, usedBoosters: ['Limitless'],               whines: 0 },
-            { id: 15, nom: "Johan",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Dans le mur de la pitlane", points: 1489, budget: 105.5, usedBoosters: [],                          whines: 0 },
+            { id: 1,  nom: "Ahmed",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Touriste du Paddock",       points: 2665, budget: 116.6, usedBoosters: ['Limitless', 'NoNegative'],               whines: 0 },
+            { id: 2,  nom: "Flo",         statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0,  surnom: "Vieux loup de mer",         points: 2396, budget: 109.4, usedBoosters: ['NoNegative', 'Limitless', '3X'],  whines: 2 },
+            { id: 3,  nom: "Simon",       statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator",           points: 2462, budget: 120.7, usedBoosters: ['NoNegative', 'Limitless'],              whines: 2 },
+            { id: 4,  nom: "Valentin",    statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20.0, surnom: "Le Prodige",                points: 2275, budget: 118.2, usedBoosters: ['NoNegative', 'Limitless'],  whines: 0 },
+            { id: 5,  nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3.0,  surnom: "Chicane Mobile",            points: 2227, budget: 113.6, usedBoosters: ['NoNegative', 'Autopilot', 'Wildcard'],              whines: 1 },
+            { id: 6,  nom: "Lucas",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Le petit nouveau",          points: 2271, budget: 111.8, usedBoosters: ['NoNegative', 'FinalFix', 'Limitless'],  whines: 1 },
+            { id: 7,  nom: "Rémy",        statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Rookie Error",              points: 2182, budget: 112.7, usedBoosters: ['3X'],                     whines: 0 },
+            { id: 8,  nom: "Pintu",       statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8.0,  surnom: "Pneu Dur",                  points: 2220, budget: 119.2, usedBoosters: ['Limitless', 'Wildcard'],   whines: 2 },
+            { id: 9,  nom: "Marc",        statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Rookie Tardif",             points: 1976, budget: 107.6, usedBoosters: ['NoNegative', 'Limitless'], whines: 2 },
+            { id: 10, nom: "Ti bordo",    statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10.0, surnom: "Le Diesel",                 points: 2011, budget: 113.3, usedBoosters: ['Wildcard'],                whines: 1 },
+            { id: 11, nom: "Stéphane",    statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "En rodage",                 points: 1908, budget: 115.6, usedBoosters: ['3X'],                     whines: 0 },
+            { id: 12, nom: "Adams",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2.0,  surnom: "Dans les graviers",         points: 1908, budget: 110.0, usedBoosters: ['3X', 'Limitless'],         whines: 0 },
+            { id: 13, nom: "Gus",         statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15.0, surnom: "Aileron Mobile Activé",     points: 1947, budget: 117.0, usedBoosters: ['Wildcard', 'Limitless'],                whines: 4 },
+            { id: 14, nom: "Léo",         statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1.0,  surnom: "Drapeau Bleu",              points: 1861, budget: 111.6, usedBoosters: ['Limitless'],               whines: 0 },
+            { id: 15, nom: "Johan",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Dans le mur de la pitlane", points: 1713, budget: 106.5, usedBoosters: [],                          whines: 0 },
         ];
 
         const f1Standings = [
-            { pos: 1,  driver: "K. Antonelli",  team: "Mercedes",       points: 179, wins: 4, podiums: 6 },
-            { pos: 2,  driver: "G. Russell",    team: "Mercedes",        points: 154, wins: 1, podiums: 4 },
-            { pos: 3,  driver: "L. Hamilton",   team: "Ferrari",         points: 147, wins: 1, podiums: 4 },
-            { pos: 4,  driver: "C. Leclerc",    team: "Ferrari",         points: 108, wins: 1, podiums: 3 },
-            { pos: 5,  driver: "L. Norris",     team: "McLaren",         points: 97,  wins: 0, podiums: 2 },
-            { pos: 6,  driver: "O. Piastri",    team: "McLaren",         points: 82,  wins: 0, podiums: 2 },
-            { pos: 7,  driver: "M. Verstappen", team: "Red Bull Racing", points: 76,  wins: 0, podiums: 1 },
-            { pos: 8,  driver: "I. Hadjar",     team: "Red Bull Racing", points: 52,  wins: 0, podiums: 0 },
+            { pos: 1,  driver: "K. Antonelli",  team: "Mercedes",       points: 204, wins: 5, podiums: 7 },
+            { pos: 2,  driver: "L. Hamilton",   team: "Ferrari",         points: 159, wins: 1, podiums: 4 },
+            { pos: 3,  driver: "G. Russell",    team: "Mercedes",        points: 154, wins: 1, podiums: 4 },
+            { pos: 4,  driver: "C. Leclerc",    team: "Ferrari",         points: 126, wins: 1, podiums: 4 },
+            { pos: 5,  driver: "L. Norris",     team: "McLaren",         points: 103, wins: 0, podiums: 2 },
+            { pos: 6,  driver: "O. Piastri",    team: "McLaren",         points: 92,  wins: 0, podiums: 2 },
+            { pos: 7,  driver: "M. Verstappen", team: "Red Bull Racing", points: 91,  wins: 0, podiums: 2 },
+            { pos: 8,  driver: "I. Hadjar",     team: "Red Bull Racing", points: 60,  wins: 0, podiums: 0 },
             { pos: 9,  driver: "P. Gasly",      team: "Alpine",          points: 42,  wins: 0, podiums: 0 },
             { pos: 10, driver: "L. Lawson",     team: "Racing Bulls",    points: 39,  wins: 0, podiums: 0 },
-            { pos: 11, driver: "A. Lindblad",   team: "Racing Bulls",    points: 20,  wins: 0, podiums: 0 },
-            { pos: 12, driver: "O. Bearman",    team: "Haas F1 Team",    points: 18,  wins: 0, podiums: 0 },
-            { pos: 13, driver: "F. Colapinto",  team: "Alpine",          points: 18,  wins: 0, podiums: 0 },
-            { pos: 14, driver: "G. Bortoleto",  team: "Audi",            points: 6,   wins: 0, podiums: 0 },
+            { pos: 11, driver: "A. Lindblad",   team: "Racing Bulls",    points: 22,  wins: 0, podiums: 0 },
+            { pos: 12, driver: "F. Colapinto",  team: "Alpine",          points: 19,  wins: 0, podiums: 0 },
+            { pos: 13, driver: "O. Bearman",    team: "Haas F1 Team",    points: 18,  wins: 0, podiums: 0 },
+            { pos: 14, driver: "G. Bortoleto",  team: "Audi",            points: 10,  wins: 0, podiums: 0 },
             { pos: 15, driver: "C. Sainz",      team: "Williams",        points: 6,   wins: 0, podiums: 0 },
             { pos: 16, driver: "A. Albon",      team: "Williams",        points: 5,   wins: 0, podiums: 0 },
             { pos: 17, driver: "E. Ocon",       team: "Haas F1 Team",    points: 3,   wins: 0, podiums: 0 },
@@ -134,12 +137,12 @@
         };
 
         const paddockNews = [
-            { time: "GP Grande-Bretagne", type: "exploit", text: "Leclerc s'impose à Silverstone devant son public anglais adoptif ! Ferrari verrouille les places 1 et 3 avec Hamilton, Russell coincé en sandwich à 0,427s. Le rouge refleurit sur l'asphalte britannique." },
-            { time: "Championnat F1", type: "drama", text: "Antonelli tient bon malgré l'absence de victoire à Silverstone : 179 pts, 25 d'avance sur Russell (154) qui recolle grâce au podium. Hamilton (147) revient fort avec Ferrari. Leclerc (108) relance sa saison d'un coup de rein." },
-            { time: "Classement Box Box", type: "exploit", text: "Ahmed explose le compteur et frôle les 2500 pts (2456) ! Simon (2223) reprend la 2ème place devant Flo (2200) d'un cheveu. Valentin (2088) et Adri Collet (2060) ferment un Top 5 toujours aussi serré." },
-            { time: "Finance & Gros Sous", type: "exploit", text: "Simon prend la couronne budgétaire avec 118,4 M€, en tête devant Pintu (116,5 M€) et Valentin (115,8 M€). Ahmed (114,3 M€) et Stéphane (114,4 M€) ne sont pas loin. La bagarre du gros portefeuille continue." },
-            { time: "Alerte Stratégie", type: "drama", text: "Coup double pour Adri Collet qui crame Autopilot ET Wildcard le même week-end ! Stratégie all-in ou panique à bord ? Pendant ce temps Johan reste le dernier joueur à n'avoir touché à AUCUN booster après 11 manches. Moine ou marmotte ?" },
-            { time: "Bureau des Pleurs", type: "drama", text: "Gus conserve son totem de 4 whines, toujours indéboulonnable. Mais Marc et Ti bordo grimpent chacun d'une unité (2 et 1) pour se rapprocher du sommet du Mur des Pleureuses. La concurrence s'organise." }
+            { time: "GP Belgique", type: "exploit", text: "Antonelli signe le doublé à Spa devant Leclerc et Verstappen ! Mercedes plie l'Ardenne en 1h24, Ferrari place un homme sur le podium mais Hamilton reste à quai cette fois. Le Kid confirme qu'il n'a plus peur de personne." },
+            { time: "Championnat F1", type: "drama", text: "Antonelli s'envole à 204 pts et compte désormais 45 longueurs d'avance sur Hamilton (159), qui résiste au retour de Russell (154). Leclerc (126) grimpe en 4ème position, Verstappen (91) reste scotché en 7ème malgré le podium belge." },
+            { time: "Classement Box Box", type: "exploit", text: "Ahmed franchit la barre symbolique des 2600 pts (2665) et prend le large ! Simon (2462) reprend sa 2ème place devant Flo (2396). Valentin (2275) et Lucas (2271) se battent au couteau pour le Top 5." },
+            { time: "Finance & Gros Sous", type: "exploit", text: "Simon reprend la couronne budgétaire à 120,7 M€, détrônant tout le monde ! Pintu (119,2 M€) et Valentin (118,2 M€) le talonnent. Ahmed (116,6 M€) et Gus (117 M€) ne sont pas loin du carré d'as." },
+            { time: "Alerte Mi-Saison", type: "drama", text: "Manche 12/24 : on coupe la saison en deux ! La prime de 30€ Vainqueur Mi-Saison est officiellement figée pour Ahmed, leader au coup de sifflet de la trêve. Même si le classement bouge d'ici la fin, le chèque est déjà gravé dans le marbre. Pendant ce temps Johan reste l'unique joueur à n'avoir sorti AUCUN booster après 12 manches. Moine ou marmotte ?" },
+            { time: "Bureau des Pleurs", type: "drama", text: "Gus conserve fièrement son totem de 4 whines, toujours indéboulonnable en tête du Mur des Pleureuses. Aucun mouvement chez les poursuivants ce week-end, la concurrence souffle avant la deuxième manche de la saison." }
         ];
 
         const calendar2026 = [
@@ -154,7 +157,7 @@
             { round: 9, country: "Barcelone-Catalogne", name: "FORMULA 1 MSC CRUISES GRAN PREMIO DE BARCELONA-CATALOGNE 2026", date: "12 - 14 juin", sprint: false, status: 'past' },
             { round: 10, country: "Autriche", name: "GRAND PRIX D’AUTRICHE LENOVO DE FORMULE 1 2026", date: "26 - 28 juin", sprint: false, status: 'past' },
             { round: 11, country: "Grande-Bretagne", name: "GRAND PRIX DE GRANDE-BRETAGNE DE FORMULE PIRELLI 2026", date: "03 - 05 juil.", sprint: true, status: 'past' },
-            { round: 12, country: "Belgique", name: "GRAND Prix de BELGIQUE 2026 FORMULE 1 MOËT & CHANDON", date: "17 - 19 juillet", sprint: false, status: 'upcoming' },
+            { round: 12, country: "Belgique", name: "GRAND Prix de BELGIQUE 2026 FORMULE 1 MOËT & CHANDON", date: "17 - 19 juillet", sprint: false, status: 'past' },
             { round: 13, country: "Hongrie", name: "GRAND PRIX DE HONGRIE AWS DE FORMULE 1 2026", date: "24 - 26 juillet", sprint: false, status: 'upcoming' },
             { round: 14, country: "Pays-Bas", name: "GRAND PRIX DES PAYS-BAS HEINEKEN DE FORMULE 1 2026", date: "21 - 23 août", sprint: true, status: 'upcoming' },
             { round: 15, country: "Italie", name: "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2026", date: "04 - 06 sept", sprint: false, status: 'upcoming' },
@@ -326,18 +329,18 @@
                     <div className="w-full bg-slate-900 border-b border-slate-800 py-3 px-4 sm:px-6 lg:px-8 flex flex-col items-center shadow-sm">
                         <div className="flex justify-between w-full max-w-3xl mb-1">
                             <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Saison 2026</span>
-                            <span className="text-xs font-bold text-emerald-400">Manche 11 / 24</span>
+                            <span className="text-xs font-bold text-emerald-400">Manche 12 / 24</span>
                         </div>
                         <div className="w-full max-w-3xl flex justify-between items-center relative mt-3 mb-2">
                             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-slate-800 rounded-full z-0"></div>
                             {/* Remplissage vert progressif */}
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-emerald-500 rounded-full z-0 transition-all duration-1000" style={{ width: `${(11/24)*100}%` }}></div>
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-emerald-500 rounded-full z-0 transition-all duration-1000" style={{ width: `${(12/24)*100}%` }}></div>
                             
                             {[...Array(24)].map((_, i) => {
                                 const round = i + 1;
-                                const isCompleted = round <= 11;
+                                const isCompleted = round <= 12;
                                 const isHalfway = round === 12;
-                                const isCurrent = round === 12; // Belgique
+                                const isCurrent = round === 13; // Hongrie
                                 return (
                                     <div key={round} className="relative z-10 flex flex-col items-center group cursor-default">
                                         <div className={`w-3 h-3 rounded-full border-2 transition-all duration-300 
@@ -463,10 +466,14 @@
                                                         if (index === 0) { 
                                                             projectedPrize = "+165€ (1er)"; 
                                                             prizeColor = "bg-yellow-400/20 text-yellow-400 border-yellow-400/30";
-                                                            halfSeasonPrize = "+30€ (Mi-Saison)"; // 30€ Vainqueur Mi-Saison s'affiche sur le 1er Live
                                                         }
                                                         else if (index === 1) { projectedPrize = "+90€ (2ème)"; prizeColor = "bg-slate-300/20 text-slate-300 border-slate-300/30"; }
                                                         else if (index === 2) { projectedPrize = "+60€ (3ème)"; prizeColor = "bg-orange-400/20 text-orange-400 border-orange-400/30"; }
+
+                                                        // Prime Mi-Saison verrouillée (Manche 12/24) : n'est plus liée au 1er du Live, elle reste sur le nom figé
+                                                        if (joueur.nom === MI_SAISON_CHAMPION) {
+                                                            halfSeasonPrize = "🔒 +30€ (Mi-Saison)";
+                                                        }
 
                                                         let budgetPrize = null;
                                                         if (joueur.budget === maxBudget) {
