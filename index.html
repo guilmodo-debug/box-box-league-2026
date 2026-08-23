@@ -57,53 +57,61 @@
         const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/J7SA73SU3M49Y";
         const LIGUE_LINK = "https://fantasy.formula1.com/fr/leagues/join/C1RW3K6SE01";
         const LIGUE_CODE = "C1RW3K6SE01";
-        // Prime "Vainqueur Mi-Saison" (30€) verrouillée à l'issue de la Manche 12/24 (trêve estivale).
-        // Ce nom ne doit plus bouger même si le classement Live change ensuite.
-        const MI_SAISON_CHAMPION = "Ahmed";
+        const LIGUE_CLASSEMENT_LINK = "https://fantasy.formula1.com/en/leagues/leaderboard/private/6290701";
         const CANAL_LINK = "https://www.bing.com/ck/a?!&&p=acd1920acd80419b1eabcca53c05903a7815741e76b47f83e0b02b1d5ab8de2aJmltdHM9MTc3MjQ5NjAwMA&ptn=3&ver=2&hsh=4&fclid=028750fc-e5e4-67d5-3249-46b1e43c66c0&psq=regarder+f1+canal%2b&u=a1aHR0cHM6Ly9ib3V0aXF1ZS5jYW5hbHBsdXMuY29tL3Nwb3J0L2YxP21zb2NraWQ9MDI4NzUwZmNlNWU0NjdkNTMyNDk0NmIxZTQzYzY2YzA";
 
-        // --- MOTEUR DE DONNÉES (MàJ GP Barcelone-Catalogne / Manche 9) ---
+        // --- VERROUS DE SAISON ---
+        // Prime "Vainqueur Mi-Saison" figée à la trêve estivale (après la Manche 13, Hongrie). Ne suit plus le classement live.
+        const MI_SAISON_CHAMPION = "Ahmed";
+
+        // --- MOTEUR DE DONNÉES (MàJ GP Pays-Bas / Manche 14) ---
         const rawData = [
-            { id: 1,  nom: "Ahmed",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Touriste du Paddock",       points: 2665, budget: 116.6, usedBoosters: ['Limitless', 'NoNegative'],               whines: 0 },
-            { id: 2,  nom: "Flo",         statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0,  surnom: "Vieux loup de mer",         points: 2396, budget: 109.4, usedBoosters: ['NoNegative', 'Limitless', '3X'],  whines: 2 },
-            { id: 3,  nom: "Simon",       statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator",           points: 2462, budget: 120.7, usedBoosters: ['NoNegative', 'Limitless'],              whines: 2 },
-            { id: 4,  nom: "Valentin",    statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20.0, surnom: "Le Prodige",                points: 2275, budget: 118.2, usedBoosters: ['NoNegative', 'Limitless'],  whines: 0 },
-            { id: 5,  nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3.0,  surnom: "Chicane Mobile",            points: 2227, budget: 113.6, usedBoosters: ['NoNegative', 'Autopilot', 'Wildcard'],              whines: 1 },
-            { id: 6,  nom: "Lucas",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Le petit nouveau",          points: 2271, budget: 111.8, usedBoosters: ['NoNegative', 'FinalFix', 'Limitless'],  whines: 1 },
-            { id: 7,  nom: "Rémy",        statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Rookie Error",              points: 2182, budget: 112.7, usedBoosters: ['3X'],                     whines: 0 },
-            { id: 8,  nom: "Pintu",       statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8.0,  surnom: "Pneu Dur",                  points: 2220, budget: 119.2, usedBoosters: ['Limitless', 'Wildcard'],   whines: 2 },
-            { id: 9,  nom: "Marc",        statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Rookie Tardif",             points: 1976, budget: 107.6, usedBoosters: ['NoNegative', 'Limitless'], whines: 2 },
-            { id: 10, nom: "Ti bordo",    statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10.0, surnom: "Le Diesel",                 points: 2011, budget: 113.3, usedBoosters: ['Wildcard'],                whines: 1 },
-            { id: 11, nom: "Stéphane",    statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "En rodage",                 points: 1908, budget: 115.6, usedBoosters: ['3X'],                     whines: 0 },
-            { id: 12, nom: "Adams",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2.0,  surnom: "Dans les graviers",         points: 1908, budget: 110.0, usedBoosters: ['3X', 'Limitless'],         whines: 0 },
-            { id: 13, nom: "Gus",         statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15.0, surnom: "Aileron Mobile Activé",     points: 1947, budget: 117.0, usedBoosters: ['Wildcard', 'Limitless'],                whines: 4 },
-            { id: 14, nom: "Léo",         statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1.0,  surnom: "Drapeau Bleu",              points: 1861, budget: 111.6, usedBoosters: ['Limitless'],               whines: 0 },
-            { id: 15, nom: "Johan",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Dans le mur de la pitlane", points: 1713, budget: 106.5, usedBoosters: [],                          whines: 0 },
+            { id: 1,  nom: "Ahmed",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Touriste du Paddock",       points: 3120, budget: 119.6, usedBoosters: ['Limitless', 'NoNegative', 'FinalFix'],   whines: 0 },
+            { id: 2,  nom: "Flo",         statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 5.0,  surnom: "Vieux loup de mer",         points: 2816, budget: 117.8, usedBoosters: ['NoNegative', 'Limitless', '3X'],  whines: 2 },
+            { id: 3,  nom: "Simon",       statut: "🦈", saisons: 7, titres: 4, paypal: true, ligue: true, baseProba: 33.0, surnom: "L'Apex Predator",           points: 2966, budget: 124.8, usedBoosters: ['NoNegative', 'Limitless'],              whines: 2 },
+            { id: 4,  nom: "Valentin",    statut: "🐬", saisons: 2, titres: 1, paypal: true, ligue: true, baseProba: 20.0, surnom: "Le Prodige",                points: 2695, budget: 120.8, usedBoosters: ['NoNegative', 'Limitless'],  whines: 0 },
+            { id: 5,  nom: "Adri Collet", statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 3.0,  surnom: "Chicane Mobile",            points: 2819, budget: 116.2, usedBoosters: ['NoNegative', 'Autopilot', 'Wildcard', 'Limitless'], whines: 1 },
+            { id: 6,  nom: "Lucas",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Le petit nouveau",          points: 2731, budget: 116.6, usedBoosters: ['NoNegative', 'FinalFix', 'Limitless'],  whines: 1 },
+            { id: 7,  nom: "Rémy",        statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Rookie Error",              points: 2594, budget: 119.6, usedBoosters: ['3X'],                     whines: 0 },
+            { id: 8,  nom: "Pintu",       statut: "🐋", saisons: 6, titres: 0, paypal: true, ligue: true, baseProba: 8.0,  surnom: "Pneu Dur",                  points: 2714, budget: 123.5, usedBoosters: ['Limitless', 'Wildcard'],   whines: 2 },
+            { id: 9,  nom: "Marc",        statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Rookie Tardif",             points: 2486, budget: 110.8, usedBoosters: ['NoNegative', 'Limitless', '3X'], whines: 2 },
+            { id: 10, nom: "Ti bordo",    statut: "🐳", saisons: 7, titres: 0, paypal: true, ligue: true, baseProba: 10.0, surnom: "Le Diesel",                 points: 2385, budget: 121.7, usedBoosters: ['Wildcard'],                whines: 1 },
+            { id: 11, nom: "Stéphane",    statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "En rodage",                 points: 2165, budget: 119.6, usedBoosters: ['3X'],                     whines: 0 },
+            { id: 12, nom: "Adams",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 2.0,  surnom: "Dans les graviers",         points: 2127, budget: 113.0, usedBoosters: ['3X', 'Limitless'],         whines: 0 },
+            { id: 13, nom: "Gus",         statut: "🐬", saisons: 7, titres: 1, paypal: true, ligue: true, baseProba: 15.0, surnom: "Aileron Mobile Activé",     points: 2456, budget: 122.5, usedBoosters: ['Wildcard', 'Limitless', 'Autopilot'],   whines: 4 },
+            { id: 14, nom: "Léo",         statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 1.0,  surnom: "Drapeau Bleu",              points: 2329, budget: 113.4, usedBoosters: ['Limitless', 'NoNegative'],  whines: 0 },
+            { id: 15, nom: "Johan",       statut: "🐠", saisons: 0, titres: 0, paypal: true, ligue: true, baseProba: 0.5,  surnom: "Dans le mur de la pitlane", points: 2074, budget: 109.1, usedBoosters: [],                          whines: 1 },
         ];
 
+        // Paramètres de saison (2 manches annulées : R4 Bahreïn, R5 Arabie Saoudite)
+        const MANCHE_ACTUELLE = 14;      // dernière manche disputée
+        const COURSES_DISPUTEES = 12;    // manches réellement courues
+        const COURSES_TOTALES = 22;      // 24 - 2 annulées
+
         const f1Standings = [
-            { pos: 1,  driver: "K. Antonelli",  team: "Mercedes",       points: 204, wins: 5, podiums: 7 },
-            { pos: 2,  driver: "L. Hamilton",   team: "Ferrari",         points: 159, wins: 1, podiums: 4 },
-            { pos: 3,  driver: "G. Russell",    team: "Mercedes",        points: 154, wins: 1, podiums: 4 },
-            { pos: 4,  driver: "C. Leclerc",    team: "Ferrari",         points: 126, wins: 1, podiums: 4 },
-            { pos: 5,  driver: "L. Norris",     team: "McLaren",         points: 103, wins: 0, podiums: 2 },
-            { pos: 6,  driver: "O. Piastri",    team: "McLaren",         points: 92,  wins: 0, podiums: 2 },
-            { pos: 7,  driver: "M. Verstappen", team: "Red Bull Racing", points: 91,  wins: 0, podiums: 2 },
-            { pos: 8,  driver: "I. Hadjar",     team: "Red Bull Racing", points: 60,  wins: 0, podiums: 0 },
-            { pos: 9,  driver: "P. Gasly",      team: "Alpine",          points: 42,  wins: 0, podiums: 0 },
-            { pos: 10, driver: "L. Lawson",     team: "Racing Bulls",    points: 39,  wins: 0, podiums: 0 },
-            { pos: 11, driver: "A. Lindblad",   team: "Racing Bulls",    points: 22,  wins: 0, podiums: 0 },
+            { pos: 1,  driver: "K. Antonelli",  team: "Mercedes",        points: 242, wins: 5, podiums: 8 },
+            { pos: 2,  driver: "G. Russell",    team: "Mercedes",        points: 183, wins: 1, podiums: 5 },
+            { pos: 3,  driver: "L. Hamilton",   team: "Ferrari",         points: 183, wins: 1, podiums: 5 },
+            { pos: 4,  driver: "L. Norris",     team: "McLaren",         points: 159, wins: 2, podiums: 4 },
+            { pos: 5,  driver: "C. Leclerc",    team: "Ferrari",         points: 155, wins: 1, podiums: 5 },
+            { pos: 6,  driver: "M. Verstappen", team: "Red Bull Racing", points: 112, wins: 0, podiums: 2 },
+            { pos: 7,  driver: "O. Piastri",    team: "McLaren",         points: 104, wins: 0, podiums: 2 },
+            { pos: 8,  driver: "I. Hadjar",     team: "Red Bull Racing", points: 68,  wins: 0, podiums: 0 },
+            { pos: 9,  driver: "L. Lawson",     team: "Red Bull Racing", points: 49,  wins: 0, podiums: 0 },
+            { pos: 10, driver: "P. Gasly",      team: "Alpine",          points: 44,  wins: 0, podiums: 0 },
+            { pos: 11, driver: "A. Lindblad",   team: "Racing Bulls",    points: 23,  wins: 0, podiums: 0 },
             { pos: 12, driver: "F. Colapinto",  team: "Alpine",          points: 19,  wins: 0, podiums: 0 },
             { pos: 13, driver: "O. Bearman",    team: "Haas F1 Team",    points: 18,  wins: 0, podiums: 0 },
             { pos: 14, driver: "G. Bortoleto",  team: "Audi",            points: 10,  wins: 0, podiums: 0 },
-            { pos: 15, driver: "C. Sainz",      team: "Williams",        points: 6,   wins: 0, podiums: 0 },
-            { pos: 16, driver: "A. Albon",      team: "Williams",        points: 5,   wins: 0, podiums: 0 },
-            { pos: 17, driver: "E. Ocon",       team: "Haas F1 Team",    points: 3,   wins: 0, podiums: 0 },
-            { pos: 18, driver: "F. Alonso",     team: "Aston Martin",    points: 1,   wins: 0, podiums: 0 },
-            { pos: 19, driver: "N. Hulkenberg", team: "Audi",            points: 0,   wins: 0, podiums: 0 },
-            { pos: 20, driver: "V. Bottas",     team: "Cadillac",        points: 0,   wins: 0, podiums: 0 },
-            { pos: 21, driver: "S. Perez",      team: "Cadillac",        points: 0,   wins: 0, podiums: 0 },
-            { pos: 22, driver: "L. Stroll",     team: "Aston Martin",    points: 0,   wins: 0, podiums: 0 },
+            { pos: 15, driver: "N. Hulkenberg", team: "Audi",            points: 6,   wins: 0, podiums: 0 },
+            { pos: 16, driver: "C. Sainz",      team: "Williams",        points: 6,   wins: 0, podiums: 0 },
+            { pos: 17, driver: "A. Albon",      team: "Williams",        points: 5,   wins: 0, podiums: 0 },
+            { pos: 18, driver: "E. Ocon",       team: "Haas F1 Team",    points: 3,   wins: 0, podiums: 0 },
+            { pos: 19, driver: "F. Alonso",     team: "Aston Martin",    points: 3,   wins: 0, podiums: 0 },
+            { pos: 20, driver: "Y. Tsunoda",    team: "Racing Bulls",    points: 0,   wins: 0, podiums: 0 },
+            { pos: 21, driver: "L. Stroll",     team: "Aston Martin",    points: 0,   wins: 0, podiums: 0 },
+            { pos: 22, driver: "V. Bottas",     team: "Cadillac",        points: 0,   wins: 0, podiums: 0 },
+            { pos: 23, driver: "S. Perez",      team: "Cadillac",        points: 0,   wins: 0, podiums: 0 },
         ];
 
         const getTeamColor = (team) => {
@@ -132,17 +140,17 @@
             ],
             bonus: [
                 { place: "Plus gros budget", montant: 30, desc: "Fin de saison", color: "text-purple-400", bg: "bg-purple-400/20" },
-                { place: "Vainqueur mi-saison", montant: 30, desc: "À la trêve estivale", color: "text-emerald-400", bg: "bg-emerald-400/20" }
+                { place: "Vainqueur mi-saison", montant: 30, desc: `Acquis à la trêve estivale : ${MI_SAISON_CHAMPION} 🔒`, color: "text-emerald-400", bg: "bg-emerald-400/20" }
             ]
         };
 
         const paddockNews = [
-            { time: "GP Belgique", type: "exploit", text: "Antonelli signe le doublé à Spa devant Leclerc et Verstappen ! Mercedes plie l'Ardenne en 1h24, Ferrari place un homme sur le podium mais Hamilton reste à quai cette fois. Le Kid confirme qu'il n'a plus peur de personne." },
-            { time: "Championnat F1", type: "drama", text: "Antonelli s'envole à 204 pts et compte désormais 45 longueurs d'avance sur Hamilton (159), qui résiste au retour de Russell (154). Leclerc (126) grimpe en 4ème position, Verstappen (91) reste scotché en 7ème malgré le podium belge." },
-            { time: "Classement Box Box", type: "exploit", text: "Ahmed franchit la barre symbolique des 2600 pts (2665) et prend le large ! Simon (2462) reprend sa 2ème place devant Flo (2396). Valentin (2275) et Lucas (2271) se battent au couteau pour le Top 5." },
-            { time: "Finance & Gros Sous", type: "exploit", text: "Simon reprend la couronne budgétaire à 120,7 M€, détrônant tout le monde ! Pintu (119,2 M€) et Valentin (118,2 M€) le talonnent. Ahmed (116,6 M€) et Gus (117 M€) ne sont pas loin du carré d'as." },
-            { time: "Alerte Mi-Saison", type: "drama", text: "Manche 12/24 : on coupe la saison en deux ! La prime de 30€ Vainqueur Mi-Saison est officiellement figée pour Ahmed, leader au coup de sifflet de la trêve. Même si le classement bouge d'ici la fin, le chèque est déjà gravé dans le marbre. Pendant ce temps Johan reste l'unique joueur à n'avoir sorti AUCUN booster après 12 manches. Moine ou marmotte ?" },
-            { time: "Bureau des Pleurs", type: "drama", text: "Gus conserve fièrement son totem de 4 whines, toujours indéboulonnable en tête du Mur des Pleureuses. Aucun mouvement chez les poursuivants ce week-end, la concurrence souffle avant la deuxième manche de la saison." }
+            { time: "GP Pays-Bas", type: "exploit", text: "Norris dompte les dunes de Zandvoort et signe sa deuxième victoire consécutive ! Antonelli sauve les meubles à 11,5s, Russell complète le podium Mercedes. McLaren était injouable dans le banking de Hugenholtz." },
+            { time: "Championnat F1", type: "drama", text: "Antonelli sort de la trêve avec 242 pts et 59 longueurs de marge, mais derrière c'est la cohue : Russell et Hamilton à égalité parfaite (183), Norris (159) et Leclerc (155) juste derrière. Quatre hommes pour une place de dauphin." },
+            { time: "Classement Box Box", type: "exploit", text: "Ahmed passe les 3100 pts (3120) et garde 154 longueurs sur Simon (2966). Mais gros mouvement derrière : Adri Collet (2819) double Flo (2816) pour 3 malheureux points, et Lucas (2731) grimpe devant Pintu (2714) et Valentin (2695). Le Top 7 tient en 300 pts." },
+            { time: "Finance & Gros Sous", type: "exploit", text: "Simon consolide sa couronne budgétaire à 124,8 M€, suivi de Pintu (123,5 M€) et de Gus (122,5 M€) qui débarque dans le carré VIP. Johan ferme la marche à 109,1 M€ : seul joueur sous la barre des 110." },
+            { time: "Alerte Stratégie", type: "drama", text: "Week-end Sprint = festival de jetons ! Ahmed dégaine son Final Fix, Adri Collet crame son Limitless (4 boosters sur 6, il ne lui reste plus grand-chose), Gus sort l'Autopilot et Léo son No Negative. Johan, lui, contemple ses 6 jetons intacts après 12 courses. Il reste 10 manches, mon grand." },
+            { time: "Bureau des Pleurs", type: "drama", text: "Gus trône toujours au sommet du Mur des Pleureuses avec 4 whines, hors de portée. Mais alerte rouge : Johan vient d'ouvrir son compteur (1). Le moine du paddock a craqué, c'était le dernier innocent de la ligue." }
         ];
 
         const calendar2026 = [
@@ -158,8 +166,8 @@
             { round: 10, country: "Autriche", name: "GRAND PRIX D’AUTRICHE LENOVO DE FORMULE 1 2026", date: "26 - 28 juin", sprint: false, status: 'past' },
             { round: 11, country: "Grande-Bretagne", name: "GRAND PRIX DE GRANDE-BRETAGNE DE FORMULE PIRELLI 2026", date: "03 - 05 juil.", sprint: true, status: 'past' },
             { round: 12, country: "Belgique", name: "GRAND Prix de BELGIQUE 2026 FORMULE 1 MOËT & CHANDON", date: "17 - 19 juillet", sprint: false, status: 'past' },
-            { round: 13, country: "Hongrie", name: "GRAND PRIX DE HONGRIE AWS DE FORMULE 1 2026", date: "24 - 26 juillet", sprint: false, status: 'upcoming' },
-            { round: 14, country: "Pays-Bas", name: "GRAND PRIX DES PAYS-BAS HEINEKEN DE FORMULE 1 2026", date: "21 - 23 août", sprint: true, status: 'upcoming' },
+            { round: 13, country: "Hongrie", name: "GRAND PRIX DE HONGRIE AWS DE FORMULE 1 2026", date: "24 - 26 juillet", sprint: false, status: 'past' },
+            { round: 14, country: "Pays-Bas", name: "GRAND PRIX DES PAYS-BAS HEINEKEN DE FORMULE 1 2026", date: "21 - 23 août", sprint: true, status: 'past' },
             { round: 15, country: "Italie", name: "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2026", date: "04 - 06 sept", sprint: false, status: 'upcoming' },
             { round: 16, country: "Espagne", name: "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026", date: "11 - 13 sept", sprint: false, status: 'upcoming' },
             { round: 17, country: "Azerbaïdjan", name: "GRAND PRIX AZERBAIDJAN 2026 DE FORMULE 1 QATAR AIRWAYS", date: "24 - 26 sept", sprint: false, status: 'upcoming' },
@@ -205,12 +213,13 @@
             );
         };
 
-        // Helper pour les couleurs du budget (Mise à jour post-Montreal)
+        // Helper pour les couleurs du budget — échelle recalibrée post-Zandvoort (Manche 14).
+        // Tous les joueurs ont dépassé les 109 M€ : les anciens seuils (110/107.5/104/100) étaient saturés.
         const getBudgetColor = (budget) => {
-            if (budget >= 110.0) return 'text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40 shadow-[0_0_10px_rgba(232,121,249,0.15)]';
-            if (budget >= 107.5) return 'text-emerald-400 bg-emerald-400/10 border-emerald-400/30';
-            if (budget >= 104.0) return 'text-blue-400 bg-blue-400/10 border-blue-400/30';
-            if (budget >= 100.0) return 'text-slate-300 bg-slate-700/50 border-slate-600';
+            if (budget >= 122.0) return 'text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40 shadow-[0_0_10px_rgba(232,121,249,0.15)]';
+            if (budget >= 118.0) return 'text-emerald-400 bg-emerald-400/10 border-emerald-400/30';
+            if (budget >= 114.0) return 'text-blue-400 bg-blue-400/10 border-blue-400/30';
+            if (budget >= 110.0) return 'text-slate-300 bg-slate-700/50 border-slate-600';
             return 'text-red-400 bg-red-500/10 border-red-500/30';
         };
 
@@ -228,26 +237,36 @@
             const progressPercent = Math.round((fullyRegisteredCount / rawData.length) * 100);
 
             useEffect(() => {
-                // Algorithme dynamique de probabilité : Combine la "baseProba" historique avec les performances actuelles (Points)
-                const totalPoints = rawData.reduce((sum, j) => sum + j.points, 0);
-                
-                let totalEffectivePoints = 0;
-                const dataWithEffective = rawData.map(j => {
-                    // Pénalité de -15% sur les points actuels pour chaque booster utilisé
-                    const penaltyMultiplier = 1 - (j.usedBoosters.length * 0.15); 
-                    const effectivePoints = j.points * penaltyMultiplier;
-                    totalEffectivePoints += effectivePoints;
-                    return { ...j, effectivePoints };
-                });
+                // --- ALGORITHME DE COTES v2 (recalibré Manche 14) ---
+                // Principe : ce qui compte à mi-saison n'est plus la part de points marqués,
+                // mais la probabilité de combler l'écart au leader sur les courses restantes.
+                // 1. Noyau  : décroissance exponentielle de l'écart au leader, échelle = volatilité restante
+                // 2. Modif. : boosters encore en stock, puissance budgétaire, expérience/palmarès
 
-                const dataWithDynamic = dataWithEffective.map(j => {
-                    let currentPerfShare = totalEffectivePoints > 0 ? (j.effectivePoints / totalEffectivePoints) * 100 : j.baseProba;
-                    let expBonus = (j.saisons * 0.8) + (j.titres * 2.5);
-                    let budgetBonus = Math.max(0, (j.budget - 100) * 1.0);
-                    
-                    // POIDS ALGO : 5% Historique, 80% Forme actuelle (ajustée boosters), 5% Expérience, 10% Finance
-                    let rawDynamic = (j.baseProba * 0.05) + (currentPerfShare * 2.5) + (expBonus * 0.2) + (budgetBonus * 0.8);
-                    return { ...j, rawDynamic };
+                const coursesRestantes = Math.max(1, COURSES_TOTALES - COURSES_DISPUTEES); // 10
+                // Écart-type de rattrapage estimé : ~60 pts d'écart par course, cumulé en racine du nombre de courses
+                const sigma = 60 * Math.sqrt(coursesRestantes);
+
+                const leaderPoints = Math.max(...rawData.map(j => j.points));
+                const budgetMoyen = rawData.reduce((s, j) => s + j.budget, 0) / rawData.length;
+
+                const dataWithDynamic = rawData.map(j => {
+                    // 1. Noyau de rattrapage (0 -> 1)
+                    const gap = leaderPoints - j.points;
+                    const coreScore = Math.exp(-gap / sigma);
+
+                    // 2. Boosters restants : chaque jeton non utilisé vaut +5% de potentiel
+                    const boostersRestants = 6 - j.usedBoosters.length;
+                    const facteurBoosters = 1 + (boostersRestants * 0.05);
+
+                    // 3. Puissance financière relative à la moyenne de la ligue
+                    const facteurBudget = 1 + ((j.budget - budgetMoyen) / 100);
+
+                    // 4. Expérience et palmarès (poids volontairement faible)
+                    const facteurExp = 1 + (j.saisons * 0.01) + (j.titres * 0.02);
+
+                    const rawDynamic = coreScore * facteurBoosters * facteurBudget * facteurExp;
+                    return { ...j, gap, boostersRestants, rawDynamic };
                 });
 
                 const sumDyn = dataWithDynamic.reduce((sum, j) => sum + j.rawDynamic, 0);
@@ -272,7 +291,7 @@
                 { id: 'regles', icon: <BookOpenIcon className="w-5 h-5" />, label: "Règlement F1" },
                 { id: 'histoire', icon: <HistoryIcon className="w-5 h-5" />, label: "Hall of Fame" },
                 { id: 'finance', icon: <DollarSignIcon className="w-5 h-5" />, label: "FIA (Trésorerie)" },
-                { id: 'inscription', icon: <UserPlusIcon className="w-5 h-5" />, label: "Inscription" },
+                { id: 'inscription', icon: <UserPlusIcon className="w-5 h-5" />, label: "Voir la Ligue" },
             ];
 
             return (
@@ -329,18 +348,18 @@
                     <div className="w-full bg-slate-900 border-b border-slate-800 py-3 px-4 sm:px-6 lg:px-8 flex flex-col items-center shadow-sm">
                         <div className="flex justify-between w-full max-w-3xl mb-1">
                             <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Saison 2026</span>
-                            <span className="text-xs font-bold text-emerald-400">Manche 12 / 24</span>
+                            <span className="text-xs font-bold text-emerald-400">Manche 14 / 24</span>
                         </div>
                         <div className="w-full max-w-3xl flex justify-between items-center relative mt-3 mb-2">
                             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-slate-800 rounded-full z-0"></div>
                             {/* Remplissage vert progressif */}
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-emerald-500 rounded-full z-0 transition-all duration-1000" style={{ width: `${(12/24)*100}%` }}></div>
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-emerald-500 rounded-full z-0 transition-all duration-1000" style={{ width: `${(14/24)*100}%` }}></div>
                             
                             {[...Array(24)].map((_, i) => {
                                 const round = i + 1;
-                                const isCompleted = round <= 12;
-                                const isHalfway = round === 12;
-                                const isCurrent = round === 13; // Hongrie
+                                const isCompleted = round <= 14;
+                                const isHalfway = round === 13; // Trêve estivale : 11 courses sur 22 disputées
+                                const isCurrent = round === 15; // Italie (Monza)
                                 return (
                                     <div key={round} className="relative z-10 flex flex-col items-center group cursor-default">
                                         <div className={`w-3 h-3 rounded-full border-2 transition-all duration-300 
@@ -434,11 +453,11 @@
                                     {/* LÉGENDE DES BUDGETS */}
                                     <div className="flex flex-wrap items-center gap-3 text-xs font-mono bg-slate-900 p-3 rounded-xl border border-slate-800 w-fit shadow-md">
                                         <span className="text-slate-400 font-bold uppercase tracking-wider mr-2"><DollarSignIcon className="inline w-4 h-4 mr-1"/>Budgets :</span>
-                                        <span className="px-2 py-0.5 rounded border text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40">≥ 110M$ (Elite)</span>
-                                        <span className="px-2 py-0.5 rounded border text-emerald-400 bg-emerald-400/10 border-emerald-400/30">≥ 107.5M$ (Riche)</span>
-                                        <span className="px-2 py-0.5 rounded border text-blue-400 bg-blue-400/10 border-blue-400/30">≥ 104M$ (Aisé)</span>
-                                        <span className="px-2 py-0.5 rounded border text-slate-300 bg-slate-700/50 border-slate-600">Base</span>
-                                        <span className="px-2 py-0.5 rounded border text-red-400 bg-red-500/10 border-red-500/30">Déficit</span>
+                                        <span className="px-2 py-0.5 rounded border text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/40">≥ 122 M€ (Coffre-fort)</span>
+                                        <span className="px-2 py-0.5 rounded border text-emerald-400 bg-emerald-400/10 border-emerald-400/30">≥ 118 M€ (Élite)</span>
+                                        <span className="px-2 py-0.5 rounded border text-blue-400 bg-blue-400/10 border-blue-400/30">≥ 114 M€ (Confortable)</span>
+                                        <span className="px-2 py-0.5 rounded border text-slate-300 bg-slate-700/50 border-slate-600">≥ 110 M€ (Moyenne)</span>
+                                        <span className="px-2 py-0.5 rounded border text-red-400 bg-red-500/10 border-red-500/30">&lt; 110 M€ (À sec)</span>
                                     </div>
 
                                     <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
@@ -463,17 +482,17 @@
                                                         let prizeColor = "";
                                                         let halfSeasonPrize = null;
 
+                                                        // Prime Mi-Saison : verrouillée à la trêve, ne suit plus le classement live
+                                                        if (joueur.nom === MI_SAISON_CHAMPION) {
+                                                            halfSeasonPrize = "🔒 +30€ (Mi-Saison)";
+                                                        }
+
                                                         if (index === 0) { 
                                                             projectedPrize = "+165€ (1er)"; 
                                                             prizeColor = "bg-yellow-400/20 text-yellow-400 border-yellow-400/30";
                                                         }
                                                         else if (index === 1) { projectedPrize = "+90€ (2ème)"; prizeColor = "bg-slate-300/20 text-slate-300 border-slate-300/30"; }
                                                         else if (index === 2) { projectedPrize = "+60€ (3ème)"; prizeColor = "bg-orange-400/20 text-orange-400 border-orange-400/30"; }
-
-                                                        // Prime Mi-Saison verrouillée (Manche 12/24) : n'est plus liée au 1er du Live, elle reste sur le nom figé
-                                                        if (joueur.nom === MI_SAISON_CHAMPION) {
-                                                            halfSeasonPrize = "🔒 +30€ (Mi-Saison)";
-                                                        }
 
                                                         let budgetPrize = null;
                                                         if (joueur.budget === maxBudget) {
@@ -523,8 +542,8 @@
                                                                         <span className="font-mono text-xl font-black text-white">{joueur.points}</span>
                                                                     </td>
                                                                     <td className="px-6 py-4 text-center">
-                                                                        <span className={`font-mono font-bold px-3 py-1.5 rounded-lg border ${getBudgetColor(joueur.budget)} transition-colors`}>
-                                                                            ${joueur.budget.toFixed(1)}M
+                                                                        <span className={`inline-block font-mono font-bold text-xs px-2 py-1 rounded-md border whitespace-nowrap leading-none ${getBudgetColor(joueur.budget)} transition-colors`}>
+                                                                            {joueur.budget.toFixed(1)}&nbsp;M€
                                                                         </span>
                                                                     </td>
                                                                     <td className="px-6 py-4">
@@ -611,7 +630,7 @@
                                     <div className="flex justify-between items-end">
                                         <div>
                                             <h2 className="text-2xl font-black text-white uppercase tracking-tight">Pronostics Vainqueur (Live)</h2>
-                                            <p className="text-slate-400 text-sm">Algorithme actualisé calculant : <span className="text-white font-medium">Points actuels (malus si booster) + Puissance Financière (Budget) + Expérience</span>.</p>
+                                            <p className="text-slate-400 text-sm">Modèle v2 (recalibré Manche 14) : <span className="text-white font-medium">probabilité de combler l'écart au leader sur les {COURSES_TOTALES - COURSES_DISPUTEES} courses restantes</span>, pondérée par les <span className="text-white font-medium">boosters encore en stock</span>, le <span className="text-white font-medium">budget</span> et l'expérience.</p>
                                         </div>
                                     </div>
 
@@ -642,6 +661,11 @@
                                                                     <div className="flex items-center gap-2">
                                                                         <span className="text-2xl" title={joueur.statut}>{joueur.statut}</span>
                                                                         <span className="font-bold text-base text-white">{joueur.nom}</span>
+                                                                    </div>
+                                                                    <div className="flex items-center gap-2 mt-1 ml-1">
+                                                                        <span className="text-[10px] font-mono text-slate-500">{joueur.gap === 0 ? 'LEADER' : `-${joueur.gap} pts`}</span>
+                                                                        <span className="text-[10px] font-mono text-slate-600">•</span>
+                                                                        <span className="text-[10px] font-mono text-slate-500">{joueur.boostersRestants} jetons restants</span>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -1247,28 +1271,28 @@
                             {activeTab === 'inscription' && (
                                 <div className="space-y-6 animate-in fade-in duration-500">
                                     <div>
-                                        <h2 className="text-2xl font-black text-white uppercase tracking-tight">Inscriptions Ouvertes</h2>
-                                        <p className="text-slate-400 text-sm">Box Box League – Saison 2026. Suivez les étapes pour valider votre baquet.</p>
+                                        <h2 className="text-2xl font-black text-white uppercase tracking-tight">Voir la Ligue</h2>
+                                        <p className="text-slate-400 text-sm">Box Box League – Saison 2026. Accès direct au classement officiel F1 Fantasy et aux infos de la ligue.</p>
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/50 transition-colors">
                                             <div className="absolute top-0 right-0 p-4 text-6xl font-black text-slate-800/30 group-hover:text-blue-500/10 transition-colors">1</div>
                                             <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                                                <DollarSignIcon className="text-blue-400 w-5 h-5" /> Frais d'inscription
+                                                <ListOrderedIcon className="text-blue-400 w-5 h-5" /> Classement officiel
                                             </h3>
-                                            <p className="text-slate-400 text-sm mb-6">Réglez votre participation de 25 € au prizepool via PayPal pour valider votre entrée.</p>
-                                            <a href={PAYPAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl transition-colors">
-                                                Payer 25€ sur PayPal <ExternalLinkIcon className="w-4 h-4" />
+                                            <p className="text-slate-400 text-sm mb-6">Le leaderboard live de notre ligue privée sur le site F1 Fantasy. C'est lui qui fait foi pour les points et les budgets.</p>
+                                            <a href={LIGUE_CLASSEMENT_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl transition-colors">
+                                                Ouvrir le classement F1 Fantasy <ExternalLinkIcon className="w-4 h-4" />
                                             </a>
                                         </div>
 
                                         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-emerald-500/50 transition-colors">
                                             <div className="absolute top-0 right-0 p-4 text-6xl font-black text-slate-800/30 group-hover:text-emerald-500/10 transition-colors">2</div>
                                             <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                                                <TrophyIcon className="text-emerald-400 w-5 h-5" /> Rejoindre la Ligue
+                                                <TrophyIcon className="text-emerald-400 w-5 h-5" /> Code de la Ligue
                                             </h3>
-                                            <p className="text-slate-400 text-sm mb-4">Rejoignez notre ligue privée sur le site officiel F1 Fantasy.</p>
+                                            <p className="text-slate-400 text-sm mb-4">Le code d'accès de la ligue privée, à garder sous le coude en cas de reconnexion.</p>
                                             <div className="bg-slate-950 p-3 rounded-lg border border-slate-800 flex justify-between items-center mb-4">
                                                 <span className="text-xs text-slate-500 font-mono">CODE LIGUE</span>
                                                 <span className="font-mono font-bold text-emerald-400 tracking-wider select-all">{LIGUE_CODE}</span>
@@ -1281,13 +1305,13 @@
 
                                     <div className="bg-red-950/30 border border-red-900/50 rounded-2xl p-6 mt-4">
                                         <h3 className="text-red-400 font-bold mb-4 flex items-center gap-2 uppercase text-sm tracking-wider">
-                                            <AlertCircleIcon className="w-5 h-5" /> Rappels Importants (Règlementation Sportive)
+                                            <AlertCircleIcon className="w-5 h-5" /> Rappels Importants (Seconde Partie de Saison)
                                         </h3>
                                         <ul className="space-y-3 text-slate-300 text-sm list-disc list-inside">
-                                            <li><strong className="text-white">1 seule équipe</strong> autorisée par joueur.</li>
-                                            <li><strong>Composer votre équipe</strong> avant la date limite.</li>
-                                            <li className="text-red-300"><strong>Clôture des enregistrements :</strong> Samedi 7 mars 2026, au lancement de la Q1 du GP d'Australie.</li>
-                                            <li className="italic text-slate-400">Une fois la qualif lancée, il sera trop tard pour entrer dans la course.</li>
+                                            <li><strong className="text-white">1 seule équipe</strong> autorisée par joueur. Grille fermée : 15 joueurs, 375 € de prizepool.</li>
+                                            <li className="text-red-300"><strong>Verrouillage de l'équipe :</strong> au lancement de la Q1 (ou du Sprint Shootout les week-ends Sprint). Après, plus rien ne bouge.</li>
+                                            <li><strong>Boosters :</strong> 6 jetons pour toute la saison, non rechargeables. Il reste 10 manches pour les sortir.</li>
+                                            <li className="italic text-slate-400">La prime Vainqueur Mi-Saison (30 €) est acquise depuis la trêve estivale.</li>
                                         </ul>
                                     </div>
                                 </div>
